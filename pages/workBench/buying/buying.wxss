@@ -1,0 +1,199 @@
+/* pages/workBench/buying/buying.wxss */
+.buying{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.buying .appoint_company{
+  padding: 30rpx 30rpx 0 30rpx;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.buying .appoint_company .tip{
+  color: #999;
+  padding-bottom: 24rpx;
+  font-size: 24rpx;
+}
+
+.buying .appoint_company .appoint_company_item{
+  display: flex;
+  align-items: center;
+  height: 94rpx;
+  border-top: 1px solid #f0f0f0;
+}
+
+.buying .appoint_company .appoint_company_item .appoint_company_item_content{
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.buying .appoint_company .appoint_company_item image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.buying .appoint_company .flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buying .selection .selection_item{
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding-left: 30rpx;
+  height: 94rpx;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 30rpx;
+}
+
+.buying .selection .selection_item .left{
+  display: flex;
+  flex: 1;
+  align-items: center;
+} 
+
+.buying .selection .selection_item .right{
+  margin-right: 30rpx;
+}
+
+.buying .selection .selection_item .left text{
+  width: 200rpx;
+}
+
+.buying .selection .selection_item .left .selection_item_content{
+  font-size: 30rpx;
+  flex: 1;
+}
+
+.buying .selection .selection_item .right image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.buying .selection .mb10{
+  margin-bottom: 10rpx;
+}
+
+.buying .selection .mr30{
+  margin-right: 30rpx;
+}
+
+.buying .selection .border_bot_none{
+  border-bottom: 0px;
+}
+
+.buying .productList .swiper{
+  height:848rpx;
+  background-color: #fff;
+  width: 100%;
+}
+
+.buying .productList .swiperHeight{
+  height:740rpx;
+  background-color: #fff;
+  width: 100%;
+}
+
+.buying .productList .productTitle{
+  color: #4d65fd;
+}
+
+.buying .productList swiper swiper-item button{
+  margin: 30rpx 30rpx 0;
+  color: #fff;
+  background-color: #4d65fd;
+  font-size:30rpx;
+  width: 100%;
+}
+
+.buying .release{
+  padding: 25rpx 30rpx;
+  background-color: #fff;
+}
+
+.buying .release button{
+  color: #fff;
+  background-color: #4d65fd;
+  font-size: 30rpx;
+}
+
+.buying .desc{
+  color: #999;
+  height: 50rpx;
+  text-align: left !important;
+}
+
+.buying .goodsBtn{
+   justify-content: space-around;
+   padding:0 30rpx;
+}
+
+.buying .goodsBtn button{
+  width: 300rpx;
+}
+
+.buying .swiperTabItem {
+  font-size: 32rpx;
+  color: #222;
+  justify-content: center;
+  line-height: 1;
+  text-align: ceter;
+  display: inline-block;
+
+}
+.buying .swiperTabItem.industry image {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  bottom: 0;
+  left: -30rpx;
+}
+.buying .swiperTabItem.active {
+  color: #4d65fd;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 6rpx solid #4d65fd;
+  
+}
+
+.buying .swiperTab {
+  /* height: 90rpx;
+  line-height: 90rpx; */
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+ 
+}
+
+
+.buying .swiperTabWrap{
+  width: 100%;
+  background: #fefefe;
+  padding: 0 30rpx;
+  background: #fdfcfc;
+  border-bottom: 1px solid #f1f1f1;
+ 
+}
+.buying .tab{
+  margin-right: 30rpx;
+}
+.buying .radio{
+  margin-right: 20rpx;
+  display: inline-block;
+}
+.buying .textOverflow{
+  
+  width: 400rpx !important;
+}
+.buying .label{
+  width: 200rpx;
+}
+.buying .textOverflow{
+  width:200rpx !important;
+}

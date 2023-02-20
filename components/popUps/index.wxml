@@ -1,0 +1,53 @@
+<view class="modal-mask" bindtap="onCancel" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+
+  <view class="modal-title">{{tit?tit:'确认订单'}}</view>
+
+  <view class='content'  wx:if="{{tit==''}}">
+    <view class="modal-content">
+      <view class="modal-cont">
+        <view wx:for="{{dataList}}" class='flex content' wx:key>
+         <view> <text class='title'>{{item.title}}<text wx:if="{{item.title}}"> : </text></text>
+          <text>{{item.name}}</text></view>
+
+          <!-- 积分 -->
+          <view  wx:if="{{item.num}}">
+            <text class='bgblue'>赠</text>
+            <text>本次交易成功后，预计最多可获得{{item.num}}积分</text>
+          </view>
+
+           <!-- 空一行 -->
+          <view class='br' wx:if="{{!item.title && !item.name}}"></view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+
+  <view class='content' wx:if="{{tit=='温馨提示'}}">
+    <view class="modal-content">
+
+      <view class="modal-cont">
+        <view>
+          注意：此页面采取的是含税单价点价模式，输入的价格为含税单价（结算价），后续若升贴水发生调整，含税单价始终保持不变，而基价相应调整。
+        </view>
+        <view class='br'></view>
+        <view class='red'>
+          基价=含税单价-升贴水</view>
+      </view>
+    </view>
+
+    <view class="modal-footer">
+      <view  class="btn-confirm"   style='width:100%;'  bindtap="onKown" data-status="cancel">我知道了</view>
+    </view>
+  </view>
+
+
+
+
+</view>

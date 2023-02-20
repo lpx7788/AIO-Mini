@@ -1,0 +1,159 @@
+/* 搜索框 */
+
+page {
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+
+.searchPage{
+  height: 100%;
+  width: 100%;
+}
+
+/* 搜索框 */
+.search-section {
+  width: 100%;
+  padding-bottom: 15rpx;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+.selectIcon{
+  height: 30rpx;
+  width: 30rpx;
+  vertical-align: middle;
+}
+
+.notLogin text {
+  color: #666;
+  font-size: 30rpx;
+}
+
+.swiperTabWrap .swiperTabWrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 列表 */
+.goodListItem {
+  display: flex;
+  padding: 30rpx;
+}
+
+.goodListItem .left {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.goodListItem .left .tips {
+  color: #fff;
+  text-align: center;
+  background: #4d65fd;
+  border-radius: 6rpx;
+  height:38rpx;
+  line-height:38rpx;
+  width:38rpx;
+  margin-top: 5rpx;
+  font-size: 26rpx;
+}
+.goodListItem .left .selling{
+ background-color: rgba(77,101,253, 0.7) !important;
+}
+.goodListItem .left .buying{
+ background-color: rgb(170, 136, 72, 0.7) !important;
+}
+.goodListItem .dec {
+  width: 100%;
+  color: #666;
+  margin-top: 15rpx;
+}
+
+.goodListItem .dec .price {
+   font-size: 27rpx;
+}
+
+.goodListItem .dec view {
+  font-size: 24rpx;
+}
+
+.goodListItem .right {
+  margin-left: 10rpx;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.goodListItem .right text {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.goodListItem .right .gap {
+  color: #e5e5e5;
+}
+
+.goodListItem .right .rightTit {
+   line-height: 50rpx;
+    display: inline-block;
+   width: 600rpx;
+    overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.swiperTabWrap .attention {
+  padding: 0 30rpx;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  height:74rpx;
+  align-items: center;
+  
+}
+
+.swiperTabWrap .attention image {
+  height:30rpx;
+  width:30rpx;
+}
+
+.selectOption{
+  margin-left: 30rpx;
+  margin-right: 10rpx;
+  font-size: 26rpx;
+}
+
+.searchIcon{
+  height: 20rpx;
+  width: 20rpx;
+  vertical-align: middle;
+}
+
+.search-section .emptyPage{
+  margin-top: 20rpx;
+}
+
+.search-section .select{
+ width: 170rpx;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.search-section .selectOption {
+  width: 140rpx;
+}
+
+.textOverflow2{
+  width: 225rpx !important;
+}
+
+.tipWrap{
+   flex-direction: column;
+}

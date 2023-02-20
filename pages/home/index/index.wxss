@@ -1,0 +1,310 @@
+page {
+  background: #fff;
+  box-sizing: border-box;
+  position: relative;
+  
+  width: 100%;
+}
+
+.indexPage .indexPageTop{
+  position: relative;
+}
+
+.indexPage .textOverflow2 {
+  width: 225rpx !important;
+}
+
+.indexPage .swiperTabWrap {
+  width: 100%;
+  overflow: hidden;
+  font-size: 30rpx;
+  background :#fff;
+  /* background: transparent !important; */
+}
+
+.indexPage .swiperTabWrapImg {
+  height: 30rpx;
+  width: 30rpx;
+  position: absolute;
+  top: 50%;
+  right: 30rpx;
+  transform: translate(0, -50%);
+}
+
+.indexPage .selectIcon {
+  height: 30rpx;
+  width: 30rpx;
+  vertical-align: middle;
+}
+
+.indexPage .notLogin {
+  width: 100%;
+  text-align: center;
+  margin-top: 300rpx;
+}
+
+.indexPage .notLogin text {
+  color: #666;
+  font-size: 30rpx;
+}
+
+.indexPage .notLogin .loginBtn {
+  background: #4d65fd;
+  color: #fff;
+  width: 240rpx;
+  height: 64rpx;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 30rpx auto;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+}
+
+.indexPage .swiperTabWrap .swiperTab {
+  display: flex;
+  height: 90rpx;
+  align-items: center;
+  /* background: #fff; */
+  width: 100%;
+  z-index: 9;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.indexPage .swiperTabWrap .swiperTab .swiperTabItem {
+  font-size: 36rpx;
+  color: #222;
+  padding: 0 16rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  text-align: ceter;
+  height: 100%;
+}
+
+.indexPage .swiperTabWrap .swiperTab .swiperTabItem.industry image {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  bottom: 0;
+  left: -30rpx;
+}
+
+.indexPage .swiperTabWrap .swiperTab .swiperTabItem.active {
+  color: #4d65fd;
+}
+
+.indexPage .swiperTabWrap .swiperTab .swiperTabItem.active:after {
+  content: '';
+  display: block;
+  width: 180rpx;
+  height: 6rpx;
+  background: #4d65fd;
+  position: absolute;
+  bottom: 0rpx;
+  left: 50%;
+  margin-left: -90rpx;
+}
+
+/* 分類 */
+.indexPage .swiperTabWrap .classify {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.indexPage .swiperTabWrap .classify view {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  display: inline-block;
+  font-size: 30rpx;
+  color: #222;
+}
+
+.indexPage .swiperTabWrap .swiperTabWrap {
+  width: 100%;
+  overflow: hidden;
+}
+ .indexPage .boxShaw{
+  box-shadow:0px 3px 3px #DDDDDD;
+  
+} 
+
+/* .indexPage .boxshadow{
+  padding: 10rpx;
+  background: #e5e5e5;
+} */
+
+.indexPage .swiperTabWrap .filtrate  {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 轮播图片 */
+.indexPage swiper {
+  height: 256rpx;
+  width: 100%;
+}
+
+.indexPage .swiper-banner-list {
+  margin-top: 20rpx;
+}
+
+.indexPage .swiper-banner-list .banner-item {
+  height: 100%;
+}
+
+.indexPage .swiper-banner-list .banner-item image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 列表 */
+.indexPage .goodListItem {
+  display: flex;
+  padding: 30rpx;
+}
+
+.indexPage .goodListItem .left {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.indexPage .goodListItem .left .tips {
+  color: #fff;
+  text-align: center;
+  background: #4d65fd;
+  border-radius: 6rpx;
+  height:38rpx;
+  line-height:38rpx;
+  width:38rpx;
+  margin-top: 5rpx;
+  font-size: 26rpx;
+}
+.indexPage .goodListItem .selling{
+ background-color: rgba(77,101,253, 0.7) !important;
+}
+.indexPage .goodListItem .buying{
+ background-color: rgb(170, 136, 72, 0.7) !important;
+}
+.indexPage .goodListItem .dec {
+  width: 100%;
+  color: #666;
+  margin-top: 15rpx;
+}
+
+.indexPage .goodListItem .dec .price {
+  font-size: 27rpx;
+}
+
+.indexPage .goodListItem .dec view {
+  font-size: 24rpx;
+}
+
+.indexPage .goodListItem .right {
+  margin-left: 10rpx;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.indexPage .goodListItem .right text {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.indexPage .goodListItem .right .gap {
+  color: #e5e5e5;
+}
+
+.indexPage .goodListItem .right .rightTit {
+  line-height: 50rpx;
+  display: inline-block;
+  width: 600rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.indexPage .swiperTabWrap .attention  text {
+  display: inline-block;
+}
+
+.indexPage .swiperTabWrap .attention {
+  padding: 0 30rpx;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  height:74rpx;
+  align-items: center;
+}
+
+.indexPage .swiperTabWrap .attention image {
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.indexPage .spec {
+  font-weight: normal !important;
+  font-size: 28rpx !important;
+  width: 100%;
+}
+
+.indexPage .dec {
+  line-height: 35rpx;
+}
+.indexPage .navigation{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0px;
+  width: 100%;
+
+}
+
+.indexPage .swiperTabWrap .selectionContents {
+  height: 74rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 74rpx;
+}
+
+.indexPage .tipWrap {
+  flex-direction: column;
+}
+
+.typefixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000000;
+}
+
+.indexPage button {
+  font-size: 36rpx;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: none;
+}
+
+.indexPage button::after {
+  border: none;
+}
+
+.indexPage .button-hover {
+  background: none;
+}
+
+.displayNone{
+  display: none
+}

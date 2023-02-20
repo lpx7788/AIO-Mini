@@ -1,0 +1,232 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+<view class='contractDetailPage' style='min-height:{{pageHeight}}px;width:100%;'>
+  <view class='constractList'>
+    <block>
+      <view class='item'>
+        <view class="itemTop borderB ">
+          <view>
+            <block class="flex">
+              <text class='buyStatus'>采购</text>
+              <text class='orderCode'>{{purSalesContractDetail.systemCode}}</text>
+            </block>
+          </view>
+          <view class='red currentStatus' wx:if="{{purSalesContractDetail.status==1}}">待签署</view>
+          <view class='blue currentStatus' wx:if="{{purSalesContractDetail.status==2}}">已签署</view>
+          <view class='color6 currentStatus' wx:if="{{purSalesContractDetail.status==3}}">已取消</view>
+
+          <!--       1.1版本
+          <view class='red currentStatus' wx:if="{{item.status==1}}">双方未签署</view>
+          <view class='red currentStatus' wx:if="{{item.status==1}}">买家未签署</view>
+          <view class='red currentStatus' wx:if="{{item.status==1}}">卖家未签署</view>
+          <view class='blue currentStatus' wx:if="{{item.status==2}}">已签署</view>
+          <view class='color6 currentStatus' wx:if="{{item.status==3}}">已取消</view> -->
+
+        </view>
+        <view class='itemcon'>
+          <view class='flex company'>
+            <block>
+              <text class='blue buy'>买</text>
+              <view class="blod">{{purSalesContractDetail.buyUserCompanyShortName}}</view>
+            </block>
+            <block>
+              <text class='line'>--</text>
+            </block>
+            <block>
+              <text class='blue sell'>卖</text>
+              <view class="blod">{{purSalesContractDetail.createUserCompanyShortName}}</view>
+            </block>
+
+          </view>
+          <view class='flex goodStatus'>
+            <view class='flex1'>
+              <text>产品：</text>
+              <text>{{purSalesContractDetail.categoryName}}</text>
+            </view>
+            <view class='flex1'>
+              <text>总价：</text>
+              <text>{{purSalesContractDetail.price}}</text>
+            </view>
+          </view>
+          <view class='flex goodStatus num'>
+            <view class='flex1'>
+              <text>数量：</text>
+              <text>{{purSalesContractDetail.price}}{{purSalesContractDetail.unit}}</text>
+            </view>
+            <view class='flex1'>
+              <text>  日期：</text>
+              <text>{{dateUtil.dateFormat(purSalesContractDetail.createDate,'yyyy-MM-dd ')}} </text>
+            </view>
+          </view>
+          <view class='flex creater borderT'>
+            <view>
+              <text>创建人：</text>
+              <text>{{purSalesContractDetail.createUserCompanyShortName}}-{{purSalesContractDetail.createUserName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="rowGaps" />
+    </block>
+  </view>
+
+  <view class='contractSwiper'>
+
+    <view class='swiperTab borderB  {{menuFixed?"typefixed":""}}'>
+      <view class='tabItem  {{ currentTab == 0 ? procurementType==2?"orange":" active" : "" }}' data-current='0' bindtap='clickTab'>
+        <text>合同预览</text>
+      </view>
+      <!-- <view  class='tabItem {{ currentTab == 1 ? procurementType==2?"orange":" active" : "" }}' data-current='1' bindtap='clickTab'>
+        <text>关联订单</text>
+      </view>
+      <view class='tabItem {{ currentTab == 2 ? procurementType==2?"orange":" active" : "" }}' data-current='2' bindtap='clickTab'>
+        <text>提货信息</text>
+      </view> -->
+    </view>
+    <view wx:if="{{menuFixed}}" style='width:100%;height:{{tabHeight}}px;'> </view>
+
+
+
+    <view>
+      <view class='item' wx:if="{{ currentTab == 0 }}">
+        <swiper bindchange="intervalChange" class='swiper-banner-list' style="height:{{windowHeight}}px;width:100%;" indicator-active-color="#4d65fd" indicator-dots='true' current='{{ currentTab }}' indicator-color='rgba(255,255,255,.6)' indicator-color="#ccc" autoplay='{{autoplay}}' interval='3000'>
+          <swiper-item wx:key wx:for='{{ imageFilePaths }}' class="swiper-banner-list-item">
+            <scroll-view scroll-y='true'class="textC" >
+              <image bindtap="previewImage" src='{{ item }}'   style="height:{{windowHeight}}px;width:100%;"  mode="aspectFit" ></image>
+            </scroll-view>
+          </swiper-item>
+        </swiper>
+      </view>
+      <!-- <view class='orderList orderMain' wx:if="{{ currentTab == 1 }}">
+
+        <view data-url='../orderDetail/orderDetail?orderCode={{item.orderCode}}&currentTab={{currentTab}}&type={{type}}' wx:for="{{generateOrderList}}" wx:key bindtap='goto'>
+          <view class='orderItem'>
+            <view class='orderItemStatus flex'>
+              <view class='flex1 flex'>
+                <view class='purchase'>采购</view>
+
+                <text>
+               <text class='accomplish bgblue' wx:if="{{item.dealStatus==1||item.dealStatus==null}}">未成交</text>
+                <text class='accomplish bgblue' wx:if="{{item.dealStatus==2}}">部分成交</text>
+                <text class='accomplish bgblue' wx:if="{{item.dealStatus==3}}">完全成交</text>
+                </text>
+
+
+              </view>
+              <view class='flex1 textR await' wx:if="{{item.orderStatus==1}}">{{currentTab==0?'待挂单':'待确认'}}</view>
+              <view class='flex1 textR already' wx:if="{{item.orderStatus==2}}">待生成合同</view>
+              <view class='flex1 textR hang' wx:if="{{item.orderStatus==3}}">已取消</view>
+              <view class='flex1 textR already' wx:if="{{item.orderStatus==4}}">已挂单</view>
+              <view class='flex1 textR already' wx:if="{{item.orderStatus==5}}">待生成合同</view>
+              <view class='flex1 textR already' wx:if="{{item.orderStatus==6}}">已生成合同</view>
+
+            </view>
+            <view class='orderItemDetail '>
+              <view class='detailItem textOverflow'> 商品：{{item.categoryName}}
+                <text class='text' wx:if="{{item.brand}}">·</text> {{item.brand}}
+                <text class='text' wx:if="{{item.spec}}">·</text> {{item.spec}}
+                <text class='text' wx:if="{{item.material}}">·</text> {{item.material}}
+              </view>
+              <view class='detailItem textOverflow'>对象：{{item.buyUserCompanyName}}</view>
+              <view class='flex '>
+                <view class='flex1 detailItem' wx:if="{{currentTab==0||currentTab==2}}">合约：{{item.contractName}}</view>
+                <view class='flex1 detailItem' wx:if="{{currentTab==2}}">升贴水：{{item.floatingPrice}}</view>
+                <view class='flex1 detailItem' wx:if="{{currentTab==0||currentTab==1}}">
+                  <text>{{currentTab==0?'基价':'价格'}}：</text>
+                  <text class='red' wx:if="{{item.editBasePrice!=0}}">{{item.basePrice==null?'--':item.basePrice}}(修改后)</text>
+                  <text wx:else>{{item.basePrice==null?'--':item.basePrice}}</text>
+
+                </view>
+              </view>
+              <view class='flex'>
+                <view class='flex1 detailItem'>{{currentTab==2?'下单':'数量'}}：{{item.quantity}}{{item.numUnit}}</view>
+                <view class='flex1 detailItem' wx:if="{{currentTab==2}}">待点价：{{item.remainQuantity}}{{item.numUnit}}</view>
+                <view class='flex1 detailItem' wx:if="{{currentTab==0}}">成交：{{item.dealQuantity}}{{item.numUnit}}</view>
+              </view>
+              <view wx:if="{{currentTab==2}}">
+                <text>有效期：<text class='red'>{{dateUtil.formatTime(item.delayPricingValidDate,'')}} 前</text></text>
+              </view>
+            </view>
+            <view class='buyer flex'>
+              <view class='flex1' wx:if="{{item.deliveryType==1}}">下单人 : {{item.createCompanyShortName}}-{{item.createUserName}}</view>
+              <view class='flex1' wx:else>下单人 : {{item.createCompanyShortName}}-{{item.buyUserName}}</view>
+              <view class='flex1 textR'>{{dateUtil.dateFormat(item.createDate,'yyyy-MM-dd hh:mm:ss ')}}</view>
+            </view>
+
+          </view>
+          <view class='rowGaps {{typeFixed?"pt":""}}'></view>
+        </view>
+
+        <view class='textC emptyPage' wx:if="{{emptyPage}}">
+          <text>~暂无数据~</text>
+        </view>
+
+        <view class='textC emptyPage' wx:if="{{dayStatus}}" bindtap='checkMore'>
+          <text>以上为最近30天的订单，更多请点击<text class='blue'>查看更多</text></text>
+        </view>
+
+      </view>
+      <view class='goodsDetailList' wx:if="{{ currentTab == 2}}">
+        <view class='priceList'>
+          <scroll-view class='priceScroll' scroll-x="true" scroll-with-animation="true" scroll-left="{{scrollLeft}}" class='tab'>
+            <view class='listtop borderB'>
+              <text class='itemColum'>库存单号</text>
+              <text class='itemColum'>商品品种</text>
+              <text class='itemColum'>品牌</text>
+              <text class='itemColum'>规格</text>
+              <text class='itemColum'>材质</text>
+
+              <text class='itemColum'>其他</text>
+              <text class='itemColum'>仓库全称</text>
+              <text class='itemColum'>库位号</text>
+              <text class='itemColum'>材料号/捆绑号</text>
+              <text class='itemColum'>件数</text>
+              <text class='itemColum'>实物重量</text>
+              <text class='itemColum'>备注</text>
+
+            </view>
+            <view class='listCon '>
+              <block wx:for="{{childList}}" wx:key>
+                <view bindtap='toggleDetailBtn' data-time="{{item.lastDealDate}}" data-listidx="{{index}}">
+                  <view class='item borderB {{uhide==index?"pageBg":""}}'>
+
+                    <text class='itemColum'>{{item.contractName}}</text>
+                    <text class='itemColum'>{{item.basePrice}}</text>
+                    <text class='itemColum'>{{item.quantity}}</text>
+                    <text class='itemColum'>{{item.dealQuantity}}</text>
+                    <text class='itemColum' wx:if="{{item.orderStatus==1||item.orderStatus==null}}">待挂单</text>
+                    <text class='itemColum' wx:if="{{item.orderStatus==2}}">已成交</text>
+                    <text class='itemColum' wx:if="{{item.orderStatus==5}}">已结单</text>
+                    <text class='itemColum' wx:if="{{item.orderStatus==3}}">已取消</text>
+
+                    <view class='itemColum ' wx:if="{{item.orderStatus==4}}">
+                      <view class='itemColumStatus'>
+                        <text> 已挂单</text>
+                        <text wx:if="{{item.cancelStatus=='4.1'}}">(申请撤单中)</text>
+                      </view>
+                    </view>
+                    <text class='itemColum'>已取消</text>
+                    <text class='itemColum'>已取消</text>
+                    <text class='itemColum'>已取消</text>
+                    <text class='itemColum'>已取消</text>
+                    <text class='itemColum'>已取消</text>
+                    <text class='itemColum'>已取消</text>
+                    <text class='itemColum'>已取消</text>
+
+                  </view>
+
+                </view>
+              </block>
+            </view>
+          </scroll-view>
+        </view>
+      </view> -->
+    </view>
+
+    <view class='btnView'>
+      <!-- <button class='downLoad' bindtap="operationBtn">操作</button> -->
+      <button class='downLoad' bindtap='approveDown'>下载合同</button>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,9 @@
+
+<view class="wx-login-wrap" style='background:url({{bg}}) 100%;background-size:100%'>
+    <view class="wx-login-btn">
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >微信手机号快捷登录</button>
+    </view>
+</view>
+
+
+

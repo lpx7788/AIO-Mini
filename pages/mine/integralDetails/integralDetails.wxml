@@ -1,0 +1,157 @@
+<!--pages/mine/integral/integral.wxml-->
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+
+<view class="integraDetaillPageWrap"  style='min-height:{{pageHeight}}px;width:100%;'>
+
+  <view class='integraDetaillPage'>
+    <!-- 头部 -->
+    <view class='pageTop'>
+      <block>
+        <view class='borderR textC flex1'>
+          <text class='title'>当前积分 </text>
+          <text>{{availableIntegral?availableIntegral:'0'}}</text>
+        </view>
+        <view class='textC flex1'>
+          <text class='title'>即将获得积分 </text>
+          <text>{{aboutToIntegral?aboutToIntegral:'0'}} </text>
+        </view>
+        <view class='borderL textC flex1'>
+          <text class='title'>已使用积分 </text>
+          <text> {{beenusedIntegral?beenusedIntegral:'0'}} </text>
+        </view>
+      </block>
+    </view>
+
+
+
+
+    <!-- 内容 -->
+    <view class='pageSwiperContent '>
+
+      <!-- tab切换 -->
+      <view class='tab'>
+        <view class='swiperTab borderB {{menuFixed?"typefixed":""}}'>
+          <view class='tabItem  {{ currentTab == 0 ? "active" : "" }}' data-current='0' bindtap='clickTab'>收入明细</view>
+          <view class='tabItem {{ currentTab == 1 ? "active" : "" }}' data-current='1' bindtap='clickTab'>支出明细</view>
+          <view class='tabItem {{ currentTab == 2 ? "active" : "" }}' data-current='2' bindtap='clickTab'>即将获得明细</view>
+        </view>
+      </view>
+      <view wx:if="{{menuFixed}}" style='height:{{tabHeight}}px;'> </view>
+
+      <!-- tab内容 -->
+      <scroll-view scroll-X='true' class='itemContetWrap'>
+        <block>
+          <view class="itemContet itemTit borderB itemContetTop ">
+            <view class='flex itemContetIN'>
+              <view class='item' wx:if="{{currentTab==0}}">
+                <text>收入时间</text>
+              </view>
+              <view class='item' wx:if="{{currentTab==1}}">
+                <text>支出时间</text>
+              </view>
+              <view class='item' wx:if="{{currentTab==2}}">
+                <text>下单时间</text>
+              </view>
+
+              <view class='item'>
+                <text>类型</text>
+              </view>
+              <view class='item'>
+                <text>相关订单号</text>
+              </view>
+
+              <view class='item' wx:if="{{currentTab==0}}">
+                <text>获得积分数</text>
+              </view>
+
+              <view class='item predict' wx:if="{{currentTab==2}}">
+                <text>预计可获得积分数</text>
+
+              </view>
+              <view class='item' wx:if="{{currentTab==2}}">
+                <text>获得条件</text>
+              </view>
+
+              <view class='item' wx:if="{{currentTab==1}}">
+                <text>支出积分数</text>
+              </view>
+              <view class='item' wx:if="{{currentTab==1}}">
+                <text>兑换物品</text>
+              </view>
+              <view class='item' wx:if="{{currentTab==1}}">
+                <text>兑换数量</text>
+              </view>
+            </view>
+
+          </view>
+        </block>
+
+        <block wx:key wx:for="{{itegralList}}" wx:for-item="Mitem">
+          <view class="itemContet borderB " wx:for="{{Mitem}}" wx:key>
+            <view class='flex itemContetIN'>
+              <view class='itemL item'>
+                <text class='textL'> {{dateUtil.dateFormat(item.createTime,'yyyy-MM-dd')}}</text>
+                <text class='textL'>{{dateUtil.dateFormat(item.createTime,'hh:mm')}}</text>
+              </view>
+              <!-- 积分类型(1交易赠送，2系统退还，3积分兑换) -->
+              <view class=' item '>
+                <text wx:if="{{item.integralType==1}}">交易赠送</text>
+                <text wx:if="{{item.integralType==2}}">系统退还</text>
+                <text wx:if="{{item.integralType==3}}">积分兑换</text>
+                <text wx:if="{{item.integralType==4}}">其他赠送</text>
+                <text wx:if="{{item.integralType==5}}">系统扣除</text>
+              </view>
+
+              <view class='item textL'>
+                <text>{{item.customerOrderCode?item.customerOrderCode:''}}</text>
+              </view>
+
+
+
+              <!-- 获得积分数 -->
+              <view class='item' wx:if="{{currentTab==0}}">
+                <text>{{item.integralNum?item.integralNum:''}}</text>
+              </view>
+
+              <!-- 支出积分数 -->
+              <view class='item' wx:if="{{currentTab==1}}">
+                <text>{{item.integralNum?item.integralNum:''}}</text>
+              </view>
+
+              <!-- 预计可获得积分数 -->
+              <view class='item  predict' wx:if="{{currentTab==2}}">
+                <text>{{item.integralNum?item.integralNum:''}}</text>
+              </view>
+
+              <!-- 获得条件 -->
+              <view class='item textL' wx:if="{{currentTab==2}}">
+                <text>{{item.integralSource==1?'点价下单获得积分':'确定价下单获得积分'}}</text>
+
+              </view>
+
+
+              <view class='item' wx:if="{{currentTab==1}}">
+                <text>{{item.exchangeItemName?item.exchangeItemName:''}}</text>
+              </view>
+
+              <view class='item' wx:if="{{currentTab==1}}">
+                <text>{{item.exchangeItemNum?item.exchangeItemNum:''}}</text>
+              </view>
+
+            </view>
+
+          </view>
+
+        </block>
+      </scroll-view>
+
+    </view>
+
+  </view>
+
+
+  <view class="textC  emptyPage" wx:if="{{emptyPage}}">
+    <text> ~暂无数据~</text>
+  </view>
+</view>

@@ -1,0 +1,78 @@
+<!-- 选项 -->
+
+<view class='limit'>
+  <view class='options-limit'>
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>{{deliveryType==1?'供应商':'客户'}}</text>
+        <text class=''>{{page=="orderMessage"?msgData.companyName:dataQuery.companyName}}</text>
+      </view>
+
+    </view>
+
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>合约月</text>
+        <text class=''>{{page=="orderMessage"?msgData.contractCode:contractCode.contractName}}</text>
+      </view>
+      <view class='right'>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+
+    <view class='item' wx:if='{{page=="orderMessage"}}'>
+      <view class='left'>
+        <text class='title'>申请额度</text>
+        <text class=''>{{quotaModify.applyQuotaNum?quotaModify.applyQuotaNum:0}}</text>
+      </view>
+      <view class='right'>
+        <text>吨</text>
+      </view>
+    </view>
+    
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>已用额度</text>
+        <text class=''>{{page=="orderMessage"?(quotaModify.alreadyUsedQuotaNum?quotaModify.alreadyUsedQuotaNum:0):(quotaUsed?quotaUsed:0)}}</text>
+
+      </view>
+      <view class='right'>
+        <text>吨</text>
+      </view>
+    </view>
+
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>可用额度</text>
+        <text class=''>{{page=="orderMessage"?(quotaModify.availableQuotaNum?quotaModify.availableQuotaNum:0):(availableQuotaNum?availableQuotaNum:0)}}</text>
+      </view>
+      <view class='right'>
+        <text>吨</text>
+      </view>
+    </view>
+
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>增加额度</text>
+        <input type='digit' placeholder='请输入需要增加的额度' value='{{quotaNum?quotaNum:""}}' bindinput="setQuotaNum"></input>
+      </view>
+      <view class='right'>
+        <text>吨</text>
+      </view>
+    </view>
+  </view>
+
+<!-- 操作按钮 -->
+  <form bind:submit="quotaClick" report-submit="true" data-type="m">
+    <button wx:if='{{page=="orderMessage"}}' class="applyBtn modifyBtn" formType="submit">提交</button>
+  </form>
+
+  <form bind:submit="quotaClick" report-submit="true" data-type="q">
+    <button wx:if='{{page!="orderMessage"}}' class="applyBtn modifyBtn" formType="submit">确认申请额度</button>
+  </form>
+
+
+
+
+
+</view>

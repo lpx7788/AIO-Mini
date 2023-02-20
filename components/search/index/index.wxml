@@ -1,0 +1,7 @@
+<!-- 搜索框 -->
+<view class='wx-search-container'>
+  <view class='wx-search-input'>
+    <image class='wx-search-icon' src='https://aio.manytrader.net/preViewUploadFile/images/icon-search.png'></image>
+    <input class="input" placeholder='请输入商品名/仓库等关键词搜索' confirm-type='search' bindinput='searchInput' bindtap='onSearch' value='{{ keyword }}'></input>
+  </view>
+</view>

@@ -1,0 +1,55 @@
+
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs"></wxs>
+
+<view class='managementPage'>
+  <!-- 员工管理 -->
+  <view class='managementList userMsgList'>
+    <view class='borderB' wx:for="{{userMsgList}}"  bindtap='goEmployeeDetails' wx:key data-userCode='{{item.userCode}}'  id="{{item.id}}">
+      <view class='rowGaps'></view>
+
+       <!-- 员工申请 -->
+      <view class='time flex' wx:if="{{type==1}}">
+        <text>申请加入公司</text>
+        <text>{{dateUtil.dateFormat(item.createDate,'yyyy-MM-dd')}}</text>
+      </view>
+
+      <view class='item'>
+        <view class='cover'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_default_headportrait@2x.png' mode='aspectFill'></image>
+          <view class='msg flex'>
+            <view class='felx orderStatus'>
+              <text class='title name '>{{item.userName}} <text wx:if="{{type==2}}" class="f1f1">| <text class='blue font28'>{{item.businessDirectionExp}}</text></text></text> 
+            </view>
+            <view class='desc' catchtap='callUpClick' data-name="{{item.userName}}" data-phone="{{item.userPhone}}" >
+              <image class='left' src="https://aio.manytrader.net/preViewUploadFile/images/list_icon_phone@2x.png" mode='widthFix'></image>
+              <text class='font28'>{{item.userPhone}}</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 员工申请 -->
+        <view wx:if="{{type==1}}">
+          <view class='right ' wx:if="{{item.userCompanyStatus==2}}">
+            <text class='arrow blue'></text>
+            <view class='agreed blue'><image src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_succed@2x.png'></image>已同意</view>
+          </view>
+
+          <view class='right ' wx:if="{{item.userCompanyStatus==3}}">
+            <view class='agreed red'>  <image mode="widthFix" src="https://aio.manytrader.net/preViewUploadFile/images/list_icon_refuse@3x.png"></image>已拒绝</view>
+          </view>
+
+          <view class='right flex 'wx:if="{{item.userCompanyStatus==1}}">
+            <button class='reject btnItem' size="mini " catchtap='agreeOrNot' data-index="{{index}}" data-type="N" data-item="{{item}}">拒绝</button>
+            <button class="btnItem agree bgblue" size="mini " catchtap='agreeOrNot' data-index="{{index}}" data-type="Y" data-item="{{item}}">同意</button>
+          </view>
+        </view>
+
+        <view class='' wx:else>
+          <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+</view>

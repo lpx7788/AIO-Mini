@@ -1,0 +1,36 @@
+<wxs module="m1">
+  function fn(arr, arg) {
+    var result = {
+      indexOf: false,
+    }
+    result.indexOf = arr.indexOf(arg);
+    return result;
+  }
+  module.exports.fn = fn;
+</wxs>
+
+<view class='showPicker' bindtap='showPicker'>{{dataTit}} 
+<text  wx:for="{{list}}" wx:key="item">{{item}}</text></view>
+
+<cover-view class='pickerMain {{ showPicker ? ".shade-container" : "hide-container" }}' wx:if='{{ firstShow }}'>
+	<cover-view class='right-choose'>
+		<cover-view class='button-container'>
+			<cover-view class='cancal' bindtap='cancal'>取消</cover-view>
+			<cover-view class='sure' bindtap='sure'>确定</cover-view>
+		</cover-view>	
+		<cover-view class='picker-container'>
+			<cover-view
+        wx:if="{{item.value!='0'}}"
+				class='picker-item {{ m1.fn(titList,item.value).indexOf!=-1 ? "picker-item-choose" : "" }}'
+				wx:for='{{ chooseList }}'
+				wx:key='index' 
+        wx:for-item='item'
+        wx:for-index='index'
+				bindtap='chooseItem'
+				data-value='{{ item.value }}'
+			>
+				{{ item.name }}
+			</cover-view>
+		</cover-view>
+	</cover-view>
+</cover-view>

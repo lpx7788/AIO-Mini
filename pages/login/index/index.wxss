@@ -1,0 +1,26 @@
+page{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.wx-login-wrap {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.wx-login-wrap .wx-login-btn button {
+    width:560rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 36rpx;
+    color: #fff;
+    background: #4d65fd;
+    border-radius: 10rpx;
+    position: absolute;
+    margin: 0 auto;
+    bottom: 120rpx;
+    left: 50%;
+    transform: translate(-50%)
+}

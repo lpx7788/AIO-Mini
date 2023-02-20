@@ -1,0 +1,64 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+<view class='orderRecordPage'>
+  <!-- 物流时间轴 -->
+  <view class='orderRecord'>
+
+    <!-- 单个物流记录点时间轴：已经过去的物流状态 -->
+    <!-- <view class='orderRecord-single-close'>
+      <view class='orderRecord-single-noReach-online-top-close'>
+        <view class='online-top-close' style='background:none'></view>
+        <view class='dot-close'></view>
+        <view class='online-bottom'></view>
+      </view>
+
+      <view class='orderRecord-text'>
+         <view class='orderRecord-status'>2019-02-12 02:56:06</view>
+         <view class='orderRecord-status-address'>武汉转运中心公司 已收入</view>
+      </view>
+    </view> -->
+
+
+    <view class='orderRecord-single-close' wx:for="{{dataList}}" wx:key>
+      <view class='orderRecord-single-noReach-online-top-close'>
+        <view class='online-top-close'></view>
+        <view class='dot-close'></view>
+        <view class='online-bottom'></view>
+      </view>
+
+      <view class='orderRecord-text' >
+        <view class='orderRecord-status'>{{dateUtil.dateFormat(item.createDate,'yyyy-MM-dd hh:mm:ss ')}}</view>
+        <view class='orderRecord-status-address'>{{item.record}}</view>
+      </view>
+    </view>
+    
+
+
+    <!-- <view class='orderRecord-single-close'>
+      <view class='orderRecord-single-noReach-online-top-close'>
+        <view class='online-top-close'></view>
+        <view class='dot-close'></view>
+        <!-- 起始位置，下半个时间轴线不用 -->
+        <!-- <view class='online-bottom-start'></view>
+      </view>
+
+      <view class='orderRecord-text'>
+        <view class='orderRecord-status'>2019-02-12 02:56:06</view>
+        <view class='orderRecord-status-address'>卖家发货</view>
+      </view>
+
+
+    </view> --> 
+
+
+
+
+
+
+
+
+  </view>
+
+
+
+</view>

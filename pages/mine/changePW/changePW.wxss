@@ -1,0 +1,79 @@
+/* pages/mine/changePW/changePW.wxss */
+/* 选项 */
+.changePW .section{
+    background: #fff;
+  }
+  
+.changePW .options-section {
+    margin-top: 20rpx;
+    padding-left: 30rpx;
+  }
+  
+.changePW .options-section .item {
+    display: flex;
+    justify-content: space-between;
+    height: 96rpx;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+.changePW .options-section button.item {
+    padding: 0;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fff;
+    font-size: 30rpx;
+    color: #333;
+  }
+  
+.changePW .options-section button.item::after {
+    border: none;
+  }
+  
+.changePW .options-section .item:last-child {
+    border-bottom: 0;
+  }
+  
+.changePW .options-section .left {
+    display: flex;
+    align-items: center;
+  }
+  
+.changePW .options-section .left image {
+    width: 36rpx;
+    height: 36rpx;
+  }
+  
+.changePW .head-section image.left {
+    width: 36rpx;
+    height: 36rpx;
+  }
+  
+.changePW .options-section .left text {
+    margin-left: 20rpx;
+    font-size: 32rpx;
+    color: #222;
+  }
+  
+.changePW .options-section .right {
+    display: flex;
+    align-items: center;
+    padding-right: 30rpx;
+  }
+
+.changePW .verification text{
+    height: 50rpx;
+    line-height: 50rpx;
+    border: 1px solid #4d65fd;
+    color: #4d65fd;
+    padding: 0 5rpx;
+  }
+
+.changePW input{
+    margin-left: 30rpx;
+  }
+
+.changePW button{
+  margin:80rpx 30rpx 0;
+  background-color: #4d65fd;
+  color: #fff;
+  font-size: 30rpx;
+}

@@ -1,0 +1,71 @@
+/* 选项 */
+.set .section{
+  background: #fff;
+}
+
+.set .options-section {
+  margin-top: 20rpx;
+  padding-left: 30rpx;
+}
+
+.set .options-section .item {
+  display: flex;
+  justify-content: space-between;
+  height: 96rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.set .options-section button.item {
+  padding: 0;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.set .options-section button.item::after {
+  border: none;
+}
+
+.set .options-section .item:last-child {
+  border-bottom: 0;
+}
+
+.set .options-section .left {
+  display: flex;
+  align-items: center;
+}
+
+.set .options-section .left image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.set .head-section image.left {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.set .options-section .left text {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  color: #222;
+}
+
+.set .options-section .right {
+  display: flex;
+  align-items: center;
+  padding-right: 30rpx;
+}
+
+/* 按钮 */
+.set button{
+  margin:80rpx 30rpx 0;
+  background-color: #4d65fd;
+  color: #fff;
+  font-size: 30rpx;
+}
+.set .right image{
+  height: 30rpx;
+  width: 30rpx;
+}

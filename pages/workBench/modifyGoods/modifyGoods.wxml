@@ -1,0 +1,77 @@
+<view class='modifyPage'>
+  <view class='itemList'>
+    <view class='rowGaps'></view>
+    <view class=' item '>
+      <text>商品种类</text>{{modifyDataList.categoryName?modifyDataList.categoryName:' '}}
+    </view>
+    <view class='rowGaps'></view>
+    <view class='item'>
+      <text>规格</text>
+      <input bindinput='inputClick' data-name='spec' value="{{modifyDataList.spec}}" placeholder='请填写升规格'></input>
+    </view>
+    <view class='item'>
+      <text>材质</text>
+      <input bindinput='inputClick' data-name='material' value="{{modifyDataList.material}}" placeholder='请填写升材质'></input>
+    </view>
+    <view class='item'>
+      <text>品牌</text>
+      <input bindinput='inputClick' data-name='brand' value="{{modifyDataList.brand}}" placeholder='请填写升品牌'></input>
+    </view>
+    <view class='item'>
+      <text>其他</text>
+      <input bindinput='inputClick' data-name='other' value="{{modifyDataList.other}}" placeholder='可补充说明商品其他参数（选填）'></input>
+    </view>
+    <view class='item'>
+      <text>仓库</text>
+      <input bindinput='inputClick' data-name='wareHouse' value="{{modifyDataList.wareHouse}}" placeholder='请填写仓库'></input>
+    </view>
+    <view class='item' wx:if="{{modifyDataList.priceType!=2}}">
+      <text>升贴水</text>
+      <input bindinput='inputClick' data-name='floatingPrice' value="{{modifyDataList.floatingPrice}}" placeholder='请填写升贴水'></input>
+    </view>
+    <view class='rowGaps'></view>
+    <view class=' item '>
+      <text>交货方式</text>
+      <input bindinput='inputClick ' data-name='deliveryPattern ' value="{{modifyDataList.deliveryPattern}}" placeholder='请填写交货方式 '></input>
+    </view>
+    <view class='item '>
+      <text>开票日期</text>
+      <input bindinput='inputClick ' data-name='invoicedateType ' value="{{modifyDataList.invoicedateType}}" placeholder='请填写开票日期 '></input>
+    </view>
+    <view class='item '>
+      <text>结算方式</text>
+      <input bindinput='inputClick ' data-name='settleAccountsType ' value="{{modifyDataList.settleAccountsType}}" placeholder='请填写结算方式 '></input>
+    </view>
+    <view class='item '>
+      <text>备注</text>
+      <input bindinput='inputClick ' placeholder='请填写备注 ' data-name='remark ' value="{{modifyDataList.remark}}"></input>
+    </view>
+  </view>
+
+  <button bindtap='confirmBtn' class='mainBtn submit bgblue '>确定</button>
+
+
+  <modal title="提示" confirm-text="确定" cancel-text="取消" hidden="{{modalShow}}" bindconfirm="modalConfirm" bindcancel="modalCancel">
+    <label>
+
+      <view class="tellsection">
+
+        <view>
+          此订单的点价方式为{{modifyDataList.priceMethod=='2'?'含税单价点价':'基价'}}，对方点价时输入的价格为{{modifyDataList.priceMethod=='2'?'含税单价点价':'基价'}}，为保证点价人利益，此订单的升贴水调整时，{{modifyDataList.priceMethod=='2'?'含税单价点价':'基价'}}保持不变，而{{modifyDataList.priceMethod=='1'?'含税单价点价':'基价'}}对应发生变化。
+          <view>
+            {{modifyDataList.priceMethod=='1'?'含税单价点价':'基价'}}={{modifyDataList.priceMethod=='2'?'含税单价点价':'基价'}}{{modifyDataList.priceMethod=='2'?'-':'+'}}升贴水
+          </view>
+          <view>
+            是否确认修改升贴水？
+          </view>
+        </view>
+      </view>
+
+
+
+
+    </label>
+  </modal>
+
+
+</view>

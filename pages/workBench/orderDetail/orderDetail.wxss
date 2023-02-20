@@ -1,0 +1,352 @@
+page {
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+
+.orderDetailPage {
+  padding-bottom: 100rpx;
+}
+
+.orderDetailPage .orderStatus {
+  padding: 30rpx;
+}
+
+.orderDetailPage .company {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  align-items: center;
+}
+
+.orderDetailPage .purchase {
+  background: rgb(123, 142, 228);
+  color: #fff;
+  padding: 0rpx 10rpx;
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+
+}
+
+.orderDetailPage .num {
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  margin-top: 20rpx;
+  align-items: center;
+}
+
+.orderDetailPage .num view {
+  font-size: 26rpx;
+}
+
+.orderDetailPage .rowGaps {
+  height: 10rpx;
+}
+
+.orderDetailPage .priceInformation {
+  flex-flow: column;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+}
+
+.orderDetailPage .priceInformation .tit {
+  font-weight: 600;
+  font-size: 30rpx;
+}
+.orderDetailPage .modifyTit{
+  align-items: center;
+}
+.orderDetailPage .priceInformation .status {
+  padding: 0rpx 10rpx;
+  color: #fff;
+  margin-left: 20rpx;
+  background: rgb(76, 180, 107);
+  border-radius: 8rpx;
+  font-size: 26rpx;
+}
+.orderDetailPage .some{
+  background: #fdd103 !important;
+  color: #fff;
+}
+.orderDetailPage .unsettled{
+  background: #ff3b30 !important; 
+  color: #fff;
+}
+
+.orderDetailPage .priceInformation .item {
+  height: 60rpx;
+  align-items: center;
+  color: #666;
+  padding: 0 20rpx；;
+}
+
+.orderDetailPage .priceInformation .msgDec {
+  padding: 10rpx;
+  margin-top: 10rpx;
+  background: #fafafa;
+}
+
+.orderDetailPage .msgDetail {
+  margin-bottom: 20rpx;
+}
+
+.orderDetailPage .msgDetail .tit {
+  font-weight: 600;
+  font-size: 30rpx;
+}
+
+.orderDetailPage .msgDetail view {
+  height: 20rpx;
+  line-height: 20rpx;
+  padding: 20rpx 30rpx;
+}
+
+.orderDetailPage .msgDetail text {
+  text-align-last: justify;
+  display: inline-block;
+  color: #666;
+  width:180rpx;
+}
+
+.orderDetailPage .listtop {
+  display: inline-block;
+  align-items: center;
+  white-space: nowrap;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.orderDetailPage .listCon .item {
+  height:100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.orderDetailPage .listCon {
+  display: inline-block;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.orderDetailPage .priceList {
+  padding-bottom: 20rpx;
+  padding-right: 30rpx;
+}
+
+.orderDetailPage .priceList .itemColumStatus {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+ 
+}
+
+.orderDetailPage .priceList .itemColumStatus text {
+  display: inline-block;
+}
+
+.orderDetailPage .priceList .itemColum {
+  display: inline-block;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  width: 160rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.orderDetailPage .priceScroll {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.orderDetailPage .msgTit {
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top: 20rpx;
+  align-items: center;
+}
+
+.orderDetailPage .msgTit button {
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 10rpx;
+  color: #666;
+  font-size: 24rpx;
+}
+
+.orderBtn {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 600rpx;
+  margin: 0 auto;
+  transform: translate(-50%, 0);
+  left: 50%;
+}
+.orderBtn form{
+  margin: 0 10rpx;
+}
+
+.orderBtnWrap {
+  position: relative;
+}
+
+.orderBtn .btnItem {
+  width: 100%;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  bottom: 10rpx;
+  color: #fff;
+
+}
+
+.orderNote .orderDetailPage .priceType {
+  padding: 0 !important;
+}
+
+.orderNote .orderDetailPage .text {
+  display: inline !important;
+}
+
+.orderNote .orderDetailPage .text {
+  display: inline !important;
+}
+
+.orderNote .orderDetailPage .text {
+  display: inline !important;
+}
+
+.orderNote .orderDetailPage .text {
+  display: inline !important;
+}
+
+.orderNote .orderDetailPage .text {
+  display: inline !important;
+}
+
+.tellsection .modifyPrice {
+  display: flex;
+  align-items: center;
+}
+
+.tellsection input {
+  border: 1px solid #efeff4 !important;
+}
+
+.tellsection {
+  /* border: 1px solid #efeff4 !important; */
+  font-size: 26rpx;
+  padding: 5rpx 10rpx;
+  height: 80rpx;
+}
+
+.orderDetailPage.goPrice {
+  font-size: 24rpx;
+  display: flex;
+  width: 100%;
+}
+
+.orderDetailPage .msg {
+  display: flex;
+  justify-content: space-between;
+}
+
+.orderDetailPage .goPrice {
+  align-self: flex-end;
+  margin-top: 0 !important;
+}
+
+.cdty {
+  margin-top: 20rpx;
+}
+
+.orderNote .tip {
+  color: #666;
+  margin-top: 20rpx;
+}
+
+.orderNote .numspread {
+  padding: 0 20rpx;
+}
+
+.btn {
+  color: #fff;
+  font-size: 30rpx;
+  width: 90%;
+}
+
+.record .btnItem {
+  width: 100%;
+  margin: 0 10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.record {
+  width: 600rpx;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+
+
+.cdBtn {
+  background: #4d65fd;
+  color: #fff;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 10rpx 30rpx;
+}
+
+.cdBtning {
+  background: #999 !important;
+  color: #fff;
+}
+
+.listCon .orderBtnWrap {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.listCon .orderBtn {
+  position: static !important;
+  margin-left: 30rpx;
+  transform: none !important;
+}
+
+.listCon .orderBtn .btnItem2 {
+  width: '';
+  text-align: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: #fff;
+  margin: 10rpx 10rpx;
+  padding: 0 10rpx;
+}
+
+.merchandise .modifyBtn {
+  margin-right: 20rpx;
+}
+
+.goPrice {
+  padding: 0 !important;
+  width: 120rpx;
+}
+
+.orderNote .tellinput {
+  padding: 0 20rpx;
+}
+.hidden{
+  display: none !important;
+}
+.listBtn{
+  display: none;
+}

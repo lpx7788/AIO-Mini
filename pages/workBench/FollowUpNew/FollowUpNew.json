@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "category": "/components/category/index",
+    "areaPicker": "/components/areaPicker/index"
+  },
+  "navigationBarTitleText": "新增业务跟进"
+}

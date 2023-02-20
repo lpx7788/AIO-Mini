@@ -1,0 +1,78 @@
+<view class="placeOrderPage">
+  <prop wx:if="{{showModal}}" dataList="{{propList}}" bind:onMyprop='onMyprop'></prop>
+
+  <prop wx:if="{{hintShowModal}}" tit="{{tit}}" dataList="{{propList}}" bind:onMyprop='onMyprop'></prop>
+  <view class=' priceT'>
+    <view class='flex priceMsg  {{procurementType==2?"orange":"bgblue"}}'>
+      <view class='flex1 nowrap'>最新价：{{mssageList.lastPrice}}</view>
+      <view class='flex1 nowrap'>| 买价：{{mssageList.bidPrice1}}</view>
+      <view class='flex1 nowrap'>| 卖价：{{mssageList.askPrice1}}</view>
+    </view>
+    <view class='flex priceMsg {{procurementType==2?"orange":"bgblue"}}'>
+      <view class='flex1 nowrap'>持仓量：{{mssageList.openInterest}}</view>
+      <view class='flex1 nowrap'>| 买量：{{mssageList.bidVolumn1}}</view>
+      <view class='flex1 nowrap'>| 卖量：{{mssageList.askVolumn1}}</view>
+    </view>
+  </view>
+  <view class='priceDetail'>
+    <view class='company flex'>
+      <text>公司</text>
+      <text class='name' wx:if="{{type==1}}">{{sellCompanyName}} </text>
+      <text class='name'>{{dataList.companyName}}</text>
+    </view>
+
+    <view class='goods flex borderB'>
+      <view class='goodsName'>商品</view>
+      <view class='goodDetail'>
+        <view class='textOverflow'><text>{{dataList.categoryName}}</text>
+  <text wx:if="{{dataList.attributeData}}">     
+   <text wx:if="{{dataList.attributeData[selectIndex].brand||dataList.attributeData[selectIndex].spec||dataList.attributeData[selectIndex].material}}"> | {{dataList.attributeData[selectIndex].brand}}{{dataList.attributeData[selectIndex].spec}}{{dataList.attributeData[selectIndex].material}}
+       </text> 
+     </text>
+        <text wx:if="{{dataList.brand||dataList.spec||dataList.material}}"> | {{dataList.brand}}{{dataList.spec}}{{dataList.material}}
+        </text>
+      </view>
+        <view class='flex contract '>
+          <text>合约：{{contractCode.contractName?contractCode.contractName:contractName}}</text>
+          <text wx:if="{{page!='8'}}">可点价数量：{{dataList.stockNum==-1?'不限':dataList.stockNum}}{{dataList.stockNum==-1?'':dataList.numUnit}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='num flex borderB'>
+      <text>数量</text>
+      <input placeholder='请输入数量'  type="digit"  bindinput='numInput'value='{{amount?amount:""}}'></input>
+      <text>吨</text>
+
+      <text class=' limit borderL flex'  wx:if="{{page==8}}" >待点价数 
+          <text class='red'>{{dataList.remainQuantity?dataList.remainQuantity:0}}</text>
+      </text>
+       <text class=' limit borderL flex'wx:else>可用额度 
+          <text class='red'>{{quotaData.availableQuotaNum?quotaData.availableQuotaNum:0}}</text>
+      </text>
+
+    </view>
+
+    <view class='price borderB flex' wx:if="{{priceMethod==1}}">
+      <view>价格</view>
+      <input class='competitorsPrice'  type="digit"  placeholder='请输入价格' bindinput='lastPriceInput' value='{{price}}'></input>
+    </view>
+
+    <view class='price borderB flex' wx:else>
+      <view><text class='red'>含税单价</text></view>
+      <input class='competitorsPrice'  type="digit"  placeholder='请输入含税单价' bindinput='lastPriceInput' value='{{price}}'></input>
+    </view>
+
+  </view>
+
+  <!-- 操作了input框的时候第一次点击没有触发按钮 -->
+ <form  bind:submit="toPrice" report-submit="true">
+  <view class='priceBtn'>
+        <view class='textC {{procurementType==2?"orange":"bgblue"}} borderB'>{{price}}</view>
+        <button class='textC  {{procurementType==2?"orange":"bgblue"}}' formType="submit">{{deliveryType==1?'采购':'销售'}}</button>
+  </view>
+ </form>
+
+</view>
+
+

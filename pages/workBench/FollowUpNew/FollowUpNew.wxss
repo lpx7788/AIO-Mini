@@ -1,0 +1,60 @@
+
+.newPage .newList {
+  margin-bottom: 100rpx;
+  background: #fff;
+  font-size: 30rpx;
+}
+
+.newPage .newList .item{
+  padding:30rpx;
+  display: flex;
+}
+
+.newPage .head {
+  display: flex;
+  justify-content: space-between;
+  height: 88rpx;
+  border-top: 1px solid #f0f0f0;
+  align-items: flex-end;
+  padding-right: 30rpx;
+}
+
+.newPage .head .more {
+  font-size: 30rpx;
+  color: #666;
+  height: 42rpx;
+  display: flex;
+  align-items: center;
+}
+
+.newPage .head .more .arrow {
+  margin-left: 16rpx;
+  vertical-align: middle;
+}
+
+.newPage .item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.newPage .desc{
+  width:250rpx;
+  color: #999;
+  text-align: center;
+}
+.newPage .right{
+  display: flex;
+  align-items: center;
+}
+
+.newPage .itemBtn button{
+ width: 300rpx !important;
+ background: #4d65fd;
+ color: #fff;
+ font-size: 30rpx;
+
+}
+.newPage .itemBtn{
+ padding: 30rpx;
+ justify-content: space-between;
+}

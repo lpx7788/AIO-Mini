@@ -1,0 +1,144 @@
+/* 选项 */
+.delayPage{
+  background: #fff;
+}
+
+.delayPage .item {
+  display: flex;
+  justify-content: space-between;
+  height: 96rpx;
+}
+
+.delayPage button.item {
+  padding: 0;
+  background: #fff;
+  font-size: 30rpx;
+  color: #333;
+}
+.delayPage .itemTop{
+      display: inline-block;
+   width: 600rpx;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+.delayPage button.item::after {
+  border: none;
+}
+
+.delayPage .delayCart {
+  margin: 30rpx;
+  padding: 20rpx 30rpx 0 30rpx;
+}
+
+.delayPage .delayCart button {
+  height:50rpx;
+  line-height:50rpx;
+  background:#fff;
+  font-size:32rpx;
+  border:none;
+  background:orange;
+  border-radius:30rpx;
+  color:#fff;
+  align-items:center; 
+}
+
+ .delayPage .left {
+  display: flex;
+  align-items: center;
+}
+
+.delayPage .left image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.head-section image.left {
+  width: 36rpx;
+  height: 36rpx;
+}
+.delayPage input{
+  border: 1px solid #f0f0f0;
+  padding: 0 10rpx;
+}
+.delayPage .left text {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.delayPage .left .title{
+  width:160rpx;
+  color: #222;
+}
+
+.delayPage .right {
+  display: flex;
+  align-items: center;
+  padding-right: 30rpx;
+}
+
+.delayPage .mid{
+  display: flex;
+  align-items: center;
+  padding-right: 30rpx;
+}
+.delayPage .topTips .item{
+  height: 60rpx;
+ 
+  line-height: 60rpx;
+}
+.delayPage .itemMid{
+  margin-top: 30rpx;
+}
+
+.delayPage .itemEnd{
+  justify-content: space-between;
+  margin-top: 50rpx;
+  border-width: 1rpx;
+  height:100rpx;
+  align-items: center;
+  position: relative;
+  
+}
+.delayPage .itemEnd::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #f1f1f1;
+  color: #f1f1f1;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.3);
+  transform: scaleY(0.3);
+  left: 0;
+  z-index: 2;
+}
+
+.delayPage .tititem{
+  height: 60rpx;
+}
+.delayPage .delayDec {
+  padding: 30rpx;
+  background: #ebeeff;
+  text-indent: 2em;
+  line-height: 40rpx;
+  font-size: 24rpx;
+
+}
+.delayPage .delayDec image{
+  height: 30rpx;
+  width: 30rpx;
+  vertical-align: middle;
+  margin-top: -1rpx;
+}
+
+
+.delayPage .delayItem{
+  padding-bottom: 100rpx;
+}
+.delayPage .text{
+  display: inline !important;
+}

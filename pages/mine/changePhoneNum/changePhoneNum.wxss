@@ -1,0 +1,80 @@
+/* pages/mine/changePhoneNum/changePhoneNum.wxss *//* pages/mine/changephone/changephone.wxss */
+/* 选项 */
+.changephone .section{
+    background: #fff;
+  }
+  
+.changephone .options-section {
+    margin-top: 20rpx;
+    padding-left: 30rpx;
+  }
+  
+.changephone .options-section .item {
+    display: flex;
+    justify-content: space-between;
+    height: 96rpx;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+.changephone .options-section button.item {
+    padding: 0;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fff;
+    font-size: 30rpx;
+    color: #333;
+  }
+  
+.changephone .options-section button.item::after {
+    border: none;
+  }
+  
+.changephone .options-section .item:last-child {
+    border-bottom: 0;
+  }
+  
+.changephone .options-section .left {
+    display: flex;
+    align-items: center;
+  }
+  
+.changephone .options-section .left image {
+    width: 36rpx;
+    height: 36rpx;
+  }
+  
+.changephone .head-section image.left {
+    width: 36rpx;
+    height: 36rpx;
+  }
+  
+.changephone .options-section .left text {
+    margin-left: 20rpx;
+    font-size: 32rpx;
+    color: #222;
+  }
+  
+.changephone .options-section .right {
+    display: flex;
+    align-items: center;
+    padding-right: 30rpx;
+  }
+
+.changephone .verification text{
+    height: 50rpx;
+    line-height: 50rpx;
+    border: 1px solid #4d65fd;
+    color: #4d65fd;
+    padding: 0 5rpx;
+    font-size: 24rpx;
+  }
+
+.changephone input{
+    margin-left: 30rpx;
+  }
+
+.changephone button{
+  margin:80rpx 30rpx 0;
+  background-color: #4d65fd;
+  color: #fff;
+  font-size: 30rpx;
+}

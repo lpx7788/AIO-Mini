@@ -1,0 +1,34 @@
+/* pages/mine/changeCompany/changeCompany.wxss */
+.changeCompany .flexContents{
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.changeCompany image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.changeCompany .selection_item_content{
+  width: 100%;
+}
+
+.changeCompany .selection .selection_item{
+  height: 140rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.changeCompany .companystatus{
+ width: 100%;
+}
+.changeCompany .button{
+  margin:80rpx 30rpx 0;
+  background-color: #4d65fd;
+  color: #fff;
+  font-size: 30rpx;
+}

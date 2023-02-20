@@ -1,0 +1,161 @@
+/* pages/mine/integralExchange/integralExchange.wxss */
+page{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-size: 30rpx;
+}
+.integralExchangePage .pageTop {
+  background: #fff;
+  display: flex;
+  padding: 30rpx;
+  flex: 1;
+ 
+}
+.integralExchangePage .pageTop .topM {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.integralExchangePage .pageTop .topM .right{
+  display: flex;
+  align-items: flex-end;
+  padding: 10rpx;
+  color: #999;
+}
+.integralExchangePage .addresspicker{
+  width: 100%;
+  /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+}
+.integralExchangePage .addresspicker .picker{
+  width: 100%;
+  display: flex;
+     justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+}
+.integralExchangePage .pageTop .topM .mid{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10rpx;
+}
+
+.integralExchangePage .pageTop .topM .mid text{
+  font-size: 26rpx;
+}
+
+.integralExchangePage .pageTop .topM .mid .title{
+  font-size: 30rpx;
+  font-weight: 580rpx;
+}
+
+.integralExchangePage .itemMainImage {
+  width: 180rpx;
+  height: 130rpx;
+  margin-right: 30rpx;
+}
+.integralExchangePage .itemMainImage image{
+  height: 100%;
+  width: 100%;
+}
+
+.integralExchangePage .pageContent{
+  background: #fff;
+  padding: 30rpx;
+}
+
+.integralExchangePage .tit{
+  width: 200rpx;
+}
+
+.integralExchangePage .adressSelect{
+  justify-content: space-between;
+}
+/* .integralExchangePage .adressSl{
+ width: 50%;
+ position: absolute;
+ right: 0;
+ z-index: 100;
+ height: 100%;
+ line-height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center
+
+} */
+.integralExchangePage .adressDetail{
+  padding: 30rpx 0;
+}
+
+.integralExchangePage .pageBottom{
+   text-align: center;
+    background: #fff;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.integralExchangePage .operateBtn .bgblue{
+  color: #ffff;
+  border: none;
+}
+
+.integralExchangePage .operateBtn .btn{
+  width: 335rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: inline-block;
+}
+
+.integralExchangePage .operateBtn{
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+  padding-top: 0;
+}
+
+.integralExchangePage textarea{
+  height: 100rpx;
+}
+
+.integralExchangePage .score{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.integralExchangePage .contentItem{
+  height: 88rpx;
+  align-items: center;
+  position: relative;
+}
+
+.integralExchangePage .numberInput input{
+    /* margin:0 auto; */
+    width: 200rpx;
+    height: 64rpx;
+    text-align: center;
+    display: inline-block;
+
+
+}
+
+.integralExchangePage .numberInput{
+  width: 320rpx;
+  height: 64rpx;
+  /* display: inline-block; */
+  margin-right: 20rpx;
+
+}
+
+.integralExchangePage .numberInput text{
+  width: 58rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64rpx;
+}

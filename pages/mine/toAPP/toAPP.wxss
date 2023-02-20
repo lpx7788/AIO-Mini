@@ -1,0 +1,28 @@
+page{
+  background: #fff;
+}
+.identityRes .identityResContens{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  padding: 0 30rpx;
+}
+
+.identityRes image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 136rpx;
+  border-radius: 50%;
+}
+
+.identityRes .status-title{
+  font-size: 37rpx;
+  color: #333;
+  padding: 30rpx;
+}
+
+.identityRes .status-contents{
+  color: #999;
+  margin:0 30rpx;
+  text-align: center;
+}

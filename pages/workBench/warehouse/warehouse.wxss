@@ -1,0 +1,27 @@
+/* pages/workBench/warehouse/warehouse.wxss */
+
+.warehousePage{
+  background: #fff;
+  height: 100%;
+  font-size: 30rpx;
+  color: #222;
+}
+
+.warehousePage .colum{
+  display: flex;
+  padding: 30rpx;
+}
+
+.warehousePage .tit{
+  width: 200rpx;
+}
+
+.warehousePage .city{
+  display: flex;
+  justify-content: space-between;
+}
+
+.warehousePage textarea{
+  height: 100rpx;
+  width:500rpx;
+}

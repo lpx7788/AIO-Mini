@@ -1,0 +1,83 @@
+<!--pages/mine/integral/integral.wxml-->
+<view class="integralPageWrap" style='min-height:{{pageHeight}}px;width:100%;'>
+  <view class='integralPage'>
+  
+    <!-- 头部 -->
+    <view class='pageTop'>
+      <block>
+        <view class='borderR textC flex1'>
+          <text class='title'>当前积分 </text>
+          <text>{{availableIntegral?availableIntegral:'0'}}</text>
+        </view>
+        <view class='textC flex1'>
+          <text class='title'>即将获得积分 </text>
+          <text>{{aboutToIntegral?aboutToIntegral:'0'}} </text>
+        </view>
+        <view class='borderL textC flex1'>
+          <text class='title'>已使用积分 </text>
+          <text> {{beenusedIntegral?beenusedIntegral:'0'}} </text>
+        </view>
+      </block>
+    </view>
+
+    <!-- 内容 -->
+    <view class='pageSwiperContent '>
+
+      <!-- tab切换 -->
+      <view class='tab'>
+        <view class='swiperTab borderB  {{menuFixed?"typefixed":""}}'>
+          <view class='tabItem  {{ currentTab == 0 ? "active" : "" }}' data-current='0' bindtap='clickTab'>全部</view>
+          <view class='tabItem {{ currentTab == 1 ? "active" : "" }}' data-current='1' bindtap='clickTab'>我可兑换</view>
+        </view>
+      </view>
+      <view wx:if="{{menuFixed}}" style='height:{{tabHeight}}px;'> </view>
+      <view class='itemContetWrap'>
+        <block wx:key wx:for="{{itegralList}}" wx:for-item="Mitem">
+          <view class="itemContet borderB flex" wx:for="{{Mitem}}" wx:key>
+            <view class='itemL itemMainImage border'>
+              <image wx:if="{{item.commodityPhoto}}" src='{{item.commodityPhoto}}' mode="aspectFit"></image>
+              <image wx:else src='https://aio.manytrader.net/preViewUploadFile/images/bottom_icon_order@2x.png' mode="aspectFit"></image>
+            </view>
+            <view class='itemM flex2'>
+              <text class='commodityName'>{{item.commodityName}}</text>
+              <text class='num'>{{item.cashingIntegral?item.cashingIntegral:'0'}}积分</text>
+            </view>
+            <view class='itemR'>
+              <text data-url="../integralExchange/integralExchange?cashingIntegral={{item.cashingIntegral}}&remainingStock={{item.remainingStock}}&availableIntegral={{availableIntegral}}&commodityPhoto={{item.commodityPhoto}}&aboutToIntegral={{aboutToIntegral}}&beenusedIntegral={{beenusedIntegral}}&commodityCode={{item.commodityCode}}&id={{item.id}}"
+                bindtap='goto'>兑换</text>
+            </view>
+          </view>
+
+        </block>
+        <view class='emptyPage textC' wx:if="{{emptyPage}}">
+          <text>~暂无数据~</text>
+        </view>
+      </view>
+    </view>
+
+
+
+
+    <view class='pagebottomView'></view>
+    <!-- 底部 -->
+    <view class='pagebottom borderT'>
+      <block>
+        <view class=' textC flex1' data-url='../integralOrder/integralOrder' bindtap='goto'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/bottom_icon_order@2x.png'></image>
+          <text>积分订单 </text>
+        </view>
+        <view class='textC flex1' data-url='../integralDetails/integralDetails?availableIntegral={{availableIntegral}}&aboutToIntegral={{aboutToIntegral}}&beenusedIntegral={{beenusedIntegral}}' bindtap='goto'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/bottom_icon_detail@2x.png'></image>
+          <text>积分明细 </text>
+        </view>
+        <view class=' textC flex1' data-url='../integralDescription/integralDescription' bindtap='goto'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/bottom_icon_instruction@2x.png'></image>
+          <text>积分说明 </text>
+        </view>
+      </block>
+    </view>
+
+
+
+  </view>
+</view>

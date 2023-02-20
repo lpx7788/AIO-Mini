@@ -1,0 +1,202 @@
+page {
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+
+
+
+/* 顶部tab */
+.orderItem .textOverflow {
+  width:100% !important;
+}
+
+.integralorderMainPage .swiper-tab {
+  display: flex;
+  height: 88rpx;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  z-index: 9;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.integralorderMainPage .swiper-tab-item {
+  font-size: 34rpx;
+  color: #222;
+  padding: 0 16rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  text-align:ceter;
+}
+
+
+.integralorderMainPage .swiper-tab-item.active {
+  color:  #4d65fd ;
+
+}
+
+/* tab内容 */
+/* .swiper-tab-swiper {
+  height: 100%;
+} */
+
+.integralorderMainPage .swiper-tab-item.active:after {
+  content: '';
+  display: block;
+  width: 48rpx;
+  height: 6rpx;
+  background:  #4d65fd ;
+  position: absolute;
+  bottom: -16rpx;
+  left: 50%;
+  margin-left: -24rpx;
+}
+
+
+.integralorderMain{
+  font-size: 30rpx;
+}
+.integralorderMain .orderItem .time{
+  color: #666;
+
+}
+.integralorderMain .orderItem{
+  padding:0 30rpx;
+  color: #222;
+  font-size: 30rpx;
+  background: #fff;
+}
+
+.integralorderMain .orderItem .await{
+  color: #ff3b30;
+}
+
+.integralorderMain .orderItem .await{
+  color: #ff3b30;
+}
+.integralorderMain .orderItem .already{
+  color: #30c675;
+}
+.integralorderMain .orderItem .hang{
+  color: #999;
+}
+
+.integralorderMain .purchase,.integralorderMain .accomplish{
+  background: rgb(123, 142, 228);
+  color: #fff;
+  padding: 0rpx 10rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.integralorderMain .orderItemDetai{
+  padding: 10rpx;
+  mask-type: 10rpx;
+}
+
+.integralorderMain .orderItemDetail .detailItem {
+  align-items: center;
+  padding:5rpx 10rpx;
+  font-size: 28rpx;
+  display: flex;
+}
+
+.integralorderMain .orderItemDetail .detailItem text{
+  width: 180rpx;
+  display: inline-block;
+  margin-right: 30rpx;
+  color: #666;
+  font-size: 30rpx;
+}
+
+.integralorderMain .orderItemDetail{
+  padding:10rpx;
+}
+
+.integralorderMain .orderItemStatus {
+  height: 88rpx;
+  align-items: center;
+}
+
+.integralorderMain .buyer{
+  color: #666;
+  height: 68rpx;
+  align-items: center;
+  font-size: 24rpx;
+}
+
+.integralorderMain .orderItemTopRight{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.integralorderMain .orderItemTopRight text{
+  font-size: 28rpx;
+  padding: 2rpx 0;
+}
+
+.integralorderMain .orderItemTopRight .title{
+  font-size: 30rpx;
+}
+
+.integralorderMain .orderItemTop{
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.integralorderMain .orderItemTop image{
+ width: 180rpx;
+ height: 124rpx;
+}
+
+.integralorderMain .adress{
+  width: 440rpx !important;
+  display: inline-block;
+  margin-right:0;
+}
+
+.integralorderMain .adressWrap{
+  align-items: flex-start !important;
+}
+
+.integralorderMain .orderDetail{
+  width: 440rpx !important;
+   margin-right: 0 !important;
+}
+
+.integralorderMain .itemMainImage .img{
+  width: 180rpx;
+  margin-right: 30rpx;
+   
+  height: 130rpx;
+}
+
+.integralorderMain .itemMainImage image{
+  width:100%;
+  height:100%;
+}
+
+.integralorderMain .emptyPage{
+  padding: 30rpx;
+  font-size: 30rpx;
+ 
+}
+.integralorderMainPage .swiper-tab{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.integralorderMainPage .emptyPage{
+  margin: 0 !important;
+}

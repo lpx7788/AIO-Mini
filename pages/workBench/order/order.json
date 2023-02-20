@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "search": "/components/search/index/index"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": ""
+  
+}

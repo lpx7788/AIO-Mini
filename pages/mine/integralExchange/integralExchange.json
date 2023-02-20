@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "region": "/components/region/region"
+  },
+  "navigationBarTitleText": "积分兑换"
+
+}

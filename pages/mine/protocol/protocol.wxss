@@ -1,0 +1,11 @@
+/* pages/mine/protocol/protocol.wxss */
+.protocol{
+  background-color: #fff;
+  padding: 10rpx 28rpx;
+  text-align: justify;
+}
+
+.MsoNormal{
+  text-indent: 2em;
+  padding: 10rpx 0;
+}

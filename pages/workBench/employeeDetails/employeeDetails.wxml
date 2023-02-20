@@ -1,0 +1,92 @@
+
+<view class='employeeDetailsPage'>
+  <view class='employeeDetailsList userMsgList'>
+    <view class='item '>
+      <view class='cover'>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_default_headportrait@2x.png' mode='aspectFill'></image>
+        <view class='msg flex'>
+          <view class='felx orderStatus'>
+            <text class='title name '>{{userMsgList.userName}} <text class="f1f1">| </text><text class='blue font28'>{{userMsgList.businessDirectionExp}}</text></text>
+          </view>
+          <view class='desc' catchtap='callUpClick' data-name="{{userMsgList.userName}}" data-phone="{{userMsgList.userPhone}}" >
+            <image class='left' src="https://aio.manytrader.net/preViewUploadFile/images/list_icon_phone@2x.png" mode='widthFix'></image>
+            <text class='font28'>{{userMsgList.userPhone}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='item itemSelection borderB '>
+      <view class='felx orderStatus'>
+        <text class='business'>业务方向</text>
+      </view>
+
+      <view class='right' bindtap='businessTab'>
+        <text class='business'>{{currentBusiness?currentBusiness:userMsgList.businessDirectionExp}}</text>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class='item itemSelection borderB '>
+      <view class='felx orderStatus'>
+        <text class='business'>员工身份</text>
+      </view>
+
+      <view class='right' bindtap='identityTab'>
+        <text class='business'>{{currentIdentit?currentIdentit:userMsgList.roleCodeExp}} </text>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+
+    <view class='item itemSelection borderB '>
+      <view class='felx orderStatus'>
+        <text class='business'>允许点价</text>
+      </view>
+
+      <view class='right'>
+        <view class="body-view">
+          <switch checked="{{userMsgList.allowPricing==1}}" style='zoom:.6;' bindchange="switchTab" color="#4d65fd" />
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{isManager}}"> 
+      <view class='rowGaps'></view>
+      <view class='item itemSelection borderB '>
+        <view class='felx orderStatus'>
+          <text class='business'>业务跟进</text>
+          <image class="businessImg" src='https://aio.manytrader.net/preViewUploadFile/images/icon_explain@2x.png' mode='widthFix'></image>
+        </view>
+
+        <view class='right'>
+          <text class='business blue' bindtap='newlyBtn'>＋新增</text>
+        </view>
+      </view>
+      <view class=' explain blue font28'>
+        <view>业务跟进:就是让业务经理可以查看到同时满足商品品种和仓库地区的订单。</view>
+        <view class='example'>例如:给业务经理小张设置跟进品种是热轧卷板，地区是华南地区，那么业务员小张就可以在订单列表上看到华南地区关于热轧卷板的订单及合同。</view>
+      </view>
+      <view class='variety'>
+        <view class='tit'> 
+          <text>商品品种</text>
+          <text>跟进地区</text>
+          <text>操作</text>
+        </view>
+        <view class='con' wx:for="{{listByUserList}}" wx:key id="{{item.categoryCode}}">
+          <text class='titleText'>{{item.categoryName}}</text>
+          <view class='areas textC'>
+            <text wx:for="{{item.areas}}" wx:key wx:for-item="i" id='{{i.areaCode}}'>{{i.areaName}} <text wx:if="{{index<item.areas.length-1}}">、</text></text>
+          </view>
+          <image bindtap='editBtn' data-item="{{item}}" class='writeImg' src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_edit_n@2x.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+<!-- 操作按钮 -->
+  <view class='flex itemBtn'>
+    <button class='  bgblue' bindtap='saveBtn' data-name='del'>删除</button>
+    <button class='  bgblue' bindtap='saveBtn' data-name='save'>保存</button>
+  </view>
+
+
+</view>

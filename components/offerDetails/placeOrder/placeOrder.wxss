@@ -1,0 +1,84 @@
+/* pages/workBench/placeOrder/placeOrder.wxss */
+.placeOrderPage .priceMsg{
+  color: #fff;
+  padding: 10rpx;
+}
+.placeOrderPage .priceBtn{
+  border-radius: 2rpx;
+  margin: 30rpx;
+
+}
+.placeOrderPage .priceBtn view{
+  color: #fff;
+  padding: 10rpx;
+}
+.placeOrderPage .company{
+  height: 50rpx;
+  align-items: center
+}
+.placeOrderPage .company .name{
+  margin-left: 30rpx;
+}
+.placeOrderPage .goods{
+  height: 120rpx;
+  align-items: center;
+}
+.placeOrderPage .priceDetail{
+ padding: 30rpx;
+ background: #fff;
+}
+.placeOrderPage .price{
+  color: #666;
+  height: 70rpx;
+  align-items: center;
+}
+.placeOrderPage .competitorsPrice{
+  margin-left: 30rpx;
+}
+.placeOrderPage .num {
+  height: 70rpx;
+  color: #666;
+  align-items: center;
+}
+.placeOrderPage .num input{
+   margin-left: 30rpx;
+}
+.placeOrderPage .limit{
+  
+  margin-left: 20rpx;
+  
+}
+.placeOrderPage .limit {
+  padding-left: 20rpx;
+  align-items: center;
+  height: 32rpx;
+  line-height: 32rpx;
+  /* padding-top: 25rpx; */
+}
+.placeOrderPage .goodDetail{
+  width: 100%;
+  margin-left: 30rpx;
+  color: #666;
+
+}
+.placeOrderPage .contract{
+  color: #666;
+  justify-content: space-between;
+  width: 100%;
+}
+.placeOrderPage .goodsName{
+  width:74rpx;
+}
+
+.placeOrderPage .nowrap{
+  white-space: nowrap;
+}
+
+ .placeOrderPage .textOverflow{
+  width:600rpx !important;
+}
+
+button{
+  border-radius: 0 !important;
+  font-size: 30rpx !important;
+}

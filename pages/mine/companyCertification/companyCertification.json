@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "pageTit": "/components/pageTit/index",
+    "category": "/components/category/index",
+    "region": "/components/region/region"
+  },
+  "navigationBarTitleText": "公司认证"
+}

@@ -1,0 +1,27 @@
+/* pages/workBench/modifyGoods/modifyGoods.wxss */
+.modifyPage{
+  height: 100%;
+  background: #fff;
+}
+
+.modifyPage .item{
+  height: 80rpx;
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  padding:0 30rpx;
+}
+
+.modifyPage text{
+  margin-right: 30rpx;
+  width: 160rpx;
+  color: #666;
+}
+
+.modifyPage .submit{
+  color:#fff; 
+}
+
+.modifyPage input{
+  width: 100%;
+}

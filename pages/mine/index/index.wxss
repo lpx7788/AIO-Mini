@@ -1,0 +1,196 @@
+page{
+  position: relative;
+  height: 100%;
+}
+
+page .openAPP{
+  position: absolute;
+  bottom: 93rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #4d65fd;
+}
+
+.section {
+  background: #fff;
+}
+
+/* 头部 */
+.head-section {
+  padding: 20rpx  20rpx 0  20rpx;
+  background:#f6f6f6;
+}
+
+.head-section .head-section-content{
+  background:#fff;
+  padding:40rpx 40rpx 0rpx 40rpx;
+}
+
+.head-section-content-top{
+  display: flex;
+}
+
+.head-section-content-top .userName{
+  line-height: 60rpx;
+}
+
+.head-section-content-top .userName .approve{
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  background: #4d65fd;
+  color: #fff;
+  display: inline-block;
+  margin: 0 12rpx;
+  padding: 0 10rpx;
+}
+
+.head-section-content-top .userName .userName-top,.head-section-content-top .userName .userName-bot{
+  display: flex;
+  align-items: center;
+}
+
+.head-section-content-top .userName .userName-bot image{
+  margin-left: 12rpx;
+}
+
+.head-section-content-top .userName .userName-top .userName-top-name{
+  font-size: 48rpx;
+  font-weight:500;
+}
+
+.head-section-content-down image{
+  width: 38rpx;
+}
+.head-section-content-down{
+  border-top: 2rpx dashed rgb(236, 236, 236); 
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  background: #fff;
+}
+.head-section-content-down image{
+  width: 120rpx;
+  height: 120rpx;
+}
+.head-section-content-down text{
+  margin-left: 20rpx;
+}
+
+.head-section .user .userName{
+  flex: 1;
+}
+
+.head-section .tologin{
+  color: #999;
+}
+
+.head-section .avatar {
+  display: flex;
+  padding-left: 30rpx;
+  flex: 1;
+  justify-content:flex-end;
+}
+
+.head-section .avatar image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-top: -10rpx;
+}
+
+.head-section .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 16rpx;
+}
+
+.head-section .info .name {
+  font-size: 44rpx;
+}
+
+.head-section .info .vip {
+  height: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+
+.head-section .info .vip image {
+  width: 70rpx;
+  height: 32rpx;
+}
+.userPage .buyer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background: #fff;
+  min-height: 60rpx;
+}
+.userPage .buyer image{
+  width: 120rpx;
+  height: 30rpx;
+  padding: 10rpx 40rpx 30rpx 30rpx ;
+}
+
+/* 选项 */
+.options-section {
+  margin-top: 20rpx;
+  padding-left: 30rpx;
+}
+
+.options-section .item {
+  display: flex;
+  justify-content: space-between;
+  height: 96rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.options-section button.item {
+  padding: 0;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.options-section button.item::after {
+  border: none;
+}
+
+.options-section .item:last-child {
+  border-bottom: 0;
+}
+
+.options-section .left {
+  display: flex;
+  align-items: center;
+}
+
+.options-section .left image {
+  width: 36rpx;
+  height: 36rpx;
+}
+.head-section image.left {
+  width: 36rpx;
+  height: 36rpx;
+}
+.options-section .left text {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  color: #222;
+}
+.options-section .right {
+  display: flex;
+  align-items: center;
+  padding-right: 30rpx;
+}
+.options-section .right image{
+  height: 30rpx;
+  width: 30rpx;
+}
+                                                                                                                                                                                                                                                                                                                            

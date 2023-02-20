@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "采购合同",
+  "usingComponents": {
+    "category": "/components/category/index"
+  }
+}

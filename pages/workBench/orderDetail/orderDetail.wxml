@@ -1,0 +1,486 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+
+<view class='orderDetailPage'>
+  <view class='orderDetail'>
+    <view>
+      <view class='orderStatus'>
+        <view class='currentStatus'>
+          <text>订单状态：</text>
+          <text class="red" wx:if="{{dataList.orderStatus==1||dataList.orderStatus==null}}">{{currentTab==0?'待挂单':'待确认'}}</text>
+          <text class="red" wx:if="{{dataList.orderStatus==2}}">待生成合同</text>
+          <text class="red" wx:if="{{dataList.orderStatus==3}}">已取消</text>
+          <text class="red" wx:if="{{dataList.orderStatus==4}}">已挂单</text>
+          <text class="red" wx:if="{{dataList.orderStatus==5}}">待生成合同</text>
+          <text class="red" wx:if="{{dataList.orderStatus==6}}">已生成合同</text>
+          <!--  | 1 | 待挂单 |
+                | 2 | 已成交 |
+                | 3 | 已取消 |
+                | 4 | 已挂单 |
+                | 5 | 已结单 |
+                | 6 | 已生成合同 | -->
+        </view>
+        <view class='company flex'>
+          <view class='purchase'>采购</view>
+          <view>{{dataList.deliveryType==1?dataList.releaseCompanyName:dataList.createCompanyName}}</view>
+        </view>
+        <view class='num flex'>
+          <view> 订单编号：{{dataList.customCode}}</view>
+          <view>{{dateUtil.dateFormat(dataList.createDate,'yyyy-MM-dd hh:mm:ss ')}}</view>
+        </view>
+      </view>
+      <view class="rowGaps" />
+    </view>
+
+    <view class='flex priceInformation  ' wx:if="{{dataList.priceType!=2}}">
+      <view class='flex item msg'>
+        <view class='modifyTit'>
+          <view class='flex modifyTit'>
+            <text class='tit '>点价信息</text>
+            <block wx:if='{{currentTab==0}}'>
+              <text class='status unsettled' wx:if="{{dataList.dealStatus==1||dataList.dealStatus==null}}">未成交</text>
+              <text class='status some' wx:if="{{dataList.dealStatus==2}}">部分成交</text>
+              <text class='status ' wx:if="{{dataList.dealStatus==3}}">完全成交</text>
+            </block>
+            <block wx:if='{{currentTab==2}}'>
+              <text class='status bgblue' wx:if="{{dataList.dealStatus==1}}">待点价</text>
+              <text class='status bgblue' wx:if="{{dataList.dealStatus==2}}">未点完，已到期</text>
+              <text class='status bgblue' wx:if="{{dataList.dealStatus==3}}">已点完</text>
+            </block>
+          </view>
+        </view>
+
+        <view class='goPrice msgTit ' wx:if="{{dataList.editPrice=='Y'}}"  bindtap='modifyClick' data-basep="{{dataList.basePrice}}" data-code=''>
+          <button>修改点价</button>
+        </view>
+
+        <view class='goPrice msgTit ' wx:if="{{dataList.showGoDelayPricing=='Y'&&!oneself}}" data-url="../../../components/offerDetails/placeOrder/placeOrder?attributeCode={{dataList.attributeCode}}&procurementType={{type}}&contractCode={{dataList.contractCode}}&page=8&orderCode={{orderCode}}&&data={{dateUtil.stringify(dataList)}}&type={{type}}&priceType={{dataList.priceType}}"
+          bindtap='goto' data-name="goToPrice">
+          <button>去点价</button>
+        </view>
+      </view>
+
+      <view class='msgDec'>
+        <view class='flex item'>
+          <view class='flex1'>合约：{{dataList.contractName}}</view>
+          <view wx:if="{{dataList.priceType==3}}" class='flex1'>升贴水：{{dataList.floatingPrice}}</view>
+
+          <view wx:else class='flex1'>
+            <text wx:if="{{dataList.editBasePrice!=0}}"> 价格：<text class='red'>{{dataList.basePrice}}(修改后)</text></text>
+            <text wx:else> 价格：{{dataList.basePrice}}</text>
+
+          </view>
+        </view>
+        <view class='flex item'>
+          <view class='flex1'>下单：{{dataList.quantity?dataList.quantity:'0'}}{{dataList.numUnit}}</view>
+          <view wx:if="{{dataList.priceType==3}}" class='flex1'>待点价：{{dataList.remainQuantity}}吨</view>
+          <view wx:else class='flex1'>成交：{{dataList.dealQuantity?dataList.dealQuantity:'0'}}{{dataList.numUnit}}</view>
+        </view>
+        <view wx:if="{{dataList.priceType==3}}">点价有效期：
+          <text class='red'>{{dateUtil.formatTime(dataList.delayPricingValidDate,'')}} 前</text> </view>
+        <view wx:else>点价人：{{dataList.createCompanyShortName}}-{{type==2?dataList.createUserName:dataList.buyUserName}} </view>
+      </view>
+    </view>
+
+    <!-- 点价列表 -->
+    <view class='priceList' wx:if="{{dataList.priceType==3&&childListstatus}}">
+      <scroll-view class='priceScroll' scroll-x="true" scroll-with-animation="true" scroll-left="{{scrollLeft}}" class='tab'>
+        <view class='msgTit'>点价列表</view>
+        <view class='listtop borderB'>
+          <text class='itemColum'>合约</text>
+          <text class='itemColum'>基价(元)</text>
+          <text class='itemColum'>下单(吨)</text>
+          <text class='itemColum'>成交(吨)</text>
+          <text class='itemColum'>状态</text>
+          <text class='itemColum'>成交时间</text>
+        </view>
+        <view class='listCon '>
+          <block wx:for="{{childList}}" wx:key>
+            <view>
+              <view class='item borderB  {{uhide==index?"pageBg":""}}' bindtap='toggleDetailBtn' data-time="{{item.lastDealDate}}" data-listidx="{{index}}">
+                <text class='itemColum'>{{item.contractName}}</text>
+                <text class='itemColum'>{{item.basePrice}}</text>
+                <text class='itemColum'>{{item.quantity}}</text>
+                <text class='itemColum'>{{item.dealQuantity}}</text>
+                <text class='itemColum' wx:if="{{item.orderStatus==1||item.orderStatus==null}}">待挂单</text>
+                <text class='itemColum' wx:if="{{item.orderStatus==2}}">已成交</text>
+                <text class='itemColum' wx:if="{{item.orderStatus==5}}">已结单</text>
+                <text class='itemColum' wx:if="{{item.orderStatus==3}}">已取消</text>
+                <view class='itemColum ' wx:if="{{item.orderStatus==4}}">
+                  <view class='itemColumStatus'>
+                    <text> 已挂单</text>
+                    <text wx:if="{{item.cancelStatus=='4.1'}}">(申请撤单中)</text>
+                  </view>
+                </view>
+                <view class='itemColum' wx:if="{{item.lastDealDate}}" style='width:300rpx;'>
+                  <text>{{dateUtil.dateFormat(item.lastDealDate,'yyyy-MM-dd hh:mm:ss')}}</text>
+                </view>
+                <text class='itemColum' wx:if="{{item.lastDealDate==null}}">无</text>
+              </view>
+
+              <!-- //采购 -->
+              <view wx:if="{{type==1}}" class='orderBtnWrap {{uhide==index?"":"hidden"}}'>
+                <view class='flex orderBtn item '>
+                  <button bindtap="modifyClick" data-code='{{item.orderDetailCode}}' data-basep="{{item.basePrice}}"  class='btnItem2 bgblue' wx:if="{{item.dealStatus==1&&item.orderStatus==4}}" >改价</button>
+                  <button bindtap="cancelClick" wx:if="{{item.cancelStatus!=4.1&&(item.orderStatus==1||item.orderStatus==null||item.orderStatus==4)}}" class='btnItem2 bgblue' >申请撤单</button>
+                  <button wx:if="{{item.cancelStatus==4.1}}" class='btnItem2 bgblue'>申请撤单中</button>
+                </view>
+              </view>
+
+              <!-- 求购 -->
+              <view wx:if="{{type==2}}" class='orderBtnWrap {{uhide==index?"":"hidden"}}'>
+                <view wx:if="{{(item.orderStatus==4&&item.cancelStatus==4.1)||(item.orderStatus==4&&item.dealStatus==2&&item.cancelStatus==4.1)}}">
+                  <view style='width:100%'>
+                    <view class='flex orderBtn item '>
+                      <form bind:submit="modifyClick" data-code='{{item.orderDetailCode}}' data-basep="{{item.basePrice}}" report-submit="true">
+                        <button class='btnItem2 bgblue' wx:if="{{item.dealStatus==1&&item.orderStatus==4}}" formType="submit">改价</button>
+                      </form>
+                      <form bind:submit="cOrder" data-status="N" data-code='{{item.orderDetailCode}}' report-submit="true">
+                        <button class='btnItem2 bgblue' formType="submit">拒绝</button>
+                      </form>
+                      <form bind:submit="cOrder" data-code='{{item.orderDetailCode}}' data-status="Y" report-submit="true">
+                        <button class='btnItem2 bgblue' formType="submit">同意</button>
+                      </form>
+                    </view>
+                  </view>
+                </view>
+
+                <view class='orderBtn item' wx:if="{{item.orderStatus==1||item.orderStatus==null||priceBtnShow}}">
+                  <form bind:submit="rejectOrder" data-code='{{item.orderDetailCode}}' report-submit="true">
+                    <button class='btnItem2 bgblue' formType="submit">拒绝</button>
+                  </form>
+
+                  <form bind:submit="confirmOrder" data-code='{{item.orderDetailCode}}' report-submit="true">
+                    <button class='btnItem2 bgblue' formType="submit">订单确认</button>
+                  </form>
+
+                </view>
+
+                <view class='orderBtn item' wx:if="{{item.orderStatus==4&&(item.dealStatus==1||item.dealStatus==null)&&item.cancelStatus!=4.1}}">
+                  <form bind:submit="modifyClick" data-code='{{item.orderDetailCode}}' data-basep="{{item.basePrice}}" report-submit="true">
+                    <button class='btnItem2 bgblue' wx:if="{{(item.dealStatus==1||item.dealStatus==null)&&item.orderStatus==4}}" formType="submit">改价</button>
+                  </form>
+
+                  <form bind:submit="cancelPrice" data-code='{{item.orderDetailCode}}' report-submit="true">
+                    <button class='btnItem2 bgblue' formType="submit">取消订单</button>
+                  </form>
+
+                  <form bind:submit="transactionPrice" data-code='{{item.orderDetailCode}}' data-quantity="{{item.quantity}}" data-deal="{{item.dealQuantity}}" data-type="1" report-submit="true">
+                    <button class='btnItem2 bgblue' formType="submit">部分成交</button>
+                  </form>
+                  <form bind:submit="transactionPrice" data-code='{{item.orderDetailCode}}' data-quantity="{{item.quantity}}" data-deal="{{item.dealQuantity}}" data-type="2" report-submit="true">
+                    <button class='btnItem2 bgblue' formType="submit">全部成交</button>
+                  </form>
+
+                </view>
+
+                <view class='orderBtn item' wx:if="{{item.orderStatus==4&&item.dealStatus==2&&item.cancelStatus!=4.1}}">
+                  <form bind:submit="statementAccount" data-code='{{item.orderDetailCode}}' report-submit="true">
+                    <button class='btnItem2 bgblue' formType="submit">结单</button>
+                  </form>
+                  <form bind:submit="transactionPrice" data-code='{{item.orderDetailCode}}' data-quantity="{{item.quantity}}" data-deal="{{item.dealQuantity}}" data-type="1" report-submit="true">
+                    <button class='btnItem2 bgblue' formType="submit">部分成交</button>
+                  </form>
+                  <form bind:submit="transactionPrice" data-code='{{item.orderDetailCode}}' data-quantity="{{item.quantity}}" data-deal="{{item.dealQuantity}}" data-type="2" report-submit="true">
+                    <button class='btnItem2 bgblue' formType="submit">全部成交</button>
+                  </form>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="rowGaps" />
+
+
+    <view class='merchandise'>
+      <view class='msgTit'>
+        <view>商品信息</view>
+        <view>
+          <button class='modifyBtn' size='mini' wx:if="{{dataList.orderStatus!=6&&type==2}}" data-url='../../../pages/workBench/modifyGoods/modifyGoods?modifyDataList={{modifyDataList}}' bindtap='goto'>修改商品</button>
+          <button class='check' size='mini' data-url='../../../components/offerDetails/index/index?page={{type=="1"||type==1?2:1}}&releaseCode={{dataList.releaseCode}}&priceType={{dataList.priceType}}&type={{type}}&procurementType={{type}}&attributeCode={{dataList.attributeCode}}&contractCode={{dataList.contractCode}}'
+            bindtap='goto'>查看{{type==1?'报价':'求购'}}</button>
+        </view>
+      </view>
+      <view>
+        <view class='msgDetail'>
+          <view>
+            <text>商品</text>：{{dataList.categoryName}}</view>
+          <view>
+            <text>商品品牌</text>：{{dataList.brand?dataList.brand:'--'}}</view>
+          <view>
+            <text>规格</text>：{{dataList.spec?dataList.spec:'--'}}</view>
+          <view>
+            <text>材质</text>：{{dataList.material?dataList.material:'--'}}</view>
+          <view>
+            <text>仓库</text>：{{dataList.wareHouse?dataList.wareHouse:'--'}}</view>
+          <view wx:if="{{dataList.priceType!=2}}">
+            <text>升贴水</text>：{{dataList.floatingPrice?dataList.floatingPrice:'--'}}</view>
+          <view>
+            <text wx:if="{{dataList.orderRemark}}">备注</text>：{{dataList.orderRemark?dataList.orderRemark:'--'}}</view>
+
+        </view>
+        <view class="rowGaps" />
+        <view class='msgDetail'>
+          <view class='tit'>
+            订单金额
+          </view>
+          <view>
+            <block class='text priceType' wx:if="{{dataList.priceType==1}}">
+              <text class='text'>作价方式</text>：{{dataList.priceMethod==1?'基价':'含税单价'}}点价（{{dataList.contractName}}+{{dataList.floatingPrice}}）</block>
+            <block class='text  priceType' wx:if="{{dataList.priceType==2}}">
+              <text class='text'>作价方式</text>：确定价</block>
+            <block class='text priceType' wx:if="{{dataList.priceType==3}}">
+              <text class='text'>作价方式</text>：延期点价（{{dataList.contractName}}+{{dataList.floatingPrice}}）</block>
+          </view>
+
+          <view wx:if="{{dataList.priceType==3}}">
+            <text>预付款总金额</text>：{{dataList.totalAdvancePayment?dataList.totalAdvancePayment:'--'}}元</view>
+          <view>
+            <text>下单数量</text>：{{dataList.quantity?dataList.quantity:'--'}}吨
+          </view>
+
+          <view wx:if="{{dataList.priceType==3}}">
+            <text>成交均价</text>：{{dataList.averagePrice?dataList.averagePrice:'--'}}元/吨
+          </view>
+
+          <view>
+            <text>含税单价</text>：{{dataList.sumPrice?dataList.sumPrice:'--'}}元/吨
+          </view>
+
+          <view>
+            <text>订单总金额</text>：{{dataList.totalPrice?dataList.totalPrice:'--'}}元
+          </view>
+
+          <view wx:if="{{dataList.priceType==3}}">
+            <text>退还差价</text>：{{dataList.refundPrice?dataList.refundPrice:'--'}}元</view>
+
+          <!-- 预付款总金额、成交均价、退还差价 -->
+        </view>
+        <view class="rowGaps" />
+      </view>
+
+    </view>
+
+
+    <view class='merchandise'>
+      <view class='msgTit'>
+        <view>其他信息</view>
+        <view>
+          <button size='mini' bindtap='addOrderNote' data-name="note">订单备注</button>
+        </view>
+      </view>
+      <view>
+        <view class='msgDetail'>
+          <view>
+            <text>交货方式</text>：{{dataList.deliveryPattern}}</view>
+          <view>
+            <text>开票日期</text>：{{dataList.invoicedateType}}</view>
+          <view>
+            <text>结算方式</text>：{{dataList.settleAccountsType}}</view>
+          <view wx:if="dataList.orderRemark">
+            <text>订单备注</text>：{{dataList.orderRemark}}</view>
+        </view>
+        <view class="rowGaps" />
+        <view class='msgDetail'>
+          <view class='tit'>
+            买家信息
+          </view>
+          <view>
+            <text>公司名称</text>：{{dataList.buyCompanyName}}</view>
+          <view>
+
+            <block wx:if="{{type==1}}">
+              <text>{{dataList.priceType==2?'下单':'点价'}}用户</text>：{{dataList.buyUserName}}
+            </block>
+
+            <block wx:if="{{type==2}}">
+              <text>求购用户</text>：{{dataList.buyUserName}}
+            </block>
+
+          </view>
+          <view>
+            <text>联系电话</text>：{{dataList.buyUserPhone}}</view>
+
+        </view>
+        <view class="rowGaps" />
+        <view class='msgDetail'>
+          <view class='tit'>
+            卖家信息
+          </view>
+          <view class='textOverflow' style='width:90%'>
+            <text>公司名称</text>：{{dataList.sellCompanyName}}</view>
+          <view>
+
+            <block wx:if="{{type==2}}">
+              <text>{{dataList.priceType==2?'下单':'点价'}}用户</text>：{{dataList.sellUserName}}
+            </block>
+
+            <block wx:if="{{type==1}}">
+              <text>报价用户</text>：{{dataList.sellUserName}}
+            </block>
+          </view>
+          <view>
+            <text>联系电话</text>：{{dataList.sellUserPhone}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 采购 -->
+<view class='orderBtnWrap' wx:if="{{showBtn==1}}">
+  <view class='orderBtn'>
+
+    <form class='flex1' wx:if="{{dataList.cancelStatus==4.1}}">
+      <button class='btnItem bgC'>申请撤单中</button>
+    </form>
+
+    <form class='flex1' wx:if="{{dataList.orderStatus==6}}">
+      <button class='btnItem bgblue' data-url="../contractDetail/contractDetail?purSalesContractId={{dataList.purSalesContractId}}" bindtap='goto'>查看合同</button>
+    </form>
+
+
+
+    <form class='flex1' bind:submit="cancelClick" wx:if="{{dataList.orderStatus!=6&&dataList.orderStatus!=5&&dataList.orderStatus!=3&&dataList.cancelStatus!=4.1&&dataList.orderStatus!=2}}" data-code='' report-submit="true">
+      <button class='btnItem bgblue' formType="submit">申请撤单</button>
+    </form>
+
+
+    <form class='flex1'>
+      <button class='btnItem bgblue' data-url='../orderRecord/orderRecord?orderCode={{dataList.orderCode}}' bindtap='goto'>订单记录</button>
+    </form>
+  </view>
+</view>
+
+
+<!-- 求购 -->
+<view class='orderBtnWrap' wx:if="{{showBtn==2}}">
+
+  <view class='orderBtn' wx:if="{{(dataList.orderStatus==4&&dataList.cancelStatus==4.1)||(dataList.orderStatus==4&&dataList.dealStatus==2&&dataList.cancelStatus==4.1)}}">
+    <view style='width:100%'>
+      <view class='textC  '>对方申请撤单，是否同意？</view>
+      <view class='flex cdty'>
+        <form class="flex1" bind:submit="cOrder" data-code='' data-status="N" report-submit="true">
+          <button class='btnItem bgblue' formType="submit">拒绝</button>
+        </form>
+
+        <form class="flex1" bind:submit="cOrder" data-code='' data-status="Y" report-submit="true">
+          <button class='btnItem bgblue' formType="submit">同意</button>
+        </form>
+
+      </view>
+    </view>
+  </view>
+
+  <view class='orderBtn' wx:if="{{dataList.orderStatus==1||dataList.orderStatus==null||priceBtnShow}}">
+
+    <form class="flex1" bind:submit="rejectOrder" data-code='' report-submit="true">
+      <button class='btnItem bgblue' formType="submit">拒绝</button>
+    </form>
+
+    <form class="flex1" bind:submit="confirmOrder" data-code='' report-submit="true">
+      <button class='btnItem bgblue' formType="submit">订单确认</button>
+    </form>
+
+  </view>
+
+  <view class='orderBtn' wx:if="{{dataList.orderStatus==4&&(dataList.dealStatus==1||dataList.dealStatus==null)&&dataList.cancelStatus!=4.1}}">
+
+    <form class="flex1" bind:submit="cancelPrice" data-code='' report-submit="true">
+      <button class='btnItem bgblue' formType="submit">取消订单</button>
+    </form>
+
+    <form class="flex1" bind:submit="transactionPrice" data-code='' data-quantity="{{dataList.quantity}}" data-deal="{{dataList.dealQuantity}}" report-submit="true" data-type="1">
+      <button class='btnItem bgblue' formType="submit">部分成交</button>
+    </form>
+    <form class="flex1" bind:submit="transactionPrice" data-code='' data-quantity="{{dataList.quantity}}" data-deal="{{dataList.dealQuantity}}" data-type="2" report-submit="true">
+      <button class='btnItem bgblue' formType="submit">全部成交</button>
+    </form>
+  </view>
+
+
+  <view class='orderBtn' wx:if="{{dataList.orderStatus==4&&dataList.dealStatus==2&&dataList.cancelStatus!=4.1}}">
+
+    <form class="flex1" bind:submit="statementAccount" data-code='' report-submit="true">
+      <button class='btnItem bgblue' formType="submit">结单</button>
+    </form>
+
+    <form class="flex1" bind:submit="transactionPrice" data-quantity="{{dataList.quantity}}" data-deal="{{dataList.dealQuantity}}" bindtap='transactionPrice' data-type="1" report-submit="true">
+      <button class='btnItem bgblue' formType="submit">部分成交</button>
+    </form>
+    <form class="flex1" bind:submit="transactionPrice" data-code='' data-quantity="{{dataList.quantity}}" data-deal="{{dataList.dealQuantity}}" data-type="2" report-submit="true">
+      <button class='btnItem bgblue' formType="submit">全部成交</button>
+    </form>
+  </view>
+
+
+</view>
+
+<view class='flex record' wx:if="{{showBtn!=1}}">
+  <button class='btnItem bgblue btn' wx:if="{{dataList.orderStatus==6}}" wx:if="{{dataList.orderStatus==6}}" data-url="../contractDetail/contractDetail?purSalesContractId={{dataList.purSalesContractId}}" bindtap='goto'>查看合同</button>
+  <button wx:if="{{showBtn==2}}" class='btnItem bgblue btn' data-url='../orderRecord/orderRecord?orderCode={{dataList.orderCode}}' bindtap='goto'>订单记录</button>
+</view>
+
+
+
+<view class='orderNote '>
+  <!-- 订单备注 -->
+  <modal title="订单备注" wx:if='{{modalName=="note"}}' confirm-text="确认" cancel-text="取消" hidden="{{addtellHidden}}" bindconfirm="modalConfirm" bindcancel="modalCancel">
+    <label>
+      <view class="tellsection">
+        <view>
+          <input class="tellinput" bindinput="saveOrderRemark" placeholder="请输入订单备注，限20字" value="" maxlength="20" />
+        </view>
+      </view>
+    </label>
+  </modal>
+
+  <!-- 部分成交  延期子订单 -->
+  <modal wx:if='{{modalName=="suborder"}}' title="设置点价成交量" confirm-text="确认" cancel-text="取消" hidden="{{addtellHidden}}" bindconfirm="modalConfirm" bindcancel="modalCancel">
+    <label>
+      <view class="tellsection">
+        <view>
+          <input type='digit' class="numspread" bindinput="saveNUm" placeholder="请输入数量" value="" />
+          <view class='tip '>输入值不得大于数量:
+            <text class='blue'>{{spread}}</text>
+          </view>
+        </view>
+      </view>
+    </label>
+  </modal>
+
+  <!-- 部分成交  主订单-->
+  <modal wx:if='{{modalName=="portion"}}' title="设置点价成交量" confirm-text="确认" cancel-text="取消" hidden="{{addtellHidden}}" bindconfirm="modalConfirm" bindcancel="modalCancel">
+    <label>
+      <view class="tellsection">
+        <view>
+          <input type='digit' class="numspread" bindinput="saveNUm" placeholder="请输入数量" value="" />
+          <view class='tipblue '>输入值不得大于数量:
+            <text class='blue'>{{spread}}</text>
+          </view>
+        </view>
+      </view>
+    </label>
+  </modal>
+
+  <!-- 点价修改 -->
+  <modal wx:if='{{modalName=="modifyPrice"}}' title="修改点价" confirm-text="确认" cancel-text="取消" hidden="{{addtellHidden}}" bindconfirm="modalConfirm" bindcancel="modalCancel">
+    <label>
+      <view class="tellsection">
+        <view>
+          <view class='tip '>原点价价格:
+            <text class='blue'>{{basep}}</text>
+          </view>
+          <view class='flex modifyPrice'>
+            <text>  请输入修改价格:</text>
+            <input type='digit' bindinput="modifyNUm" placeholder="" value="" />
+          </view>
+        </view>
+      </view>
+    </label>
+  </modal>
+
+</view>

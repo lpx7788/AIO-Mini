@@ -1,0 +1,83 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+
+
+<view class='messagePage'>
+
+  <view class='messageList'>
+
+  <block wx:for="{{msgList}}" wx:key wx:for-index="pageIndex" wx:for-item="Mitem">
+      <view>
+        <block wx:for="{{Mitem}}" wx:for-index="index" wx:key>
+    <!-- type==1报价 2求购 -->
+    <view class='borderB' data-url='../orderDetail/orderDetail?type=1&orderCode={{dateUtil.parse(item.ext1).orderCode}}' data-code="{{item.messageCode}}" data-msg="{{item.messageStatus}}"  data-listidx="{{index}}" data-type='{{dateUtil.parse(item.ext1).userType}}'
+      bindtap='goto'  data-pageindex="{{pageIndex}}"  id="{{item.id}}">
+      <view class='item '>
+        <view class='cover'>
+          <image wx:if="{{item.messageStatus=='Y'||allRead}}" src='https://aio.manytrader.net/preViewUploadFile/images/icon_mes_magnitude_readed@2x.png' mode='aspectFill'></image>
+          <image wx:else src='https://aio.manytrader.net/preViewUploadFile/images/icon_mes_magnitude.png' mode='aspectFill'></image>
+        </view>
+        <view class='msg flex'>
+          <view class='felx orderStatus'>
+            <text class='title '>{{item.title}}</text>
+            <text class='time textR'>{{dateUtil.formatTime(item.lastupdateDate,'single')}}   </text>
+          </view>
+          <view class='desc'>{{item.content}}</view>
+        </view>
+      </view>
+
+      <view class='status' wx:if="{{dateUtil.parse(item.ext1).applyQuotaStatus==1}}">
+        <form>
+          <button class='bgblue' size='mini' catchtap='amend' data-item="{{item}}">修改</button>
+        </form>
+
+
+        <form bind:submit="agreeOrNot" report-submit="true" data-pageindex="{{pageIndex}}" data-listidx="{{index}}" data-type="N" data-code="{{dateUtil.parse(item.ext1).modifyQuotaCode}}">
+          <button size='mini' formType="submit">拒绝</button>
+        </form>
+
+        <form bind:submit="agreeOrNot" report-submit="true" data-pageindex="{{pageIndex}}" data-listidx="{{index}}" data-type="Y" data-code="{{dateUtil.parse(item.ext1).modifyQuotaCode}}">
+          <button size='mini' formType="submit">同意</button>
+        </form>
+
+
+
+      </view>
+
+      <view class='status' wx:if="{{dateUtil.parse(item.ext1).applyQuotaStatus&&dateUtil.parse(item.ext1).applyQuotaStatus==2}}">
+        <image mode="widthFix" src="https://aio.manytrader.net/preViewUploadFile/images/icon_agree@2x.png"></image>
+        <view class='agreed '>已同意
+          <text wx:if="{{dateUtil.parse(item.ext1).isEdit&&dateUtil.parse(item.ext1).isEdit==1}}">，有修改</text>
+        </view>
+      </view>
+
+      <view class='status' wx:if="{{dateUtil.parse(item.ext1).applyQuotaStatus&&dateUtil.parse(item.ext1).applyQuotaStatus==3}}">
+        <image mode="widthFix" src="https://aio.manytrader.net/preViewUploadFile/images/list_icon_refuse@3x.png"></image>
+        <view class='agreed red '>已拒绝</view>
+      </view>
+
+    </view>
+    </block>
+  </view>
+</block>
+
+  </view>
+
+  <view class='message_bottom borderT'>
+    <button class='bgblue' bindtap='allRead' wx:if="{{emptyPage==false}}">全部已读</button>
+  </view>
+
+<!-- 没有更多数据的时候 -->
+  <view class='textC emptyPage' wx:if="{{catchBottom&&emptyPage==false}}"> ~没有更多消息了~</view>
+
+  <!-- 填充底部 -->
+  <view class='penddingView'></view>
+
+  <!-- 数据为空的时候 -->
+  <view class='textC emptyView' wx:if="{{emptyPage}}">
+    <image class='emptyImg' src='https://aio.manytrader.net/preViewUploadFile/images/empty.png'></image>
+    <view class='textC '> ~暂无消息~</view>
+  </view>
+
+  
+</view>

@@ -1,0 +1,84 @@
+/* 选项 */
+page{
+    background: #fff;
+}
+.limit{
+  background: #fff;
+}
+
+.options-limit {
+  padding-left: 30rpx;
+}
+
+.options-limit .item {
+  display: flex;
+  justify-content: space-between;
+  height: 96rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.options-limit button.item {
+  padding: 0;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.options-limit button.item::after {
+  border: none;
+}
+
+.options-limit .item:last-child {
+  border-bottom: 0;
+}
+
+.options-limit .left {
+  display: flex;
+  align-items: center;
+}
+
+.options-limit .left image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.head-section image.left {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.options-limit .left text {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+.options-limit .left .title{
+  width: 150rpx;
+  color: #222;
+}
+
+.options-limit .right {
+  display: flex;
+  align-items: center;
+  padding-right: 30rpx;
+}
+
+.mid{
+  display: flex;
+  align-items: center;
+  padding-right: 30rpx;
+}
+
+.limit button{
+  background-color: #4d65fd;
+  color: #fff;
+  margin-top: 50rpx;
+}
+.applyBtn{
+  font-size: 30rpx;
+  width: 90%;
+  margin-top: 30rpx;
+  margin: 0 auto;
+
+}

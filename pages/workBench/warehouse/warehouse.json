@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "补充仓库",
+  "usingComponents": {
+        "region": "/components/region/region"
+  }
+}

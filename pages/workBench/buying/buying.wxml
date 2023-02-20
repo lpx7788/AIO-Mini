@@ -1,0 +1,409 @@
+ <!--pages/workBench/buying/buying.wxml-->
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+<view class='buying'>
+
+  <!-- 指定公司 -->
+  <view class='appoint_company'>
+    <view class='flex'>
+      <text>指定公司发布</text>
+      <switch bindchange="switchCompanyChange" checked='{{showAppointCompany}}' style="zoom:.7;" color="#4d65fd" />
+    </view>
+    <view class='tip' wx:if="{{showAppointCompany }}">关闭后，所有公司都可以看到该信息</view>
+    <view class='tip' wx:else>开启后，只有指定公司才可以看到该信息</view>
+
+    <view class='appoint_company_item' wx:if="{{showAppointCompany }}" data-url='../../workBench/company/company' bindtap='goto'>
+      <view class="appoint_company_item_content">
+        <text class='label'>指定公司</text>
+        <text class='companyName textOverflow' style='width:400rpx !important;'>{{showCompanyName?showCompanyName:'请选择公司'}}</text>
+      </view>
+      <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'></image>
+    </view>
+  </view>
+
+  <!-- 商品种类 -->
+  <view class='selection'>
+    <view class='selection_item mb10'>
+      <view class='left'>
+        <text>商品种类</text>
+        <view class='selection_item_content'>
+          <view wx:if="{{delayMidpointsData.categoryName}}">{{delayMidpointsData.categoryName}}</view>
+          <category wx:else bind:categoryValue="getCategoryCode" required="{{true}}"></category>
+        </view>
+      </view>
+      <view class='right'>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'></image>
+      </view>
+    </view>
+
+    <!-- 作价方式 -->
+    <view class='selection_item'>
+      <view class='left'>
+        <text>作价方式</text>
+        <view class='selection_item_content'>
+          <view wx:if="{{priceTypeName}}"> {{delayMidpointsData.priceTypeName}}</view>
+          <picker wx:else bindchange="bindPriceTypeChange" value="{{priceTypeIdx}}" range="{{priceType}}">
+            <view>
+              {{priceType[priceTypeIdx]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='right'>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'></image>
+      </view>
+    </view>
+
+
+
+    <!-- 输入价格 -->
+    <view class='selection_item' wx:if="{{ priceTypeIdx==0}}">
+      <view class='left'>
+        <text>输入价格</text>
+         <view class='selection_item_content'>
+          <radio-group bindchange="showPrice" >
+            <label class="radio"  wx:for="{{basePricingList}}" wx:key="item">
+              <radio  style="zoom:.7;vertical-align: middle;"  value="{{item.name}}" checked="{{item.checked}}" color="#4d65fd" />
+              <view class='radio' >
+               {{item.value}}
+              </view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+
+
+
+    <!-- 合约月  priceTypeIdx==0点价  priceTypeIdx==1 确定价不显示-->
+    <view class='selection_item' wx:if='{{priceTypeIdx!=1 }}'>
+      <view class='left'>
+        <text>合约月</text>
+        <view class='selection_item_content' wx:if="{{categoryCode}}">
+          <pickerM class='desc textL' bind:chooseEvent='choose' dataTit='{{contractNameArr?contractNameArr:dataTit}}' chooseList='{{ chooseEegionList }}' multiple='{{ multiple }}'></pickerM>
+        </view>
+        <view class='selection_item_content' wx:else bindtap='categoryCodeBtn'>
+          <text class='color9'>{{dataTit}}</text>
+        </view>
+
+      </view>
+      <view class='right'>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'></image>
+      </view>
+    </view>
+
+
+    <!-- <view class='selection_item'>
+      <view class='left'>
+        <text>合约月</text>
+        <view class='selection_item_content'>
+          <picker class='desc textL' bind:chooseEvent='choose' dataTit='{{contractNameArr}}' chooseList='{{ chooseEegionList }}' multiple='{{ multiple }}'></picker>
+          <text  wx:for="{{chooseArray}}" wx:key="item">{{item}}</text>
+        </view>
+      </view>
+      <view class='right'>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'></image>
+      </view>
+    </view> -->
+
+
+    <!-- 升贴水 -->
+    <view class='selection_item border_bot_none mb10' wx:if='{{priceTypeIdx!=1 }}'>
+      <view class='left'>
+        <text>升贴水</text>
+        <view class='selection_item_content'>
+          <radio-group bindchange="showFloatingPrice" >
+            <label class="radio" wx:for="{{floatingPriceRadioList}}" wx:key="item">
+              <radio  style="zoom:.7;vertical-align: middle;"  value="{{item.name}}" checked="{{item.checked}}" color="#4d65fd" />
+              <view class='radio'>
+               {{item.value}}
+              </view>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <!-- <view class='right'> -->
+      <!-- <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'></image> -->
+      <!-- </view> -->
+    </view>
+
+
+    <!-- 商品信息 -->
+    <view class='goods' wx:if="{{attributes.length!=0}}">
+      <view class='selection_item productTitle'>商品信息</view>
+
+      <!-- 商品标题 -->
+      <view class='swiperTabWrap '>
+        <scroll-view class='' scroll-x="ture">
+          <view class='swiperTab'>
+            <text wx:for="{{attributes}}" data-current='{{index}}' catchtap='clickTab' class='swiperTabItem tab {{ index==swiperCurrent ? "active" : "" }}' wx:key>商品{{index+1}}</text>
+          </view>
+        </scroll-view>
+      </view>
+
+      <!-- 商品内容 -->
+      <view class='productList mb10' wx:if="{{attributes.length!=0}}">
+
+        <swiper indicator-dots="{{indicatorDots}}" class='swiperTabItem {{ delayMidpointsData.showFloatingPrice=="Y" ||page=="issue"? "swiper" : "swiperHeight" }}' autoplay="{{autoplay}}" current="{{swiperCurrent}}" interval="{{interval}}" duration="{{duration}}"
+          bindchange='swiperTab'>
+          <swiper-item wx:for="{{attributes}}" wx:key>
+
+            <view class='selection_item'>
+              <view class='left'>
+                <text>规格</text>
+                <view class='selection_item_content'>
+                  <input placeholder='{{item.spec?item.spec:"请输入规格（选填）"}}' data-listIndex="{{index}}" data-name="spec" bindinput='inputValue'></input>
+                </view>
+              </view>
+            </view>
+            <view class='selection_item'>
+              <view class='left'>
+                <text>材质</text>
+                <view class='selection_item_content'>
+                  <input placeholder='{{item.material?item.material:"请输入材质（选填）"}}' data-listIndex="{{index}}" data-name="material" bindinput='inputValue'></input>
+                </view>
+              </view>
+            </view>
+            <view class='selection_item'>
+              <view class='left'>
+                <text>品牌</text>
+                <view class='selection_item_content'>
+                  <input placeholder='{{item.brand?item.brand:"请输入品牌（选填）"}}' data-listIndex="{{index}}" data-name="brand" bindinput='inputValue'></input>
+                </view>
+              </view>
+            </view>
+            <view class='selection_item'>
+              <view class='left'>
+                <text>其它</text>
+                <view class='selection_item_content'>
+                  <input placeholder='{{item.other?item.other:"请输入其它信息（选填）"}}' data-listIndex="{{index}}" data-name="other" bindinput='inputValue'></input>
+                </view>
+              </view>
+            </view>
+            <view class='selection_item'>
+              <view class='left'>
+                <text>仓库</text>
+                <view class='selection_item_content'>
+                  <input placeholder='{{item.wareHouse?item.wareHouse:"请输入仓库"}}' data-listIndex="{{index}}" data-name="wareHouse" bindinput='inputValue'></input>
+                </view>
+              </view>
+            </view>
+
+
+            <view class='selection_item' wx:if="{{priceTypeIdx==1}}">
+              <view class='left'>
+                <text>含税单价</text>
+                <view class='selection_item_content'>
+                  <input placeholder='{{item.basePrice?item.basePrice:"请输入含税单价"}}' data-listIndex="{{index}}" data-name="basePrice" bindinput='inputValue'></input>
+                </view>
+              </view>
+            </view>
+
+            <view class='selection_item'>
+              <view class='left'>
+                <text>数量</text>
+                <view class='selection_item_content'>
+                  <input placeholder='{{item.stockNum==-1?"不限":item.stockNum}}' data-listIndex="{{index}}" data-name="stockNum" bindinput='inputValue'></input>
+                </view>
+              </view>
+            </view>
+            <view class='selection_item' wx:if='{{(delayMidpointsData.showFloatingPrice=="Y"||page=="issue")&&priceTypeIdx!=1}}'>
+              <view class='left'>
+                <text>升贴水</text>
+                <view class='selection_item_content'>
+                  <input placeholder='{{item.floatingPrice?item.floatingPrice:"请输入升贴水"}}' data-listIndex="{{index}}" data-name="floatingPrice" bindinput='inputValue'></input>
+                </view>
+              </view>
+            </view>
+       
+            <view class='flex goodsBtn '>
+              <button data-list="{{index}}" wx:if="{{attributes.length > 1}}" bindtap='delectProduct'>删除商品</button>
+              <button data-list="{{item}}" bindtap='addProduct'>添加商品</button>
+            </view>
+          </swiper-item>
+
+        </swiper>
+      </view>
+    </view>
+
+    <view class='selection_item'>
+      <view class='left'>
+        <text>下单倍数</text>
+        <view class='selection_item_content' style='font-size:25rpx;color:#999;'>
+          <view>开启后，客户或供应商下单需满足</view>
+          <view>倍数要求</view>
+        </view>
+      </view>
+      <view class='right'>
+        <switch style="zoom:.7;" bindchange="switchMultipleChange" checked="{{showMultiple}}" color="#4d65fd"></switch>
+      </view>
+    </view>
+    <view class='selection_item' wx:if="{{showMultiple}}">
+      <view class='left'>
+        <text>最小倍数</text>
+        <view class='selection_item_content'>
+          <input placeholder='{{delayMidpointsData.purchaseMultiplier?delayMidpointsData.purchaseMultiplier:"请输入数量"}}' data-name="purchaseMultiplier" bindinput='getInputValue'></input>
+        </view>
+      </view>
+    </view>
+    <!-- 
+    <view class='selection_item' wx:if='{{delayMidpointsData.showFloatingPrice=="Y" }}'>
+      <view class='left'>
+        <text>延期点价</text>
+        <view class='selection_item_content'>
+        </view>
+      </view>
+      <view class='right'>
+        <switch bindchange="switchDelayChange" checked="{{showDelay}}" style="zoom:.7;" color="#4d65fd"></switch>
+      </view>
+    </view> -->
+
+
+    <view class='selection_item' wx:if='{{priceTypeIdx==0 }}'>
+      <view class='left'>
+        <text>延期点价</text>
+        <view class='selection_item_content'>
+        </view>
+      </view>
+      <view class='right'>
+        <switch bindchange="switchDelayChange" disabled="{{delayDisable}}" checked="{{showDelay}}" style="zoom:.7;" color="#4d65fd"></switch>
+      </view>
+    </view>
+
+    <view class='selection_item' wx:if='{{showDelay }}' bindtap='deadlineTap'>
+      <view class='left mr30'>
+        <text>点价期限</text>
+        <view class='selection_item_content textOverflow'>
+          <text class='' wx:if="{{pricingPeriod==1}}">合约月结束</text>
+          <text class='' wx:if="{{pricingPeriod==2}}">自下单日起，指定有效天数（工作日）</text>
+          <text class='' wx:if="{{pricingPeriod==3}}">指定日期结束</text>
+        </view>
+      </view>
+      <view class='right'>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'></image>
+      </view>
+    </view>
+
+
+    <view class='selection_item' wx:if="{{pricingPeriod==3}}">
+      <view class='left'>
+        <text>指定日期</text>
+        <view class='selection_item_content' bindtap=''>
+          <picker mode="date" value="{{date}}" start="2000-01-01" end="endTimeQuantum" bindchange="bindDateChange">
+            <view class="picker">{{date?date:'请选择日期'}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class='right'>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'></image>
+      </view>
+    </view>
+
+    <view class='selection_item ' wx:if='{{pricingPeriod==2}}'>
+      <view class='left'>
+        <text>有效天数</text>
+        <view class='selection_item_content'>
+          <input placeholder='{{delayMidpointsData.advancePayment?delayMidpointsData.advancePayment:"请输入有效天数"}}' data-name="delayPricingValidDate" bindinput='getInputValue'></input>
+        </view>
+      </view>
+    </view>
+
+
+    <view class='selection_item mb10' wx:if='{{showDelay }}'>
+      <view class='left'>
+        <text>预付款金额</text>
+        <view class='selection_item_content'>
+          <input placeholder='{{delayMidpointsData.advancePayment?delayMidpointsData.advancePayment:"请输入预付款金额"}}' data-name="prepay" bindinput='getInputValue'></input>
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 
+    <view class='selection_item' wx:if='{{delayMidpointsData.showFloatingPrice=="Y" }}'>
+      <view class='left'>
+        <text>延期点价</text>
+        <view class='selection_item_content'>
+        </view>
+      </view>
+      <view class='right'>
+        <switch bindchange="switchDelayChange" checked="{{showDelay}}" style="zoom:.7;" color="#4d65fd"></switch>
+      </view>
+    </view> -->
+
+    <!-- <view class='selection_item' wx:if='{{delayMidpointsData.showFloatingPrice=="Y"||showDelay }}' bindtap='deadlineTap'>
+      <view class='left mr30'>
+        <text>点价期限</text>
+        <view class='selection_item_content'>
+          <text class='' wx:if="{{pricingPeriod==1}}">合约月结束</text>
+          <text class='' wx:if="{{pricingPeriod==2}}">自下单日起，指定有效天数（工作日）</text>
+          <text class='' wx:if="{{pricingPeriod==3}}">指定日期结束</text>
+        </view>
+      </view>
+    </view> -->
+
+
+    <!-- <view class='selection_item mb10' wx:if='{{delayMidpointsData.showFloatingPrice=="Y"||page=="issue" }}'>
+      <view class='left'>
+        <text>预付款金额</text>
+        <view class='selection_item_content'>
+          <input placeholder='{{delayMidpointsData.advancePayment?delayMidpointsData.advancePayment:"请输入预付款金额"}}' data-name="prepay" bindinput='getInputValue'></input>
+        </view>
+      </view>
+    </view> -->
+
+
+    <view class='selection_item'>
+      <view class='left mr30'>
+        <text>交货方式</text>
+        <view class='selection_item_content'>
+          <!-- <view wx:if="delayMidpointsData.deliveryPattern"> {{delayMidpointsData.deliveryPattern}}</view> -->
+          <input placeholder='{{delayMidpointsData.deliveryPattern?delayMidpointsData.deliveryPattern:"请输入交货方式"}}' data-name="deliveryPattern" bindinput='getInputValue'></input>
+          <!-- <input placeholder='请输入或选择交货方式'   data-name="deliveryPattern" bindinput='getInputValue'></input> -->
+          <!-- <select wx:else selectData="{{deliveryPatternSelectData}}" position="{{'top'}}" placeholder="{{'请输入或选择交货方式'}}" bind:getSelectShow="getSelectShow"></select> -->
+        </view>
+      </view>
+    </view>
+    <view class='selection_item'>
+      <view class='left'>
+        <text>开票日期</text>
+        <view class='selection_item_content'>
+          <!-- <text class='' wx:if="{{delayMidpointsData.invoicedateType==1}}">本月开票</text> -->
+          <!-- <text class='' wx:if="{{delayMidpointsData.invoicedateType==2}}">下月开票</text> -->
+          <input placeholder='{{delayMidpointsData.invoicedateType?delayMidpointsData.invoicedateType:"请输入交货方式"}}' data-name="invoicedateType" bindinput='getInputValue'></input>
+
+        </view>
+      </view>
+    </view>
+    <view class='selection_item'>
+      <view class='left'>
+        <text>结算方式</text>
+        <view class='selection_item_content'>
+          <input placeholder='{{delayMidpointsData.settleAccountsType?delayMidpointsData.settleAccountsType:"请输入交货方式"}}' data-name="settleAccountsType" bindinput='getInputValue'></input>
+        </view>
+      </view>
+    </view>
+
+    <view class='selection_item'>
+      <view class='left'>
+        <text>截止日期</text>
+        <view class='selection_item_content' >
+          <timePicker bind:getModifyTime='getModifyTime' data-name="endDate" endDate='{{endDate}}'></timePicker>
+        </view>
+      </view>
+    </view>
+
+    <view class='selection_item mb10'>
+      <view class='left'>
+        <text>备注</text>
+        <view class='selection_item_content'>
+          <input placeholder='{{delayMidpointsData.remark?delayMidpointsData.remark:"请输入备注"}}' data-name="mark" bindinput='getInputValue'></input>
+        </view>
+      </view>
+    </view>
+    <view class='release'>
+      <button bindtap='issueBtn' wx:if="{{page =='issue'}}">确认发布</button>
+      <button bindtap='issueProduct' wx:else>确认发布</button>
+    </view>
+  </view>
+</view>

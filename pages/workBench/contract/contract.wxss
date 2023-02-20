@@ -1,0 +1,130 @@
+
+page{
+  width: 100%;
+  background: #fff;
+  height: 100%;
+  position: relative;
+}
+
+.contractPage {
+  background: #fff;
+  font-size: 30rpx;
+  color: #222;
+  position: relative;
+}
+.contractPage .contentTopview{
+  height:80rpx;
+  width: 100%;
+}
+
+.contractPage .pageTopSelectWrap{
+  width: 100%;
+  background: #fff;
+}
+
+.contractPage .pageTopSelect{
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+}
+
+.contractPage .pageTopSelect image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+.contractPage .item .orderCode{
+   padding-left: 20rpx;
+   font-size: 26rpx;
+}
+.contractPage .item .blod{
+  font-weight: block;
+  display: inline-block;
+}
+.contractPage .item{
+  padding: 0 30rpx;
+}
+.contractPage .itemTop{
+ display: flex;
+ justify-content: space-between;
+ height: 64rpx;
+ align-items: center;
+}
+
+.contractPage .company{
+  padding: 30rpx 0;
+}
+
+.contractPage .company .buy, .contractPage .company .sell{
+  border: 1px solid #4d65fd;
+  border-radius: 8rpx;
+  display: inline-block;
+  padding: 0 5rpx;
+  margin-right: 10rpx;
+}
+
+.contractPage .company .line{
+  width: 100rpx;
+  text-align: center;
+  color: #e5e5e5;
+}
+
+.contractPage .goodStatus{
+  justify-content: space-between;
+  color: #666;
+}
+
+.contractPage .currentStatus{
+  font-size: 26rpx;
+}
+
+.contractPage .buyStatus{
+ font-size: 26rpx;
+ background: rgb(123, 142, 228);
+ border-radius: 8rpx;
+ padding:0 10rpx;
+ color:#fff;
+}
+.contractPage .num{
+  padding: 26rpx 0; 
+}
+
+.contractPage category{
+  position:absolute;
+  left:0;
+  width:100%;
+  opacity:0;
+}
+
+.contractPage .inline{
+  display: inline-block;
+}
+
+.contractPage .time_quantum{
+  position: fixed;
+  left: 0;
+  top: 80rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.contractPage .startTime,.endTime,.allTime{
+  background-color: #fff;
+  padding: 0 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.contractPage .allTime{
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.contractPage .modal{
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}

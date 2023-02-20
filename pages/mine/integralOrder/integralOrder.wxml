@@ -1,0 +1,91 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+
+
+<view class='integralorderMainPage  '>
+  <view class='swiper-tab borderB'>
+    <view class='swiper-tab-item {{ currentTab == 0 ? "active" : "" }}' data-current='0' bindtap='clickTab'>全部</view>
+    <view class='swiper-tab-item {{ currentTab == 1 ? "active" : "" }}' data-current='1' bindtap='clickTab'>待确认</view>
+    <view class='swiper-tab-item {{ currentTab == 2 ? "active" : "" }}' data-current='2' bindtap='clickTab'>待发货</view>
+    <view class='swiper-tab-item {{ currentTab == 3 ? "active" : "" }}' data-current='3' bindtap='clickTab'>已发货</view>
+    <view class='swiper-tab-item {{ currentTab == 4 ? "active" : "" }}' data-current='4' bindtap='clickTab'>已拒绝</view>
+  </view>
+  <view class='orderView'style="height:{{height}}px;width:100%"></view>
+  <view class="rowGaps" />
+</view>
+
+
+<!-- tab内容 -->
+
+    <view class='swiper-tab-swiper integralorderMain '>
+    
+      <block  wx:for="{{dataList}}" wx:key wx:for-item="Mitem">
+      <view  wx:for="{{Mitem}}" wx:key >
+          <view class='orderItem'>
+          <view class='orderItemStatus flex'>
+            <!-- 时间 -->
+            <view class='flex1 flex time'>
+              <view>{{dateUtil.dateFormat(item.createDate,'yyyy-MM-dd hh:mm:ss ')}}</view>
+            </view>
+
+            <block>
+              <!-- 订单状态 1.待确认2.待发货3.已发货4.已拒绝 -->
+              <view class='flex1 textR await' wx:if="{{item.orderStatus==1}}">待确认</view>
+              <view class='flex1 textR await' wx:if="{{item.orderStatus==2}}">待发货</view>
+              <view class='flex1 textR already' wx:if="{{item.orderStatus==3}}">已发货</view>
+              <view class='flex1 textR await' wx:if="{{item.orderStatus==4}}">已拒绝</view>
+            </block>
+          </view>
+
+          <!-- 中部 -->
+          <view class='orderItemDetail borderB'>
+
+            <view class='orderItemTop itemMainImage'>
+              <view class='img border'>
+                <image wx:if="{{item.commodityPhoto}}" src='{{item.commodityPhoto}}'  mode="aspectFit"></image>
+              </view>
+              <view class='orderItemTopRight'>
+                <text class='title'>{{item.commodityName}}</text>
+                <text>兑换数量：{{item.cashingNum?item.cashingNum:'0'}}</text>
+                <text>扣除积分：{{item.spendingIntegral?item.spendingIntegral:'0'}}</text>
+              </view>
+
+            </view>
+
+            <block wx:if="{{item.more}}">
+              <view class='detailItem textOverflow'>
+                <text>积分订单号：</text>{{item.integralOrderCode}}</view>
+
+              <view class='detailItem textOverflow'>
+                <text>收货人：</text>{{item.consigneeName}}</view>
+
+              <view class='detailItem textOverflow'>
+                <text>手机号码：</text>{{item.consigneePhone}}</view>
+
+              <view class='detailItem adressWrap  '>
+                <text class='flex'>收货地址：</text>
+                <text class='adress'>{{item.province}}{{item.city}}{{item.area}}{{item.address}}</text>
+              </view>
+              <view class='flex1 flex detailItem'>
+                <text>其他信息：</text>
+                <text class='orderDetail'>{{item.logisticsCompany?item.logisticsCompany+',':''}}{{item.logisticsCode?'物流单号'+item.logisticsCode+',':''}}{{item.remark?item.remark:''}}</text>
+              </view>
+
+            </block>
+          </view>
+          <!-- 底部 -->
+          <view class='buyer flex' bindtap='showBtn' data-listidx="{{index}}" >
+            <view class='flex1 textR right'>
+              <image wx:if="{{item.more}}" src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_up@2x.png'></image>
+              <image wx:else src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_down@2x.png'></image>
+            </view>
+          </view>
+
+        </view>
+       
+        <view class='rowGaps {{typeFixed?"pt":""}}'></view>
+      </view>
+ </block>
+   <view class='emptyPage textC' style='margin:0 !important' wx:if="{{emptyPage}}">~暂无数据~</view>
+ </view>
+    

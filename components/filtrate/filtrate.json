@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "category": "/components/category/index"
+  },
+  "navigationBarTitleText": "筛选"
+}

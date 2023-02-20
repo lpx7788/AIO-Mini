@@ -1,0 +1,159 @@
+<!-- 标题 -->
+<view class='workBenchPage'>
+  <view class='section title-section flex' wx:if="{{currentCompany&&status==2}}" data-url='../../mine/changeCompany/changeCompany' bindtap='goto'>
+    <view>
+      <text class='currentCompany'>当前公司: {{currentCompany}}</text>
+    </view>
+    <view class=' switchCompany'>
+
+      <image src='https://aio.manytrader.net/preViewUploadFile/images/btn_switchcompany.png' />
+    </view>
+  </view>
+
+  <!-- 消息中心 -->
+  <view class='flex message'>
+    <view class='item flex1 textC' data-url='../orderMessage/orderMessage?type=1' bindtap='goto' >
+      <view class='messageImg'>
+      
+        <text class='numTips' wx:if="{{ mssagObj.orderMsg>0 }}">{{mssagObj.orderMsg}}</text>
+
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_mes_order.png' />
+      </view>
+      <text>订单消息</text>
+    </view>
+    <view class='item flex1 textC' data-url='../orderMessage/orderMessage?type=2' bindtap='goto'>
+      <view class='messageImg'>
+        <text class='numTips'wx:if="{{ mssagObj.quotaMsg>0 }}">{{mssagObj.quotaMsg}}</text>
+
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_mes_magnitude.png' />
+      </view>
+      <text>额度消息</text>
+    </view>
+    <view class='item flex1 textC' data-url='../orderMessage/orderMessage?type=3' bindtap='goto'>
+      <view class='messageImg'>
+        <text class='numTips'wx:if="{{ mssagObj.systemMsg>0 }}">{{ mssagObj.systemMsg}}</text>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_mea_system.png' />
+      </view>
+      <text>系统消息</text>
+    </view>
+  </view>
+
+  <!-- head-tit标题 -->
+  <view class='headTit'>
+    <view class='mainTitle bold'>
+      <text>买家中心</text>
+    </view>
+<!-- 
+    <view class='more blue' data-url='../buying/buying?page=issue' id='' bindtap='goto'>
+      <text>+</text>
+      <text>发布求购</text>
+    </view> -->
+  </view>
+
+  <!-- 购物中心 -->
+  <view class='shopCenter'>
+    <view class='flex borderB'>
+      <view class='list flex flex1 ' data-url='../order/order?type=1' bindtap='goto'>
+        <view class='flex1 centerImg'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_mall_buy@2x.png' />
+        </view>
+        <view class="flex2">
+          <text class='num blue'>{{mssagObj.buyersPurchase>0 ?mssagObj.buyersPurchase:0}}</text>
+          <view class='orderTyle {{mssagObj.buyersPurchase<=0 ? "" : "" }}'>商城采购订单</view>
+        </view>
+      </view>
+
+      <view class='list flex flex1 borderL' data-url='../order/order?type=2' bindtap='goto'>
+        <view class='flex1 centerImg'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_ask_buy@2x.png' />
+        </view>
+        <view class="flex2">
+          <text class='num blue' >{{ mssagObj.buyersSales>0?mssagObj.buyersSales:0}}</text>
+          <view class='orderTyle {{mssagObj.buyersSales<=0 ? "" : "" }}'>求购大厅订单</view>
+        </view>
+      </view>
+    </view>
+    <view class='flex' >
+      <view class='list flex flex1 '  data-url='../contract/contract' bindtap='goto'>
+        <view class='flex1 centerImg'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_contract_buy@2x.png' />
+        </view>
+        <view class="flex2">
+          <text class='num blue'>{{ mssagObj.purchaseContract>0?mssagObj.purchaseContract:0}}</text>
+          <view class='orderTyle {{mssagObj.purchaseContract<=0 ? "" : "" }}'>采购合同</view>
+        </view>
+      </view>
+
+      <view class='list flex flex1 borderL' data-url='../askToBuy/askToBuy' bindtap='goto'>
+        <view class='flex1 centerImg'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_buylist_buy@2x.png' />
+        </view>
+        <view class="flex2">
+          <!-- <text class='num blue'>{{mssagObj.buyersSales}}</text> -->
+          <view class='orderTyle myBuy'>我的求购</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- head-tit标题 -->
+  <view class='headTit'>
+    <view class='mainTitle bold'>
+      <text class='sellerTit'>卖家中心</text>
+    </view>
+    <!-- <view class='more ' data-url='./why_list' id='' bindtap='goto'>
+      <text>+</text>
+      <text>发布报价</text>
+    </view> -->
+  </view>
+
+  <view class='openApp flex'>
+    <view class='font30 color6'>请登录聚点商城APP或网页端操作</view>
+  
+    <!-- <navigator url="../../mine/webView/webView"> -->
+      <view class='font28 blue' bindtap="openAPP">打开APP</view>
+    <!-- </navigator> -->
+
+    <view class='font28 color9'>网页端地址: <text selectable='true'> https://www.manytrader.net/</text></view>
+  </view>
+  <!-- head-tit标题 -->
+  <view class='headTit '  wx:if="{{roleCode!=2&&roleCode}}">
+    <view class='mainTitle bold'>
+      <text class='manageTit'>企业管理</text>
+    </view>
+  </view>
+
+  <!-- 企业管理 -->
+  <view class=' manage' wx:if="{{roleCode!=2&&roleCode}}">
+    <view class='flex borderB'>
+      <view class='list flex1 ' data-url='../staffManagement/staffManagement?type=1' bindtap='goto'>
+        <view>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_staff_appleant@2x.png' />
+        </view>
+        <view class="flex tit">
+          <view>员工申请
+            <text class='numTips' wx:if="{{ mssagObj.employeeApply>0 }}">{{mssagObj.employeeApply}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='list flex1 borderL' data-url='../staffManagement/staffManagement?type=2' bindtap='goto'>
+        <view>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_staff_manage@2x.png' />
+        </view>
+        <view class="flex tit">
+          <view>员工管理</view>
+        </view>
+      </view>
+    </view>
+    <view class='textC more'>更多功能请
+     
+    <!-- <navigator url="../../mine/webView/webView"> -->
+      <view class='blue' bindtap="openAPP">打开APP</view>
+    <!-- </navigator> -->
+
+    </view>
+    <view class="rowGaps" /></view>
+
+</view>
+

@@ -1,0 +1,46 @@
+<!--pages/mine/integralDescription/integralDescription.wxml-->
+<view class='integralDpPage'>
+  <view class='pageTop'>积分是由大宗聚点商城平台方发放，用户若满足积分领取条件，会自动领取积分到积分账户。积分领取后，属于用户个人所有，与用户认证的公司抬头无关，若用户通过非正常途径或非法途径盗取积分，平台方有权将其账户冻结及积分清零。</view>
+
+  <view class='pageContent'>
+    <block>
+
+      <view class='contentList'>
+        <view class='title'>积分获取条件：</view>
+        <view  class='detail'>
+          <text>1. 被评为专业买手的用户，可以获得积分，对指定公司发布的指定品种，下单成功后，可获得一定积分；</text>
+          <text>2. 订单取消后，即将获得积分取消；</text>
+          <text>3. 订单成交并生成合同后，可获得积分=成交数*每吨赠送积分数；注此时，之前的对应的即将获得积分记录会消失，因为已变成可获得积分。</text>
+          <text>4. 完成平台任务，可获得相应积分奖励。</text>
+       </view>
+      </view>
+
+      <view class='contentList'>
+        <view class='title'>积分使用规则：</view>
+        <view class='detail'>
+          <text>1. 积分兑换，需满足兑换物的最低兑换积分，才可兑换，兑换后，会扣除相应积分；</text>
+          <text>2. 申请积分兑换后，会生成积分兑换订单，平台会进行确认，若发现用户通过非正常手段获得积分，则该积分兑换无效，所获得的积分也会被清空，情况严重者，会做封号处理并保留法律追究的权利；</text>
+          <text>3. 积分兑换后，若因为自身原因，填错地址或收货人者，平台概不负责。</text>
+       </view>
+      </view>
+
+      <view class='contentList'>
+        <view class='title'>积分有效期：</view>
+        <view class='detail'>
+          <text>1. 用户所获得的积分最长可拥有一年有效期，次年1月1号0点，用户积分会自动清零；</text>
+          <text>2. 用户账号被冻结或删除时，其拥有的积分也会一起被冻结或删除；</text>
+          <text>3. 非法获取积分者，平台方有权将其积分清零。</text>
+       </view>
+      </view>
+    </block>
+
+
+
+  </view>
+
+  <view class='pageBotton'>
+    <text>本积分最终解释权归广州众咖信息科技服务有限公司所有</text>
+    <text>如果疑问，可联系平台客服：020-89855351</text>
+  </view>
+
+</view>

@@ -1,0 +1,25 @@
+<!--pages/mine/changePhoneNum/changePhoneNum.wxml-->
+<view class='changephone'>
+  <view class='section options-section'>
+
+    <view class='item'>
+      <view class='left'>
+          <image class='icon' src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_phone@2x.png' mode='widthFix'></image>
+          <input type='digit' placeholder="输入新的手机号码" bindinput="phoneInput"></input>
+      </view>
+    </view>
+    
+    <view class='item'>
+      <view class='left'>
+          <image class='icon' src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_guide@2x.png' mode='widthFix'></image>
+          <input type="text" placeholder="输入验证码" bindinput="vFInput"></input>
+      </view>
+      <view class='right verification'>
+          <text wx:if="{{verification}}" bindtap='getVerification' >获取验证码</text>
+          <text wx:else>剩余{{second}}秒</text>
+      </view>
+    </view>
+  </view>
+
+  <button bindtap='resetPassword'>确认更换</button>
+</view>

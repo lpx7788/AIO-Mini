@@ -1,0 +1,31 @@
+<!--pages/mine/aboutUs/aboutUs.wxml-->
+<view class='aboutUs'>
+  <view class="content_top" style="font-size:40rpx;text-align:center;">
+    聚点商城云服务平台
+  </view>
+  <view>
+    <view style="font-size:30rpx;">关于我们： </view>
+  </view>
+  <view style="font-size:30rpx;">
+    <view class='MsoNormal'>
+      <view>
+        我们是一家充满活力同时拥有资深行业经验和知识的公司——广州众咖信息科技服务有限公司！
+      </view>
+      <view>
+        我们致力于为为大宗商品供应链金融完美闭环提供专业的贸易定价、行情策略、智能可视化数据，从商品求购、定价成交到财务合同完成实现高效无缝对接流转。我们认为，技术创新和成熟只是基本要求。能够量身定制才是当今市场的杀手锏。我们能够快速了解客户的需求，通过与市场行情的紧密结合，为企业客户定制适合企业贸易发展的大宗商品交易点价解决方案，以确保企业客户的贸易投资获得最大收益。
+      </view>
+      <view>
+        我们致力于提供大宗商品行业上下游仓储、运输、加工、物流贸易服务全覆盖的产业电商平台。
+      </view>
+      <view>
+        我们致力于提供大宗商品各品种的库存、价格、资金等大数据可视化展现以及实现各数据不同参数预警定制化服务的智能数据平台。
+      </view>
+    </view>
+  </view>
+  <br />
+  <br />
+  <view class="sign" style="text-align:right;font-size:25rpx;">
+    广州众咖信息科技服务有限公司 <br />
+  二〇一八年三月十三日
+  </view>
+</view>

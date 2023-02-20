@@ -1,0 +1,107 @@
+.modal-dialog .show-btn {
+  margin-top: 100rpx;
+  color: #22cc22;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 587rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  background: #f9f9f9;
+ transform: translate(-50%,-50%)
+
+}
+
+.modal-dialog .modal-title {
+  padding-top: 30rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+  font-weight: bold;
+}
+
+.modal-content {
+  padding:30rpx;
+}
+
+.modal-dialog .modal-cont {
+  background: #fff;
+}
+.modal-dialog .modal-cont text{
+  margin-top: 10rpx;
+}
+
+.modal-dialog .input {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+}
+
+.modal-dialog input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-dialog .modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.modal-dialog .btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.modal-dialog .content .title {
+  margin-top: 20rpx;
+}
+
+.modal-dialog .br{
+  height: 30rpx;
+  width: 100%;
+}
+.modal-dialog .btn-confirm {
+  width: 50%;
+  color: blue;
+  text-align: center;
+}
+
+.modal-cont .red{
+  color: red;
+}
+.modal-cont{
+  padding: 30rpx;
+}
+.bgblue{
+  background: #4d65fd ;
+  color: #fff;
+  font-size:24rpx;
+  padding:6rpx;
+
+}

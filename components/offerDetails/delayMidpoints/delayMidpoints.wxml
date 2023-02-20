@@ -1,0 +1,96 @@
+<!-- 选项 -->
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+
+<view class='delayPage options-limit'>
+
+  <prop wx:if="{{showModal}}" dataList="{{propList}}" bind:onMyprop='onMyprop'></prop>
+  <view class='delayDec blue'>
+    <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_notice_meseage@2x.png'></image>
+    延期点价，可以先下单锁货，可在设定的点价期限内，可分多次点价，点价期结束后，再按照点价的价格结算。若过了点价有效期，未点价部分将按照点价有效期最后一个工作日的该合约月的期货结算价确定结算价。
+  </view>
+  <view class='delayCart  {{dataList.deliveryType==2?"orange":"bgblue"}}'>
+    <view>
+      <view class=' colorWhite font30 topTips'>
+        <view class='itemTop '>
+          <text class='font32'>{{dataList.categoryName}}</text> 
+          <text wx:if="{{defaultDateList.brand||defaultDateList.spec||defaultDateList.material}}"> | {{defaultDateList.brand}}{{defaultDateList.spec}}{{defaultDateList.material}}
+        </text>
+
+        </view>
+        <view class='itemMid '>
+          <text class='font36'>￥{{lastPrice? (dateUtil.number(lastPrice)+(dateUtil.number(defaultDateList.floatingPrice)?dateUtil.number(defaultDateList.floatingPrice):0) ):'--'}}</text>
+          <text class='font28' wx:if="{{dataList.priceType!=2}}"> ({{dataList.contractValues[0].contractName}}{{defaultDateList.floatingPrice>=0?'+':''}}{{defaultDateList.floatingPrice}})</text>
+          <text class='font28' wx:if="{{dataList.priceType==2}}"> (确定价)</text>
+
+        </view>
+        <view class='itemEnd flex '>
+          <view>
+            <text>数量：{{defaultDateList.stockNum==-1?'不限':defaultDateList.stockNum}}{{defaultDateList.stockNum==-1?'':defaultDateList.numUnit}}</text>
+          </view>
+          <view wx:if="{{defaultDateList.floatingPrice}}">
+            <text class='font28'>升贴水:{{defaultDateList.floatingPrice}}元/吨</text>
+          </view>
+          <view>
+
+
+          <button class='selling' wx:if="{{defaultDateList.releaseStatus==1}}">{{type==2?'求购中':'在售中'}}</button>
+          <button class='selling' wx:if="{{defaultDateList.releaseStatus==2}}">{{type==2?'已完成':'已售完'}}</button>
+          <button class='selling' wx:if="{{defaultDateList.releaseStatus==3}}">已下架</button>
+          <button class='selling' wx:if="{{defaultDateList.releaseStatus==4}}">已删除</button>
+          </view>
+
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='delayItem'>
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>点价期限：</text>
+        <text class='' wx:if="{{dataList.pricingPeriod==1}}">合约月结束</text>
+        <text class='' wx:if="{{dataList.pricingPeriod==2}}">下单日起{{dataList.delayPricingValidDate}}个工作日内</text>
+        <text class='' wx:if="{{dataList.pricingPeriod==3}}">{{dateUtil.formatTime(dataList.delayPricingEndDate,'')}}前</text>
+
+      </view>
+    </view>
+
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>点价合约：</text>
+        <text class=''>{{dataList.contractValues[0].contractName}}</text>
+      </view>
+    </view>
+
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>可用额度：</text>
+        <text class='red'>{{quotaData?quotaData:0}}吨</text>
+      </view>
+    </view>
+
+
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>下单数量</text>
+        <input placeholder='请输入下单的额度' type='digit' bindinput='getPlaceNum'></input>
+        <text class=''>吨</text>
+      </view>
+    </view>
+
+    <view class='item'>
+      <view class='left'>
+        <text class='title'>预付款金额</text>
+        <text class='red'><text class='red'>{{advancePaymentPrice?advancePaymentPrice:0}}</text>元</text>
+      </view>
+    </view>
+  </view>
+
+
+<!-- 操作按钮 -->
+  <form bind:submit="placeOrder" report-submit="true"> 
+    <button class='mainBtn  {{dataList.deliveryType==2?"orange":"bgblue"}}' formType="submit">下单{{dataList.deliveryType==1?'采购':'销售'}}</button>
+  </form>
+</view>

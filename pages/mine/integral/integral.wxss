@@ -1,0 +1,181 @@
+/* pages/mine/integral/integral.wxss */
+page{
+  /* background: #fff; */
+   /* height: 2000rpx; */
+  height: 100%;
+  width: 100%;
+}
+
+
+.integralPage {
+ background:#f1f1f1;
+  padding-top: 20rpx;
+}
+.integralPage .integralList{
+  background: #fff;
+}
+.integralPage .pageTop,.integralPage .pagebottom {
+  font-size: 36rpx;
+  color: #222;
+  margin:0 30rpx 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 30rpx;
+}
+.integralPage .pagebottom {
+  position: fixed; 
+  width: 100%;
+  bottom: 0;
+}
+
+.integralPage .pageTop text{
+  font-size: 36rpx;
+}
+
+.integralPage .pageTop .title{
+  color: #666;
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.integralPage .pageTop .borderR,.integralPage .pageTop .borderL{
+  border-color: #f1f1f1;
+}
+
+.integralPage .pageTop text{
+  text-align: center;
+}
+
+.integralPage .pagebottom image{
+  width: 44rpx;
+  height: 44rpx;
+}
+.integralPage .commodityName{
+ color: #555;
+}
+
+.integralPage .pagebottom text{
+  display: block;
+  font-size: 32rpx;
+  color: #999;
+}
+
+.integralPage .pagebottom {
+  margin: 0;
+}
+
+
+
+/* 顶部tab */
+
+.swiper-tab-swiper,integralList{
+  height: 100%;
+}
+
+.integralPage .swiperTab {
+  display: flex;
+  height: 90rpx;
+  align-items: center;
+  width: 100%;
+  z-index: 9;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fdfdfd;
+
+}
+
+.integralPage .tabItem {
+  font-size: 34rpx;
+  color: #666;
+  padding: 0 16rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+  flex: 1;
+  text-align:ceter;
+}
+
+.integralPage .tabItem.industry image {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  bottom: 0;
+  left: -30rpx;
+}
+
+.integralPage .tabItem.active {
+  color: #4d65fd;
+}
+
+.integralPage .tabItem.active:after {
+  content: '';
+  display: block;
+  width: 100rpx;
+  height: 6rpx;
+  left: 50%;
+  background: #4d65fd;
+  position: absolute;
+  margin-left: -50rpx;
+  bottom: -24rpx;
+}
+.integralPage .itemContet .itemL{
+  font-weight: bold;
+}
+.integralPage .itemContet .itemR{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.integralPage .itemContet .itemM .num{
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
+}
+
+.integralPage .itemContet .itemM{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 30rpx;
+
+}
+.integralPage .itemContet .itemR text{
+ color: #e7505a;
+ border: 1px solid #e7505a;
+ padding:6rpx 20rpx;
+ border-radius: 30rpx;
+
+}
+.integralPage .itemContet {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.integralPage .itemMainImage {
+  width: 180rpx;
+  height: 130rpx;
+}
+.integralPage .itemMainImage image{
+  height: 100%;
+  width: 100%;
+}
+.integralPage .typefixed{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.integralPage .emptyPage{ 
+ margin: 30rpx;
+} 
+.pagebottomView{
+  height: 180rpx;
+  width: 100%;
+}

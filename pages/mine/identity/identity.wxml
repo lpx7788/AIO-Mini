@@ -1,0 +1,136 @@
+<!--pages/mine/identity/identity.wxml-->
+<view class='identity' bindsubmit="formSubmit">
+  <view class='head-tip'>
+    <view class='tip'>
+      <image src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_setting@2x.png'></image>
+      <text>根据国家网络安全法，需核实您的真实身份，核实资料只有相关工作人员可见，其他人不可见。</text>
+    </view>
+  </view>
+  
+  <!-- <view bindtap='approveDown'>模板下载</view> -->
+  <pageTit propnNme="个人信息"></pageTit>
+
+  <view class='userData'>
+    <view class='section options-section'>
+      <view class='item'>
+        <view class='left'>
+          <text>真实姓名</text>
+          <input wx:if="{{!userNameCheck}}" type="text" placeholder="{{userName?userName:'请输入姓名'}}" bindinput='userNameInput'></input>
+          <text wx:if="{{userNameCheck}}">{{userName}}</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <text>身份证号</text>
+          <input wx:if="{{!userIdentityCheck}}" placeholder="{{userIdentity?userIdentity:'请输入身份证号'}}" bindinput='userIdentityInput'></input>
+          <text  wx:if="{{userIdentityCheck}}">{{userIdentity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <pageTit propnNme="企业信息"></pageTit>
+  <view class='companyData'>
+    <view class='section options-section'>
+      <view class='item'>
+        <view class='left'>
+          <text>企业名称</text>
+    
+          <input type="text" bindinput='companyNameInput'  placeholder="{{companyName?companyName:'请输入企业名称'}}" ></input>
+        </view>
+      </view>
+
+
+    <!-- <view wx:if="{{joinMsg}}"  >
+         <view class='tip' wx:if="{{}}">
+        <view class='left'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_setting@2x.png'></image>
+          <text class='enter-tip'>该企业没有入驻平台，请填写以下信息，申请入驻</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <text>企业所在城市</text>
+          <region class='regionComponents' bind:regionValue="getRegionCode"></region>
+        </view>
+        <view class='right'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <text>企业身份</text>
+            <picker bindchange="bindIdentityChange" value="{{indexIdentity}}" range="{{identity}}">
+              <view>
+                {{identity[indexIdentity]}}
+              </view>
+            </picker>
+        </view>
+        <view class='right'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+        </view>
+      </view>
+
+      <view class='item'>
+        <view class='left'>
+          <text>交易品种</text>
+          <category class='categoryComponents' placeholder="{{'(选填,可多选)'}}" multiple="{{true}}" required="{{true}}" bind:categoryValue="getCategoryCode"></category>
+        </view>
+        <view class='right'>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+        </view>
+      </view>
+
+      <view class='item'>
+        <view class='left'>
+          <text>注册资本</text>
+          <input type="number" bindchange="registeredCapitalInput"  placeholder='(选填)'></input>
+          <text>万元</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <text>社会信用代码</text>
+          <input type="text" bindchange="creditNumInput" placeholder='请输入社会代码'></input>
+        </view>
+      </view>
+      <view class='item item-upload-license'>
+        <view class='left'>
+          <text>营业执照</text>
+          <view class='upload'>
+            <text bindtap='uploadLicense' id="1" wx:if="{{!fillImageFile}}">+</text>
+            <image  bindtap='uploadLicense' class="img border" wx:if="{{fillImageFile}}" src="{{fillImageFile}}"></image>
+          </view>
+        </view>
+      </view>
+      <view class='item item-upload-approve'>
+        <view class='left'>
+          <text>认证授权书</text>
+          <view>
+            <text class='template' bindtap='approveDown'>模板下载</text>
+            <view class='upload'>
+              <text bindtap='uploadLicense' id="2"  wx:if="{{!fillAuthorizationFile}}">+</text>
+              <image  bindtap='uploadLicense' class="img border"  wx:if="{{fillAuthorizationFile}}" src="{{fillAuthorizationFile}}"></image>
+            </view>
+          </view> 
+        </view>
+      </view>
+    </view> -->
+
+    </view>
+  </view>
+
+  <!-- <view class='interval'></view> -->
+  <!-- <view wx:if="{{joinMsg}}">
+    <view class='rules'>
+      <image src='https://aio.manytrader.net/preViewUploadFile/images/checkbox_n@2x.png' bindtap='changeChecked' wx:if="{{!greedChecked}}"></image>
+      <image src='https://aio.manytrader.net/preViewUploadFile/images/checkbox_p@2x.png' bindtap='changeChecked' wx:if="{{greedChecked}}"></image>
+
+      我已阅读并同意 <text >《大宗聚点商城平台交易服务协议》</text><text wx:if="{{indexIdentity!=1}}">、《大宗聚点商城平台买家交易规则》</text><text wx:if="{{indexIdentity!=0}}">、《大宗聚点商城平台卖家交易规则》</text>
+    </view>
+  </view> -->
+ <!-- 全部信息 -->
+  <!-- <button wx:if="{{joinMsg}}"  bindtap='submitBtn'>提交认证</button> -->
+  <!-- 部分信息 -->
+  <button   bindtap='validationBtn'>提交认证</button>
+</view>

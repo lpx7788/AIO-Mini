@@ -1,0 +1,83 @@
+{
+  "pages": [
+    "pages/home/index/index",
+    "components/search/searchResult/index",
+    "pages/mine/setPW/setPW",
+    "pages/mine/changePhoneNum/changePhoneNum",
+    "pages/workBench/warehouse/warehouse",
+    "pages/workBench/company/company",
+    "pages/mine/index/index",
+    "pages/workBench/index/index",
+    "pages/workBench/order/order",
+    "pages/workBench/orderMessage/orderMessage",
+    "pages/workBench/orderDetail/orderDetail",
+    "pages/workBench/orderRecord/orderRecord",
+    "pages/login/index/index",
+    "pages/mine/set/set",
+    "pages/mine/changePW/changePW",
+    "pages/mine/aboutUs/aboutUs",
+    "pages/mine/privacy/privacy",
+    "pages/mine/protocol/protocol",
+    "pages/mine/webView/webView",
+    "pages/mine/identity/identity",
+    "pages/mine/changeCompany/changeCompany",
+    "pages/mine/qrcode/qrcode",
+    "pages/mine/integral/integral",
+    "pages/mine/integralExchange/integralExchange",
+    "pages/mine/integralOrder/integralOrder",
+    "pages/mine/integralDetails/integralDetails",
+    "pages/mine/integralDescription/integralDescription",
+    "pages/workBench/staffManagement/staffManagement",
+    "pages/workBench/buying/buying",
+    "pages/workBench/modifyGoods/modifyGoods",
+    "pages/workBench/employeeDetails/employeeDetails",
+    "pages/workBench/FollowUpNew/FollowUpNew",
+    "pages/workBench/askToBuy/askToBuy",
+    "pages/workBench/inventory/inventory",
+    "pages/workBench/contract/contract",
+    "pages/workBench/contractDetail/contractDetail",
+    "components/offerDetails/index/index",
+    "components/offerDetails/delayMidpoints/delayMidpoints",
+    "components/filtrate/filtrate",
+    "components/userSelect/userSelect",
+    "components/timePicker/timePicker"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "聚点商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#808080",
+    "selectedColor": "#4d65fd",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/home/index/index",
+        "text": "主页",
+        "iconPath": "./images/icon-home.png",
+        "selectedIconPath": "./images/icon-home-active.png"
+      },
+      {
+        "pagePath": "pages/workBench/index/index",
+        "text": "工作台",
+        "iconPath": "./images/icon-course.png",
+        "selectedIconPath": "./images/icon-course-active.png"
+      },
+      {
+        "pagePath": "pages/mine/index/index",
+        "text": "我的",
+        "iconPath": "./images/icon-mine.png",
+        "selectedIconPath": "./images/icon-mine-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

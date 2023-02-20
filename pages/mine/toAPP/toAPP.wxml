@@ -1,0 +1,19 @@
+<!--pages/mine/identityRes/identityRes.wxml-->
+<view class='identityRes'>
+  <view wx:if="{{deviceType=='ios'}}" class='identityResContens'>
+    <image src='https://aio.manytrader.net/preViewUploadFile/images/logo.png'></image>
+    <text class="status-title">无法打开APP</text>
+    <text class='status-contents'>很抱歉，由于微信限制，无法从小程序跳转到APP，若需下载APP请在App Store搜索“聚点商城”自行下载。
+</text>
+  </view>
+  <view wx:else class='identityResContens'>
+    <image src='https://aio.manytrader.net/preViewUploadFile/images/logo.png'></image>
+    <text class="status-title">无法打开APP</text>
+    <text class='status-contents'>很抱歉，由于微信限制，无法从小程序跳转到APP，若需下载APP请在应用市场搜索“聚点商城”自行下载。
+</text>
+  </view>
+</view>
+
+
+
+

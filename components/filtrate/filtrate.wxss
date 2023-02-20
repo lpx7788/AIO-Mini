@@ -1,0 +1,93 @@
+/* components/filtrate/filtrate.wxss */
+.filtrate .selection{
+  display: flex;
+  align-items: center;
+  height: 94rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+}
+.filtrate .category{
+  margin-bottom: 20rpx;
+}
+
+.filtrate .selection .selection_left{
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.filtrate .selection .selection_left .single{
+  font-size: 24rpx;
+  color: #999;
+  padding: 0 10rpx;
+}
+
+.filtrate .selection .selection_right image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-left: 15rpx;
+}
+
+.filtrate .selection .selection_right text{
+  font-size: 24rpx;
+  color: #666;
+}
+
+.filtrate .selection .selection_left .selection_left_content{
+  flex: 1;
+}
+
+.filtrate .optionList{
+  background-color: #fff;
+  padding: 0 30rpx;
+  overflow: hidden;
+  display: flex;
+  
+  flex-wrap: wrap;
+}
+
+.filtrate .optionList .optionList_item:first-child{
+  margin-left: 0;
+}
+
+.filtrate .optionList .optionList_item{
+  display: inline-block;
+  padding: 10rpx 20rpx;
+  border: 1px solid #f0f0f0;
+  border-radius: 52rpx;
+  margin: 10rpx; 
+  color: #666;
+  font-size: 28rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+
+}
+
+.filtrate .button_box{
+  display: flex;
+  padding-top: 90rpx;
+  background-color: #fff;
+  width: 100%;
+  justify-content: space-around;
+  padding: 0 0 30rpx 0;
+}
+
+.filtrate .button_box button{
+  width: 300rpx;
+  font-size: 30rpx;
+}
+
+.filtrate .button_box button:last-child{
+  background-color: #4d65fd;
+  color: #fff;
+}
+.filtrate .optionListHeight{
+  height: 76rpx;
+  overflow: hidden;
+}
+.filtrate .checked{
+  background-color: #4d65fd;
+  color: #fff !important;
+}

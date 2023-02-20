@@ -1,0 +1,27 @@
+<!--pages/mine/changeCompany/changeCompany.wxml-->
+<view class='changeCompany'>
+  <view class='selection'>
+    <view class='selection_item' bindtap='changeCompany' data-listitem="{{item}}" data-companyCode="{{item.companyCode}}"  wx:for="{{companyList}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+      <view class='selection_item_content'> 
+        <text>{{item.companyName}}</text>
+        <view class='flexContents' wx:if="{{item.userCompanyStatus==1}}">
+          认证中
+        </view>
+        <view class='flexContents companystatus flex' wx:if="{{item.userCompanyStatus==3}}">
+          <text class='flex1'>认证失败</text>
+          <text  class='flex1 textR red'  data-url='../identity/identity?companyName={{item.companyName}}' catchtap='goto'>重新认证</text>
+        </view>
+
+        <view wx:if="{{item.userCompanyStatus==2}}" class='flexContents'>
+          <text>{{item.roleCodeExp}}</text>
+        </view>
+      </view>
+      <icon type='success' color="#4d65fd" wx:if="{{item.selected=='Y'}}"></icon>
+    </view>
+  </view>
+
+  <navigator url='../identity/identity'>
+    <button class='button'>添加抬头</button>
+  </navigator>
+  
+</view>

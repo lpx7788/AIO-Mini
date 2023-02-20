@@ -1,0 +1,297 @@
+
+page {
+  background: #fff;
+   height: 2000rpx;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+.swiper-tab-swiper{
+  height: 100%;
+}
+
+.offerPage .topTips{
+  padding:30rpx 30rpx 0 30rpx;
+  font-size: 30rpx;
+}
+.offerPage .tabContent{
+  padding: 30rpx;
+
+}
+.offerPage .topTips .item{
+  height: 60rpx;
+ 
+  line-height: 60rpx;
+}
+.offerPage .itemMid{
+  margin-top: 30rpx;
+ 
+}
+.offerPage .itemEnd{
+  justify-content: space-between;
+  margin-top: 50rpx;
+  border-width: 1rpx;
+  height:100rpx;
+  align-items: center;
+  position: relative;
+  
+}
+.offerPage .itemEnd::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #f1f1f1;
+  color: #f1f1f1;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.3);
+  transform: scaleY(0.3);
+  left: 0;
+  z-index: 2;
+}
+
+/* 顶部tab */
+.offerPage .swiperTab {
+  display: flex;
+  height: 90rpx;
+  align-items: center;
+  width: 100%;
+  z-index: 9;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fdfdfd;
+
+}
+
+.offerPage .tabItem {
+  font-size: 34rpx;
+  color: #808080;
+  padding: 0 16rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+  flex: 1;
+  text-align:ceter;
+}
+
+.offerPage .tabItem.industry image {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  bottom: 0;
+  left: -30rpx;
+}
+
+.offerPage .tabItem.active {
+  color: #4d65fd;
+}
+
+.offerPage .tabItem.active:after {
+  content: '';
+  display: block;
+  width: 130rpx;
+  height: 6rpx;
+  background: #4d65fd;
+  position: absolute;
+  bottom: -16rpx;
+}
+
+.offerPage .tabItem.orange {
+  color: rgb(170, 136, 72) !important;
+  background: none !important;
+}
+
+.offerPage .tabItem.orange:after {
+  content: '';
+  display: block;
+  width: 130rpx;
+  height: 6rpx;
+  background: rgb(170, 136, 72);
+  position: absolute;
+  bottom: -16rpx;
+}
+
+.offerPage .offerBtn{
+  border:none;
+  font-size:30rpx;
+  outline-style:none;
+  position:fixed;
+  bottom:30rpx;
+  z-index:1000;
+  display: flex;
+  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%,0)
+
+}
+.offerPage .offerBtn button{
+  color: #fff;
+  font-size: 30rpx;
+}
+.offerPage .offerBtn .item1{
+  margin-left: 0;
+  background: #fff;
+  border: 1px solid #efefef;
+  color: #666;
+
+}
+.offerPage .pageBtn .deadline{
+  font-size: 28rpx;
+  margin-top:30rpx;
+}
+.offerPage .pageBtn .deadline text{
+  color: #999;
+
+}
+
+.offerPage .pageBtn{
+   position:fixed;
+  bottom:0rpx;
+  background: #fff;
+  z-index: 1000;
+  width: 100%;
+  height:180rpx;
+}
+
+ .bottom{
+  width: 100%;
+  height:200rpx;
+}
+
+.offerPage .tip{
+  color: #fff;
+  text-align: center;
+  background: blue;
+  border-radius: 6rpx;
+  height:38rpx;
+  line-height:38rpx;
+  width:38rpx;
+  margin-top: 5rpx;
+  font-size: 26rpx;
+
+}
+.offerPage .itemTop{
+  height: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.offerPage .itemTop .detailnName{
+      display: inline-block;
+   width: 600rpx;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+.offerPage .offerBtn button{
+  color: #fff;
+  font-size: 30rpx;
+  width: 300rpx;
+}
+.offerPage .offerBtn .bug{
+  width:600rpx;
+}
+.offerPage .selling{
+  width:150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  font-size: 32rpx;
+  margin-bottom: 32rpx;
+  border: none;
+  background: orange;
+  border-radius: 30rpx;
+  color: #fff;
+  padding:0;
+  margin: 0;
+  align-items: center;
+  
+}
+.offerPage .swiperTabItem{
+ position: relative;
+ height: 100%;
+}
+.swiperTabItem .product{
+  padding-bottom: 200rpx;
+}
+
+.prParameter view{
+  height:20rpx;
+  line-height:20rpx;
+  padding: 30rpx;
+}
+
+.prParameter text{
+  text-align-last: justify;
+  display: inline-block;
+  width: 70px;
+  font-size: 26rpx;
+}
+.swiper-tab-swiper {
+  height: 100%;
+
+}
+
+.swiper-tab-swiper scroll-view {
+  position: relative;
+}
+.selectGoods{
+  padding:0 30rpx;
+}
+.selectGoods .selectItem{
+  margin-top: 30rpx;
+   font-size:30rpx;
+}
+.selectGoods .selectItem text{
+  font-size: 26rpx;
+}
+.selectGoods .tit{
+  padding: 20rpx 0;
+  font-size: 30rpx;
+}
+.selectGoods .active{
+  color:#fff;
+  background: #4d65fd;
+}
+.selectGoods text{
+  margin-left: 20rpx;
+  border: 1px solid #f0f0f0;
+  padding: 8rpx 20rpx;
+  display: inline-block;
+  border-radius: 30rpx;
+  margin-top: 10rpx;
+}
+.swiperTabItem .item2{
+  padding-bottom: 30rpx;
+}
+
+.offerPage .btn button{
+  bottom: 0 !important;
+}
+.offerPage pageBtnbuy{
+  width:600rpx;margin:0 auto;
+}
+.offerPage .input1 {
+ width:250rpx;padding:10rpx;border-radius:10rpx;
+ margin-right: 10rpx;
+}
+.offerPage .ml{
+  margin-left:20rpx;
+}
+.offerPage .btn1{
+  width:600rpx;margin:0 auto;
+}
+.b0{
+  bottom: 0;
+}
+.inputWrap{
+  align-items: center;
+}
+.orange{
+  color: #fff;
+}

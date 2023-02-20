@@ -1,0 +1,68 @@
+<!--pages/mine/integralExchange/integralExchange.wxml-->
+<view class='integralExchangePage'>
+  <view class='pageTop'>
+    <block>
+      <view class='topL itemMainImage border '>
+        <image  mode="aspectFit" src='{{commodityPhoto}}'></image>
+      </view>
+      <view class='topM'>
+        <view class='mid'>
+          <text class='title'>京东实体卡</text>
+          <text>剩余库存：{{remainingStock?remainingStock:0}}</text>
+          <text>{{cashingIntegral?cashingIntegral:0}}积分</text>
+        </view>
+        <view class='right'>
+          <text>当前积分：{{availableIntegral?availableIntegral:0}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='rowGaps'></view>
+
+  <view class='pageContent'>
+    <block>
+      <view class='flex contentItem borderB'>
+        <text class='tit'>兑换数量</text>
+        <view  class='numberInput border flex'> 
+           <text bindtap='subtract'>-</text>
+           <input value='{{number}}' type='tel' class='borderR borderL' data-name='num' bindinput='getValue'></input>
+           <text bindtap='plus'>+</text>
+        </view>
+        <text>件</text>
+       
+      </view>
+      <view class='flex contentItem borderB'>
+        <text  class='tit'>收货人</text>
+        <input  data-name='name' bindinput='getValue' placeholder='{{consigneeName?consigneeName:"请输入全名"}}'></input>
+      </view>
+      <view class='flex contentItem borderB'>
+        <text  class='tit'>联系电话</text>
+        <input placeholder='{{consigneePhone?consigneePhone:"请输入号码"}}'  type='tel'   data-name='userphone' bindinput='getValue'></input>
+      </view>
+      <view class='flex  contentItem borderB adressSelect'>
+        <text  class='tit'>收货地址</text>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" class='addresspicker'>
+          <view class="picker">
+            <text></text>
+            <text wx:if="{{region.length=='0'}}" class='color9'>请选择</text>
+            <text wx:else>{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
+             <view class='right' >
+              <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'  mode="aspectFit"></image>
+            </view>
+          </view>
+        </picker>
+
+      </view>
+      <view class='adressDetail'>
+      <textarea  data-name='address' bindinput='getValue'  placeholder='请输入详细地址，限100字内'></textarea>
+      </view>
+    </block>
+  </view>
+  <view class='pageBottom'>
+     <view class='score'>本次兑换扣除积分数：<text class='red '>{{deductNumber?deductNumber:cashingIntegral}}</text></view>
+     <view class='operateBtn'>
+       <text class='btn border ' bindtap='cancelBtn'>取消</text>
+       <text class='btn border bgblue' bindtap='confirmBtn'>确认</text>
+     </view>
+  </view>
+</view>

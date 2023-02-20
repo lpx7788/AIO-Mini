@@ -1,0 +1,74 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+<view class='searchPage'>
+
+  <!-- 搜索框 -->
+  <view class='section search-section flex borderB'>
+
+    <view bindtap='selectClick' class='select'>
+      <text class='selectOption textC'>{{keyTitle}}</text>
+      <image class='searchIcon' src='https://aio.manytrader.net/preViewUploadFile/images/title_down@2x.png'></image>
+    </view>
+    <search bind:mysearch='onMySearch' style="width:540rpx;" keyword='{{ keyword }}'></search>
+  </view>
+
+  <view style='width:100%;height:{{tabHeight}}px'></view>
+
+  <!-- 已登录 -->
+  <view class='isLogin' >
+    <block wx:for="{{productList}}" wx:key wx:for-index="index" wx:for-item="Mitem">
+      <view>
+        <block wx:for="{{Mitem}}" wx:key>
+          <view class="goodListItem borderB" data-url='../../../components/offerDetails/index/index?page=2&releaseCode={{item.releaseCode}}&procurementType={{item.deliveryType}}&priceType={{item.priceType}}&attributeCode={{item.attributeCode}}&contractCode={{item.contractCode}}'
+            bindtap='goto'>
+            <view class="left flex">
+              <!-- 1：报价，2：求购 -->
+              <view class='flex tipWrap'>
+                <view class="tips block selling" wx:if="{{item.deliveryType==1}}">售</view>
+                <view class="tips block" wx:if="{{item.sign==1}}">供</view>
+                <view class="tips block" wx:if="{{item.isPresentIntegral==1}}">赠</view>
+                <view class="tips block bgRed" wx:if="{{item.carefullyChosenSeller==1}}">精</view>
+                <view class="tips block orange buying" wx:if="{{item.deliveryType==2}}">购</view>
+                <view class="tips block orange" wx:if="{{item.sign==2}}">客</view>
+              </view>
+            </view>
+            <view class="right flex">
+              <view class="rightTit">
+                <text>{{item.categoryName}}</text>
+                <text class='gap' wx:if="{{item.brand||item.spec||item.material}}"> | </text> {{item.brand}}
+                <text wx:if="{{item.spec}}">·</text>{{item.spec}}
+                <text wx:if="{{item.material}}">·</text >{{item.material}}
+            </view>
+            <view class="rightDetail dec flex">
+              <view class="flex1 textL">{{item.stockNum=='-1'?'不限':item.stockNum+item.numUnit}}</view>
+              <view class="flex1 textC">{{item.priceType=='2'?'确定价':item.contractName+''+(item.showFloatingPrice=='Y'?(item.floatingPrice>=0? '+'+item.floatingPrice:item.floatingPrice):'')}}</view>
+              <view class="flex1 textR red price blod ">
+             <text class='font36 {{item.releaseStatus==2?"color9":""}}' ><text class=' {{dateUtil.pureNumber(item.basePrice)?"font28":"font36"}}'><text class='font25'>￥</text>{{dateUtil.number(socketObj[item.contractCode])?dateUtil.number(socketObj[item.contractCode])+dateUtil.number(item.floatingPrice):(item.basePrice?item.basePrice:'--')}}</text></text>
+              </view>
+            </view>
+            <view class="rigthAdress dec flex">
+              <view class="textOverflow textOverflow2 textL">{{item.shortName}}-{{item.userName}}</view>
+              <view class="flex1 textOverflow textC">{{item.wareHouse}}</view>
+              <view class="flex1 textR red" wx:if="{{item.releaseStatus==1}}">{{item.deliveryType==2?'求购中':'在售中'}}</view>
+              <view class="flex1 textR {{item.releaseStatus==2?'color9':''}}" wx:if="{{item.releaseStatus==2}}">{{item.deliveryType==2?'已完成':'已售完'}}</view>
+              <view class="flex1 textR red" wx:if="{{item.releaseStatus==3}}">已下架</view>
+              <view class="flex1 textR red" wx:if="{{item.releaseStatus==4}}">已删除</view>
+            </view>
+          </view>
+      </view>
+      </block>
+  </view>
+  </block>
+  <view class='textC emptyPage' wx:if="{{ currentTab == 0&&emptyPageselct}}">~暂无内容~</view>
+  <view class='textC emptyPage' wx:if="{{ currentTab == 1&&emptyPage}}">~暂无内容~</view>
+  <view class='textC emptyPage' wx:if="{{ currentTab == 2&&emptyPage}}">~暂无内容~</view>
+</view>
+
+
+<!-- 未登录  -->
+<view class='notLogin' bindtap="goLogin" wx:if="{{loginStatus==false&&currentTab==0}}">
+  <text>此功能需要登录</text>
+  <view class='loginBtn'>登录</view>
+</view>
+
+</view>

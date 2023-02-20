@@ -1,0 +1,30 @@
+<!--pages/mine/setPW/setPW.wxml-->
+<view class='setPW'>
+  <view class='section options-section'>
+
+    <view class='item'>
+      <view class='left'>
+        <image class='icon' src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_guide@2x.png' mode='widthFix'></image>
+        <input type="{{inputType?'password':'text'}}" bindinput="vInput" data-name="psw"  placeholder="输入新密码，至少6位"></input>
+      </view>
+      <view class='right' bindtap='changeInputType'>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix' wx:if="{{inputType}}"></image>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-search.png' mode='widthFix' wx:else></image>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='left'>
+        <image class='icon' src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_phone@2x.png' mode='widthFix'></image>
+        <input type='digit' placeholder="推荐人手机号码（选填） " data-name="phone"  bindinput="vInput"></input>
+      </view>
+    </view>
+
+  </view>
+
+  <button bindtap='resetPassword'>确认</button>
+
+  <!-- <view class='agree'>
+    <image src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_phone@2x.png'></image><text>我已阅读并同意</text><navigator url='../protocol/protocol'>《用户协议》</navigator>
+  </view> -->
+  
+</view>

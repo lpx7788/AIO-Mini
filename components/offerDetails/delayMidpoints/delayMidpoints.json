@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "prop": "/components/popUps/index"
+  },
+    "navigationBarTitleText": "延期点价"
+}

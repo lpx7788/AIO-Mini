@@ -1,0 +1,135 @@
+page{
+  background: #fff;
+  height: 100%;
+  width: 100%;
+}
+.messagePage {
+  height: 100%;
+
+}
+
+.messagePage .messageList {
+  background: #fff;
+}
+
+.messagePage .messageList .item{
+  padding:30rpx;
+  display: flex;
+}
+
+.messagePage .head {
+  display: flex;
+  justify-content: space-between;
+  height: 88rpx;
+  border-top: 1px solid #f0f0f0;
+  align-items: flex-end;
+  padding-right: 30rpx;
+}
+
+.messagePage .head .more {
+  font-size: 30rpx;
+  color: #666;
+  height: 42rpx;
+  display: flex;
+  align-items: center;
+}
+
+.messagePage .head .more .arrow {
+  margin-left: 16rpx;
+}
+
+
+
+.messagePage .item:last-child {
+  border-bottom: 0;
+}
+
+.messagePage .cover {
+  display: flex;
+  align-items: center;
+}
+
+.messagePage .cover image {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius:50%;
+}
+
+.messagePage .title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #222;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.messagePage .desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 16rpx;
+
+}
+.messagePage .status{
+  margin:0 30rpx 30rpx 0 ;
+  display: flex;
+  justify-content: flex-end;
+}
+.messagePage .agreed{
+  color: #999;
+}
+.messagePage .status button{ 
+  margin: 0;
+  margin-left: 20rpx;
+}
+.messagePage .status image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.messagePage .keywords {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 32rpx;
+}
+
+.messagePage .keywords text {
+  margin-right: 20rpx;
+}
+
+.messagePage .msg {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24rpx;
+  overflow: hidden;
+  width: 100%;
+}
+
+.messagePage .time{
+  font-size: 24rpx;
+  color: #999;
+}
+
+.messagePage .orderStatus{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.messagePage .message_bottom button{
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  width: 100%;
+  font-size: 30rpx;
+  height: 90rpx;
+  border-radius: 0;
+  line-height: 90rpx;
+}
+
+.messagePage .penddingView{
+  height: 100rpx;
+  width: 100%;
+}
+

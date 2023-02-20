@@ -1,0 +1,12 @@
+<!-- 标题 -->
+<view >
+
+  <!-- head-tit标题 -->
+  <view class='headTit '>
+    <view class='mainTitle bold'>
+      <text class='manageTit'>{{ propnNme}}</text>
+    </view>
+  </view>
+
+</view>
+

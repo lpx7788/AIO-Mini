@@ -1,0 +1,138 @@
+/* pages/mine/identity/identity.wxss */
+.identity .head-tip{
+  background: #ebeeff;
+  padding: 30rpx;
+}
+
+.identity .tip{
+  color: #4d65fd;
+  font-size: 24rpx;
+}
+
+.identity .tip image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 14rpx;
+}
+
+.identity .flex-contents{
+  display: flex;
+  height: 96rpx;
+  justify-items: center;
+}
+
+.identity .options-section{
+  padding-left: 30rpx;
+}
+
+.identity .options-section .item {
+  display: flex;
+  justify-content: space-between;
+  height: 96rpx;
+  border-top: 1px solid #f0f0f0;
+}
+
+.identity .userData .options-section .item:first-child,.companyData .options-section .item:first-child{
+  border-top: 0;
+}
+
+.identity .options-section .left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.identity .options-section .left text{
+  width: 200rpx;
+} 
+
+.identity .options-section .left picker{
+  flex: 1;
+}
+
+.identity .img {
+   height: 104rpx;
+   width: 104rpx;
+}
+.identity .options-section .right {
+  display: flex;
+  align-items: center;
+  padding-right: 30rpx;
+}
+
+.identity .options-section .right image {
+  width:16rpx;
+  height:13rpx;
+}
+
+.identity .companyData .tip{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+}
+
+.identity .interval{
+  background-color: #f6f6f6;
+  height: 20rpx;
+}
+
+.identity picker text{
+  color: #777;
+}
+
+.identity .rules{
+  padding: 30rpx;
+}
+
+.identity .rules image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: -2rpx;
+
+}
+
+.identity .rules text{
+  color: #4d65fd;
+}
+
+.identity button{
+  background-color: #4d65fd;
+  margin: 0 30rpx 40rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.identity .upload{
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.identity .upload text{
+  font-size: 3em;
+  border: 1px solid #f0f0f0;
+  text-align: center;
+  line-height: 120rpx;
+}
+
+.identity .options-section .item-upload-license{
+  height: 186rpx;
+}
+
+.identity .options-section .item-upload-approve{
+  height: 206rpx;
+}
+
+.identity .options-section .left .upload text{
+  display: inline-block;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.identity .template{
+  color: #4d65fd;
+  margin-bottom: 20rpx;
+}
+
+.identity .categoryComponents,.regionComponents{
+  flex: 1;
+}

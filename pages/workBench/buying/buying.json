@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "发布求购",
+  "usingComponents": {
+    "category": "/components/category/index",
+    "timePicker": "/components/timePicker/timePicker",
+    "pickerM": "/components/areaPicker/index"
+    
+  }
+}

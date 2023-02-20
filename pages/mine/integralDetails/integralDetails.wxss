@@ -1,0 +1,204 @@
+/* pages/mine/integral/integral.wxss */
+
+page {
+  background: #fff;
+  /* height: 2000rpx; */
+  height: 100%;
+  width: 100%;
+}
+
+.integraDetaillPage {
+  background: #f1f1f1;
+  padding-top: 30rpx;
+}
+
+.integraDetaillPage .integralList {
+  background: #fff;
+}
+
+.integraDetaillPage .pageTop, .integraDetaillPage .pagebottom {
+  font-size: 36rpx;
+  color: #222;
+  margin: 0 30rpx 30rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 30rpx;
+}
+
+.integraDetaillPage .pageTop .title {
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.integraDetaillPage .pageTop .borderR, .integraDetaillPage .pageTop .borderL {
+  border-color: #f1f1f1;
+}
+
+.integraDetaillPage .pageTop text {
+  text-align: center;
+}
+
+.integraDetaillPage .pagebottom image {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.integraDetaillPage .pagebottom text {
+  display: block;
+  font-size: 32rpx;
+}
+
+.integraDetaillPage .pagebottom {
+  margin: 0;
+}
+
+/* 顶部tab */
+
+.swiper-tab-swiper, integralList {
+  height: 100%;
+}
+
+.integraDetaillPage .swiperTab {
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+  width: 100%;
+  z-index: 9;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fdfdfd;
+}
+
+.integraDetaillPage .tabItem {
+  font-size: 34rpx;
+  padding: 0 16rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+  flex: 1;
+  text-align: ceter;
+}
+
+.integraDetaillPage .tabItem.industry image {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  bottom: 0;
+  left: -30rpx;
+}
+
+.integraDetaillPage .tabItem.active {
+  color: #4d65fd;
+}
+
+.integraDetaillPage .tabItem.active:after {
+  content: '';
+  display: block;
+  width: 100rpx;
+  height: 6rpx;
+  left: 50%;
+  background: #4d65fd;
+  position: absolute;
+  margin-left: -50rpx;
+  bottom: -24rpx;
+}
+
+.integraDetaillPage .itemContet .itemL text {
+  display: block;
+  line-height: 50rpx;
+ 
+}
+
+.integraDetaillPage .itemContet .itemR {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.integraDetaillPage .itemContet .itemM .num {
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
+}
+
+.integraDetaillPage .itemContet .itemM {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 30rpx;
+}
+
+.integraDetaillPage .itemContet .itemR text {
+  color: #e7505a;
+  border: 1px solid #e7505a;
+  padding: 6rpx 20rpx;
+  border-radius: 30rpx;
+}
+
+.integraDetaillPage .itemContet {
+  display: inline-block;
+  align-items: center;
+  white-space: nowrap;
+  background: #fff;
+  padding: 20rpx;
+  font-size: 30rpx;
+  border-bottom:1px solid #f0f0f0
+}
+
+.integraDetaillPage .itemContetTop {
+
+  padding:20rpx;
+}
+
+.integraDetaillPage .itemMainImage {
+  width: 180rpx;
+  height: 130rpx;
+}
+
+.integraDetaillPage .itemContetWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.integraDetaillPage .item {
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 200rpx;
+  display: inline-block;
+  padding:0 10px;
+
+}
+
+.integraDetaillPage .item text {
+  width: 200rpx;
+  display: inline-block;
+}
+
+.integraDetaillPage .predict {
+  width: 260rpx;
+}
+.integraDetaillPage .predict text {
+  width: 260rpx;
+}
+.integraDetaillPage .typefixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.integraDetaillPage .emptyPage {
+  margin: 30rpx;
+}
+
+.integraDetaillPage .itemTit {
+  background: #f1f1f1;
+  height: 40rpx !important;
+  line-height: 40rpx !important;
+}

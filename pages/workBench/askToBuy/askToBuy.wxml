@@ -1,0 +1,61 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+<!-- tab切换 -->
+<view class='buyTab borderB '>
+  <view class='item {{ currentTab == 0 ? "active" : "" }}' data-current='0' bindtap='clickTab'>全部</view>
+  <view class='item {{ currentTab == 1 ? "active" : "" }}' data-current='1' bindtap='clickTab'>求购中</view>
+  <view class='item {{ currentTab == 2 ? "active" : "" }}' data-current='2' bindtap='clickTab'>已完成</view>
+  <view class='item {{ currentTab == 3 ? "active" : "" }}' data-current='3' bindtap='clickTab'>已下架</view>
+</view>
+
+<view class='buyTabView' style='height:{{height}}px;width:100%'></view>
+
+<view>
+
+  <view class='rowGaps  '></view>
+
+  <block wx:for="{{dataList}}" wx:key wx:for-index="index" wx:for-item="Mitem">
+    <view wx:if="{{dataList.length!=0}}">
+      <block wx:for="{{Mitem}}" wx:key>
+
+        <view class="buyGoodListItem borderB" data-url='../../../components/offerDetails/index/index?page= 1&priceType={{item.priceType}}&releaseCode={{item.releaseCode}}&procurementType=2&contractCode={{item.contractCode}}&attributeCode={{item.attributeCode}}'
+          bindtap='goto'>
+          <view class="right ">
+            <view class="rightTit flex">
+              <view class="tips">购</view>
+              <text class='categoryName'>{{item.categoryName}}</text>
+              <text class='gap' decode="true"> &nbsp; &nbsp; </text>
+              <text class='detail'>{{item.brand}}{{item.spec}}{{item.material}}</text>
+              <view class="flex1 textR ">
+                {{item.stockNum==-1?'不限':item.stockNum}}{{item.stockNum==-1?'':(item.numUnit?item.numUnit:'')}}</view>
+            </view>
+            <view class="rightDetail dec flex">
+              <view class="flex2 textOverflow">
+                <text class=' red font36 red'><text>￥</text>{{dateUtil.number(socketObj[item.contractCode])?dateUtil.number(socketObj[item.contractCode])+dateUtil.number(item.floatingPrice):(item.basePrice?item.basePrice:'--')}}</text> ({{item.floatingPrice?item.contractName+''+(item.floatingPrice>=0? '+'+item.floatingPrice:item.floatingPrice):'确定价' }})
+              </view>
+              <view class=' textL flex1 textOverflow wareHouse'>{{item.wareHouse}}</view>
+              <!-- 1：已发布，2：已售完/已完成，3：已下架，4：已删除 -->
+              <view class=" pricing textR price" wx:if="{{item.releaseStatus==1}}">求购中</view>
+              <view class=" textR price" wx:if="{{item.releaseStatus==2}}">已完成</view>
+              <view class=" textR price" wx:if="{{item.releaseStatus==3}}">已下架</view>
+              <view class=" textR price" wx:if="{{item.releaseStatus==4}}">已删除</view>
+            </view>
+          </view>
+        </view>
+
+      </block>
+    </view>
+
+  </block>
+
+
+  <!-- <view class=' textC empatyPage' wx:if="{{empatyPage}}">~暂无数据~</view> -->
+  <view class='textC emptyPage emptyView' wx:if="{{emptyPage}}">
+    <image class='emptyImg' src='https://aio.manytrader.net/preViewUploadFile/images/empty.png'></image>
+    <view class='textC'> ~暂无数据~</view>
+  </view>
+
+  <!-- 没有更多数据的时候 -->
+  <view class='emptyPage textC' wx:if="{{catchBottom&&emptyPage==false}}">~没有更多求购数据了~</view>
+
+</view>

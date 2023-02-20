@@ -1,0 +1,92 @@
+/* pages/mine/setPW/setPW.wxss */
+/* 选项 */
+  .setPW .section{
+    background: #fff;
+  }
+  
+  .setPW .options-section {
+    margin-top: 20rpx;
+    padding-left: 30rpx;
+  }
+  
+  .setPW .options-section .item {
+    display: flex;
+    justify-content: space-between;
+    height: 96rpx;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .setPW .options-section button.item {
+    padding: 0;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fff;
+    font-size: 30rpx;
+    color: #333;
+  }
+  
+  .setPW .options-section button.item::after {
+    border: none;
+  }
+  
+  .setPW .options-section .item:last-child {
+    border-bottom: 0;
+  }
+  
+  .setPW .options-section .left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .setPW .options-section .left image {
+    width: 36rpx;
+    height: 36rpx;
+  }
+  
+  .setPW .head-section image.left {
+    width: 36rpx;
+    height: 36rpx;
+  }
+  
+  .setPW .options-section .left text {
+    margin-left: 20rpx;
+    font-size: 32rpx;
+    color: #222;
+  }
+  
+  .setPW .options-section .right {
+    display: flex;
+    align-items: center;
+    padding-right: 30rpx;
+  }
+
+  .setPW input{
+    margin-left: 30rpx;
+  }
+
+  /* 按钮 */
+  .setPW button{
+    margin:80rpx 30rpx 40rpx;
+    background-color: #4d65fd;
+    color: #fff;
+  
+  }
+
+  .setPW .agree{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .setPW .agree navigator{
+    color: #4d65fd;
+  }
+
+  .setPW .agree image{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+  }
+
+  .setPW button{
+    font-size: 30rpx;
+  }

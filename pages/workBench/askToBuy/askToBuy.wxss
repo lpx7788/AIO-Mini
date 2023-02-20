@@ -1,0 +1,156 @@
+page {
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  
+}
+
+/* tab内容 */
+.swiper-tab-swiper {
+  height: 100%;
+}
+
+.swiper-tab-swiper scroll-view {
+  position: relative;
+}
+
+ .buyTab {
+  display: flex;
+  height: 90rpx;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  z-index: 9;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: fixed;top: 0;
+  left: 0;
+}
+
+ .buyTab .item {
+  font-size: 30rpx;
+  color: #222222;
+  padding: 0 16rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+  flex: 1;
+  text-align:ceter;
+}
+
+.buyTab .item.industry image {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  bottom: 0;
+  left: -30rpx;
+}
+
+.buyTab .item.active {
+  color: #4d65fd;
+}
+
+ .buyTab .item.active:after {
+  content: '';
+  display: block;
+  width: 48rpx;
+  height: 6rpx;
+  background: #4d65fd;
+  position: absolute;
+  bottom: -16rpx;
+  left: 50%;
+  margin-left: -24rpx;
+}
+
+
+
+/* 列表 */
+
+.buyGoodListItem{
+  display: flex;
+  padding: 30rpx;
+  
+}
+
+.buyGoodListItem .left{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.buyGoodListItem .dec{
+  width: 100%;
+  color: #666666;
+  margin-top: 15rpx;
+}
+.buyGoodListItem .dec .price{
+  font-size: 24rpx;
+}
+.buyGoodListItem .dec .price.pricing{
+  color: red;
+}
+
+.buyGoodListItem .dec {
+  font-size: 24rpx;
+}
+
+.buyGoodListItem .right .detail {
+  width: 380rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.buyGoodListItem .right {
+ 
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.buyGoodListItem .right text{
+  font-size: 24rpx;
+}
+.buyGoodListItem .right .red{
+ font-size: 32rpx; 
+ font-weight: bold;
+}
+.buyGoodListItem .right .gap{
+  color: #e5e5e5;
+}
+.buyGoodListItem .right .rightTit{
+  line-height: 50rpx;
+  display: flex;
+  align-items: center;
+
+}
+
+.buyGoodListItem .textOverflow{
+  width: 280rpx;
+}
+.buyGoodListItem .wareHouse{
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.buyGoodListItem .categoryName{
+  font-size:32rpx !important;
+  font-weight:bold;
+}
+
+
+.buyGoodListItem .tips{
+  color:#fff;
+  background: rgb(170, 136, 72);
+  border-radius:6rpx;
+  height:38rpx;
+  line-height:38rpx;
+  width:38rpx;
+  margin-top:5rpx;
+  font-size:26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10rpx;
+}

@@ -1,0 +1,237 @@
+
+.contractDetailPage {
+  background: #fff;
+  font-size: 30rpx;
+  color: #222;
+  position: relative;
+  overflow: hidden;
+}
+.contractDetailPage .item .orderCode{
+   padding-left: 20rpx;
+   font-size: 26rpx;
+}
+.contractDetailPage .item .blod{
+  font-weight: block;
+  display: inline-block;
+}
+.contractDetailPage .item{
+  padding: 0 30rpx;
+}
+.contractDetailPage .itemTop{
+ display: flex;
+ justify-content: space-between;
+ height: 64rpx;
+ align-items: center;
+}
+.contractDetailPage .company{
+  padding: 30rpx 0;
+}
+
+.contractDetailPage .company .buy, .contractDetailPage .company .sell{
+  border: 1px solid #4d65fd;
+  border-radius: 8rpx;
+  display: inline-block;
+  padding: 0 5rpx;
+  margin-right: 10rpx;
+  font-size: 26rpx;
+}
+.contractDetailPage .company .line{
+  width: 100rpx;
+  text-align: center;
+  color: #e5e5e5;
+}
+.contractDetailPage .goodStatus{
+  justify-content: space-between;
+  color: #666;
+}
+.contractDetailPage .currentStatus{
+  font-size: 26rpx;
+}
+.contractDetailPage .buyStatus{
+ font-size: 26rpx;
+ background: rgb(123, 142, 228);
+ border-radius: 8rpx;
+ padding:0 10rpx;
+ color:#fff;
+}
+
+.contractDetailPage .num{
+  padding: 26rpx 0; 
+}
+.contractDetailPage .creater{
+  color: #666;
+  padding: 20rpx 0; 
+}
+.contractDetailPage .contractSwiper .swiperTab {
+  height:100rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  background: #fff;
+  text-align:ceter;
+ 
+}
+
+.contractDetailPage .downLoad{
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  background: #4d65fd;
+  color: #fff;
+  font-size: 30rpx;
+  width: 90%;
+  margin:30rpx  auto;
+ 
+}
+
+.swiper-banner-list-item{
+  padding-bottom: 100rpx;
+}
+.swiper-banner-list-item image{
+  margin: 20rpx auto;
+}
+
+
+.contractDetailPage .tabItem {
+  font-size: 34rpx;
+  color: #808080;
+  padding: 0 16rpx;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.contractDetailPage .tabItem.active {
+  color: #4d65fd;
+}
+
+.contractDetailPage .tabItem.active:after {
+  content: '';
+  display: block;
+  width: 130rpx;
+  height: 6rpx;
+  background: #4d65fd;
+  position: absolute;
+  left: 50%;
+  margin-left: -65rpx;
+  bottom: -16rpx;
+}
+
+.contractDetailPage .orderMain{
+  font-size: 30rpx;
+}
+.contractDetailPage .orderMain .orderItem{
+  padding:0 30rpx;
+}
+
+.contractDetailPage .orderMain .orderItem .await{
+  color: #ff3b30;
+}
+
+.contractDetailPage .orderMain .orderItem .await{
+  color: #ff3b30;
+}
+.contractDetailPage .orderMain .orderItem .already{
+  color: #30c675;
+}
+.contractDetailPage .orderMain .orderItem .hang{
+  color: #999;
+}
+
+.contractDetailPage .orderMain .purchase,.orderMain .accomplish{
+  background: rgb(123, 142, 228);
+  color: #fff;
+  padding: 0rpx 10rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.contractDetailPage .orderMain .accomplish{
+  background: rgb(76, 180, 107) !important;
+  margin-left: 20rpx;
+
+}
+.contractDetailPage .orderMain .orderItemDetai{
+  padding: 10rpx;
+  mask-type: 10rpx;
+}
+.contractDetailPage .orderMain .orderItemDetail .detailItem {
+  height:40rpx;
+  align-items: center;
+  padding:5rpx 10rpx;
+  font-size: 28rpx;
+}
+.contractDetailPage .orderMain .orderItemDetail{
+  background: #fafafa;
+  padding:10rpx;
+}
+
+.contractDetailPage .orderMain .orderItemStatus {
+  height: 88rpx;
+  align-items: center;
+}
+.contractDetailPage .orderMain .buyer{
+  color: #666;
+  height: 88rpx;
+  align-items: center;
+  font-size: 24rpx;
+}
+.contractDetailPage .orderMain .text{
+  display: inline-block !important;
+}
+.contractDetailPage .orderMain .emptyPage{
+  padding: 30rpx;
+}
+
+.contractDetailPage .listCon .item {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+
+  padding: 0 !important;
+}
+
+.contractDetailPage  .listCon {
+  display: inline-block;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.contractDetailPage  .priceList {
+  padding-bottom: 20rpx;
+  padding-right: 30rpx;
+}
+
+.contractDetailPage .priceList .itemColumStatus {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+}
+
+.contractDetailPage .priceList .itemColumStatus text {
+  display: inline-block;
+}
+.contractDetailPage .priceList .itemColum {
+  display: inline-block;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  width: 160rpx;
+  text-align: center;
+}
+.contractDetailPage .listtop {
+    align-items:center;
+    white-space:nowrap;
+    height:80rpx;
+    line-height:80rpx;
+    display: inline-block;
+    text-align: center;
+  }
+  .contractDetailPage .textOverflow{
+    width: 500rpx !important;
+  }

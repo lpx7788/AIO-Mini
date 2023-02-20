@@ -1,0 +1,160 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+<prop wx:if="{{showModal}}" dataList="{{propList}}" bind:onMyprop='onMyprop'></prop>
+<view class='inventory'>
+  <view class='selection'>
+ <!-- 商品信息 -->
+    <view class='selection_item productTitle'>
+    <text class='categoryName'> 商品种类</text>
+    {{categoryName}}
+     
+    </view>
+      <view class='selection_item productTitle modifyLocal' wx:if="{{page=='floatingPrice'}}">
+       <view  class='categoryName'>
+        <text> 修改地方</text>
+        </view> 
+
+        <view class='condition' >
+     
+          <view catchtap='selectTab'  data-current='1' >
+            <image wx:if="{{currentTab == 1}}" src='https://aio.manytrader.net/preViewUploadFile/images/checkbox_p@2x.png' />
+            <image wx:else src='https://aio.manytrader.net/preViewUploadFile/images/checkbox_n@2x.png' />
+            <text class='conditionItem {{ currentTab == 1 ? "blue" : "" }}'>仅限于该报价</text>
+          </view>
+          <view catchtap='selectTab'  data-current='2' >
+             <image  wx:if="{{currentTab == 2}}" src='https://aio.manytrader.net/preViewUploadFile/images/checkbox_p@2x.png' />
+             <image  wx:else  src='https://aio.manytrader.net/preViewUploadFile/images/checkbox_n@2x.png' />
+             <text class='conditionItem {{ currentTab == 2 ? "blue" : "" }}'>该报价和未成交订单</text>
+          </view>
+        </view> 
+      </view>
+
+    <!-- 商品信息 -->
+    <view class='selection_item productTitle flex'>商品信息   </view>
+
+    <view class='swiperTabWrap'>
+      <scroll-view scroll-x>
+        <view class='swiperTab'>
+          <text wx:for="{{dataList}}"  data-current='{{index}}' bindtap='clickTab' class=' tab {{ index==swiperCurrent ? "active" : "" }}' wx:key>商品{{index+1}}</text>
+      
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class='productList mb10'>
+      <swiper indicator-dots="{{indicatorDots}}" class='swiperTabItem ' indicator-active-color="#4d65fd" style='height:900rpx;' autoplay="{{autoplay}}" current="{{swiperCurrent}}" interval="{{interval}}" duration="{{duration}}" bindchange='swiperTab'>
+        <swiper-item wx:for="{{dataList}}" wx:key="{{item}}" wx:for-index="index">
+
+          <view class='selection_item'>
+            <view class='left'>
+              <text>规格</text>
+              <view class='selection_item_content'>
+                <text>{{item.spec?item.spec:"--"}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='selection_item'>
+            <view class='left'>
+              <text>材质</text>
+              <view class='selection_item_content'>
+                <text>{{item.material?item.material:"--"}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='selection_item'>
+            <view class='left'>
+              <text>品牌</text>
+              <view class='selection_item_content'>
+                <text>{{item.brand?item.brand:"--"}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='selection_item'>
+            <view class='left'>
+              <text>其它</text>
+              <view class='selection_item_content'>
+                <text>{{item.other?item.other:"--"}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='selection_item'>
+            <view class='left'>
+              <text>仓库</text>
+              <view class='selection_item_content'>
+                <text>{{item.wareHouse?item.wareHouse:"--"}}</text>
+              </view>
+            </view>
+          </view>
+          <block wx:if="{{page=='floatingPrice'}}">
+
+           <view class='selection_item'>
+            <view class='left'>
+              <text>未成交订单数</text>
+              <view class='selection_item_content'>
+                <text>{{orderNumList[index].orderNum?orderNumList[index].orderNum:"--"}}</text>
+              </view>
+            </view>
+          </view>
+           <view class='selection_item'>
+            <view class='left'>
+              <text>原升贴水</text>
+              <view class='selection_item_content'>
+                <text>{{item.floatingPrice?item.floatingPrice:"--"}}</text>
+              </view>
+            </view>
+          </view>
+
+          <view class='selection_item'>
+              <view class='left'>
+                <text>增加升贴水</text>
+                <view class='selection_item_content'>
+                  <input placeholder='(正数加升贴水，负数减升贴水)' type='tel' bindinput='inputNum' data-name="floatingPrice"></input>
+                </view>
+              </view>
+            </view>
+     
+            <view class='flex goodsBtn '>
+               <button data-list="{{item}}" bindtap='confirmBtn'>确认修改</button>
+            </view>
+          </block>
+
+          <block wx:if="{{page=='repertory'}}">
+            <view class='selection_item'>
+              <view class='left'>
+                <text>已用库存</text>
+                <view class='selection_item_content'>
+                  <text>{{item.usedStock==-1?'不限':item.usedStock}}</text>
+                </view>
+              </view>
+            </view>
+            <view class='selection_item'>
+              <view class='left'>
+                <text>剩余库存</text>
+                <view class='selection_item_content'>
+                  <text>{{item.stockNum==-1?'不限':item.stockNum}}</text>
+                </view>
+              </view>
+            </view>
+
+            <view class='selection_item'>
+              <view class='left'>
+                <text>增加库存</text>
+                <view class='selection_item_content'>
+                  <input placeholder='(正数加库存，负数减库存)' type='tel' bindinput='inputNum'></input>
+                </view>
+              </view>
+            </view>
+          <view class='flex goodsBtn '>
+            <button data-list="{{item}}" bindtap='modify'>确认修改</button>
+          </view>
+          </block>
+    
+
+
+        </swiper-item>
+
+      </swiper>
+    </view>
+
+  </view>
+</view>

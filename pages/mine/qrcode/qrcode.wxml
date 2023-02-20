@@ -1,0 +1,6 @@
+<!--pages/mine/qrcode/qrcode.wxml-->
+
+<view  class='qrcode' wx:for="{{imgalist}}"  wx:key wx:for-item="image">  
+  <view class='textC '><image src="{{image}}" data-src="{{image}}" bindtouchstart="previewImage" class='img border'></image>  
+  <view class='text'>扫描关注或点击二维码长按保存</view></view>
+</view>

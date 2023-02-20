@@ -1,0 +1,49 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs">
+</wxs>
+
+<view class='company'>
+
+<view class="search borderB borderT">
+  <!-- 顶部固定分类 -->
+  <view class="list-fixed {{fixedTitle=='' ? 'hide':''}}" style="transform:translate3d(0,{{fixedTop}}px,0);">
+    <view class="searchInput">
+      <image  class='searchIcon' src='https://aio.manytrader.net/preViewUploadFile/images/icon-search.png'></image>
+      <input placeholder="搜索" bindinput="getsearchKeyword" class="fixed-input"></input>
+    </view>
+  </view>
+</view>
+
+  <!-- 左侧列表内容部分 -->
+  <scroll-view class="content" enable-back-to-top scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" bindscroll="onPageScroll">
+    <view wx:for="{{listMain}}" wx:for-item="group" wx:key="{{group.id}}" id="{{ 'inToView'+group.id}}" data-id='{{group.id}}'>
+      <view class="address_top">{{group.region}}</view>
+      <view class='flex listColom' wx:for="{{group.items}}" wx:for-item="item" wx:key="{{item.brandId}}" data-name="{{item.companyName}}" data-code="{{item.companyCode}}" bindtap='selectComany'>
+        <view class="address_bottom" data-id='{{item.brandId}}'>{{item.companyName}}</view>
+        <view class='selectImag' wx:if="{{dateUtil.indexOf(checkcompanyCodeList,item.companyCode)!=-1}}">
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/checkbox_p@2x.png'></image>
+        </view>
+        <view class='selectImag' wx:else>
+          <image src='https://aio.manytrader.net/preViewUploadFile/images/checkbox_n@2x.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class="textC emptyPage" wx:if="{{emptyPage}}">~暂无数据~</view>
+  </scroll-view>
+
+
+
+  <!-- 右侧字母导航 -->
+  <view class="orientation_region">
+    <block wx:for="{{listMain}}" wx:key="{{item.id}}">
+      <view class="orientation_city  {{isActive==item.id ? 'active':'' }}" bindtap="scrollToViewFn" data-id="{{item.id}}">
+        {{item.region}}
+      </view>
+    </block>
+  </view>
+
+  <!-- 确定 -->
+   <view class="bottomBtn borderT">
+     <button class="bgblue" size="{{defaultSize}}"  bindtap="companyConfirmClick" > 确定 </button>
+   </view> 
+</view>
+

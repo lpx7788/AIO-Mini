@@ -1,0 +1,182 @@
+
+.employeeDetailsPage .employeeDetailsList {
+  margin-bottom: 50rpx;
+  background: #fff;
+}
+
+.employeeDetailsPage .employeeDetailsList .item{
+  padding:30rpx;
+  display: flex;
+}
+
+.employeeDetailsPage .head {
+  display: flex;
+  justify-content: space-between;
+  height: 88rpx;
+  border-top: 1px solid #f0f0f0;
+  align-items: flex-end;
+  padding-right: 30rpx;
+}
+
+.employeeDetailsPage .head .more {
+  font-size: 30rpx;
+  color: #666;
+  height: 42rpx;
+  display: flex;
+  align-items: center;
+}
+
+.employeeDetailsPage .head .more .arrow {
+  margin-left: 16rpx;
+}
+
+
+.employeeDetailsPage .item:last-child {
+  border-bottom: 0;
+}
+.employeeDetailsPage .item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.employeeDetailsPage .cover {
+  display: flex;
+  align-items: center;
+}
+
+.employeeDetailsPage .cover image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius:50%;
+}
+
+.employeeDetailsPage .title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #222;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.employeeDetailsPage .desc {
+  
+  color: #666;
+  margin-top: 16rpx;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+  align-items: center;
+  display: flex;
+  font-size: 30rpx;
+ 
+}
+.employeeDetailsPage .desc image{
+  height: 30rpx;
+  width: 30rpx;
+
+}
+.employeeDetailsPage .status{
+  margin:0 30rpx 30rpx 0 ;
+  display: flex;
+  justify-content: flex-end;
+}
+.employeeDetailsPage .agreed{
+  color: #999;
+}
+.employeeDetailsPage .status button{ 
+  margin: 0;
+  margin-left: 20rpx;
+}
+.employeeDetailsPage .status image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.employeeDetailsPage .keywords {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 32rpx;
+}
+
+.employeeDetailsPage .keywords text {
+  margin-right: 20rpx;
+}
+
+.employeeDetailsPage .itemSelection {
+  font-size: 30rpx;
+  color: #666;
+}
+.employeeDetailsPage .itemSelection .right text{
+  padding-right: 20rpx;
+  color: #222;
+}
+.employeeDetailsPage .msg {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24rpx;
+  overflow: hidden;
+}
+
+.employeeDetailsPage .explain{
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+  background: #ebeeff;
+}
+
+.employeeDetailsPage .explain .example{
+  margin-top: 30rpx;
+}
+.employeeDetailsPage .businessImg{
+  height: 32rpx;
+  width: 32rpx;
+  vertical-align: middle;
+  margin-left: 10rpx;
+  margin-top: -2rpx;
+}
+.employeeDetailsPage .variety .con .titleText{
+  width: 120rpx;
+}
+.employeeDetailsPage .variety .con{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  height: 94rpx;
+  align-items: center;
+}
+.employeeDetailsPage .writeImg{
+  height: 36rpx;
+  width: 36rpx;
+  vertical-align: middle;
+}
+.employeeDetailsPage .variety .tit{
+  padding: 0 30rpx;
+  background: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  height: 72rpx;
+  align-items: center;
+}
+.employeeDetailsPage .itemBtn button{
+ width: 300rpx !important;
+ background: #4d65fd;
+ color: #fff;
+ font-size: 30rpx;
+
+}
+.employeeDetailsPage .itemBtn{
+ padding: 30rpx;
+ justify-content: space-between;
+}
+.employeeDetailsPage .areas{
+  width:350rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+

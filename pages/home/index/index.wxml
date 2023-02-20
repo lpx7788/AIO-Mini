@@ -1,0 +1,170 @@
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs"></wxs>
+
+<wxs module="indexOf">
+  function fn(arr, arg) {
+    var result = {
+      indexOf: false,
+    }
+    result.indexOf = arr.indexOf(arg);
+    return result;
+  }
+  module.exports.fn = fn;
+</wxs>
+<view class="indexPageWrap" style='min-height:{{pageHeight}}px;width:100%;'>
+
+  <view class='indexPage'>
+
+    <view class='indexPageTop '>
+
+      <!-- 搜索框 -->
+      <view class='search'>
+        <view class='section search-section'>
+          <search bindtap='onMySearch'></search>
+        </view>
+      </view>
+
+      <!-- 广告图轮播 -->
+
+      <!-- <swiper bindtap='gototop' class='swiper-banner-list ' indicator-active-color="#fff" indicator-dots='true' indicator-color='rgba(255,255,255,.6)' indicator-color="#ccc" autoplay='true' interval='3000'>
+        <swiper-item wx:key wx:for='{{ hotCarouselList }}'>
+          <view class='banner-item' id='{{item.id}}'>
+            <image src='{{ item.coverPicUrl }}' data-outlinkurl='{{item.outLinkUrl}}' data-url='../../mine/webView/webView' bindtap='toBannerDetail'></image>
+          </view>
+        </swiper-item>
+      </swiper> -->
+
+    </view>
+
+
+    <!-- tab内容 -->
+    <!-- 已登录 -->
+    <view class='navigation'>
+      <view class='swiperTabWrap bgWhite'>
+        <view class='swiperTab borderB'>
+          <view class='flex' style='width:92%;height:100%;'>
+
+            <form bind:submit="clickTab" class='swiperTabItem {{ currentTab == 0 ? "active" : "" }}' data-current='0' report-submit="true">
+              <button formType="submit"> 自选</button>
+            </form>
+
+            <form bind:submit="clickTab" class='swiperTabItem {{ currentTab == 1 ? "active" : "" }}' data-current='1' report-submit="true">
+              <button formType="submit"> 现货商城</button>
+            </form>
+
+            <form bind:submit="clickTab" class='swiperTabItem {{ currentTab == 2? "active" : "" }}' data-current='2' report-submit="true">
+              <button formType="submit"> 求购大厅</button>
+            </form>
+
+          </view>
+          <view wx:if="{{menuFixed}}" bindtap='onMySearch'>
+            <block style='width:8%;height:100%'>
+              <image class='swiperTabWrapImg' src='https://aio.manytrader.net/preViewUploadFile/images/icon-search.png'></image>
+            </block>
+          </view>
+        </view>
+
+
+        <!-- 筛选条件 -->
+
+        <view class='attention borderB' data-url="../../../components/userSelect/userSelect" bindtap='goto' wx:if="{{currentTab == 0&&loginStatus}}">
+          <text wx:if="{{selectDeliveryType.length!=0 || selectCategory.length!=0}}" class='selectionContents'>关注<text wx:if="{{indexOf.fn(selectDeliveryType,'1').indexOf!=-1}}">报价</text>
+          <text wx:if="{{selectDeliveryType.length=='2'}}">与</text>
+          <text wx:if="{{indexOf.fn(selectDeliveryType,'2').indexOf!=-1}}">求购</text>
+          <text wx:if="{{selectCategory.length!=0}}">: <text wx:for="{{selectCategory}}" wx:key="{{item}}">{{item.categoryName}}<text wx:if="{{selectCategory.length-index==1}}">。</text>
+          <text wx:else>、</text></text>
+          </text>
+          </text>
+          <text wx:else>您还未设置自选条件</text>
+          <view>
+            <image class='left' src="https://aio.manytrader.net/preViewUploadFile/images/list_icon_setting@2x.png"></image>
+          </view>
+        </view>
+
+        <scroll-view scroll-x class="classify borderB" wx:if="{{currentTab != 0}}">
+          <view class='classifyItem {{ hotType ==item.categoryCode ? "blue" : "" }}' data-hot="{{item.categoryCode}}" bindtap='clickHotTab' wx:for="{{hotCategoryList}}" wx:key>{{item.categoryName}}</view>
+        </scroll-view>
+
+        <view class='filtrate borderB flex' wx:if="{{loginStatus&&currentTab==0||currentTab==1||currentTab==2}}">
+          <view class='filtrateItem flex1 textC' data-sort='1' bindtap='clicksortTab'>
+            <text class=' {{ sortType == 1 ? "blue" : "" }}'>智能排序</text>
+          </view>
+          <view class='filtrateItem flex1 textC' data-sort='2' bindtap='clicksortTab'>
+            <text class=' {{ sortType == 2 ? "blue" : "" }}'>价格优先</text>
+          </view>
+          <view class='filtrateItem flex1 textC borderR' data-sort='3' bindtap='clicksortTab'>
+            <text class=' {{ sortType == 3 ? "blue" : "" }}'>数量优先</text>
+          </view>
+          <view class='filtrateItem flex1 textC' wx:if="{{currentTab != 0}}" data-url="../../../components/filtrate/filtrate?filtrateType=0&deliveryType={{currentTab}}" bindtap='goto'>筛选
+
+            <image class='selectIcon' src="https://aio.manytrader.net/preViewUploadFile/images/btn_screening@2x.png"></image>
+          </view>
+        </view>
+        <view class='rowGaps'></view>
+
+      </view>
+    </view>
+
+
+
+    <view class='isLogin' wx:if="{{loginStatus||currentTab!=0}}">
+
+      <block wx:for="{{ currentTab == 0 ?selectProductList:productList}}" wx:key wx:for-index="index" wx:for-item="Mitem">
+        <view>
+          <block wx:for="{{Mitem}}" wx:key>
+            <view class="goodListItem borderB" data-url='../../../components/offerDetails/index/index?page=2&releaseCode={{item.releaseCode}}&procurementType={{item.deliveryType}}&priceType={{item.priceType}}&attributeCode={{item.attributeCode}}&contractCode={{item.contractCode}}'
+              bindtap='goto'>
+              <view class="left flex">
+                <!-- 1：报价，2：求购 -->
+                <view class='flex tipWrap'>
+                  <view class="tips block selling" wx:if="{{item.deliveryType==1}}">售</view>
+                  <view class="tips block" wx:if="{{item.sign==1}}">供</view>
+                  <view class="tips block" wx:if="{{item.isPresentIntegral==1}}">赠</view>
+                  <view class="tips block bgRed" wx:if="{{item.carefullyChosenSeller==1}}">精</view>
+                  <view class="tips block orange buying" wx:if="{{item.deliveryType==2}}">购</view>
+                  <view class="tips block orange" wx:if="{{item.sign==2}}">客</view>
+                </view>
+              </view>
+              <view class="right flex">
+                <view class="rightTit">
+                  <text>{{item.categoryName}}</text>
+                  <text class='gap' wx:if="{{item.brand||item.spec||item.material}}"> | </text> {{item.brand}}
+                  <text wx:if="{{item.spec}}">·</text>{{item.spec}}
+                  <text wx:if="{{item.material}}">·</text >{{item.material}}
+            </view>
+            <view class="rightDetail dec flex">
+              <view class="flex1 textL">{{item.stockNum=='-1'?'不限':item.stockNum+item.numUnit}}</view>
+              <view class="flex1 textC">{{item.priceType=='2'?'确定价':item.contractName+''+(item.showFloatingPrice=='Y'?(item.floatingPrice>=0? '+'+item.floatingPrice:item.floatingPrice):'')}}</view>
+              <view class="flex1 textR red price blod ">
+                <text class='font36 {{item.releaseStatus==2?"color9":""}}' ><text class=' {{dateUtil.pureNumber(item.basePrice)?"font28":"font36"}}'><text class='font25'>￥</text>{{dateUtil.number(socketObj[item.contractCode])?dateUtil.number(socketObj[item.contractCode])+dateUtil.number(item.floatingPrice):(item.basePrice?item.basePrice:'--')}}</text>
+                  </text>
+                </view>
+              </view>
+              <view class="rigthAdress dec flex">
+                <view class="textOverflow textOverflow2 textL">{{item.shortName}}-{{item.userName}}</view>
+                <view class="flex1 textOverflow textC">{{item.wareHouse}}</view>
+                <view class="flex1 textR red" wx:if="{{item.releaseStatus==1}}">{{item.deliveryType==2?'求购中':'在售中'}}</view>
+                <view class="flex1 textR color9" wx:if="{{item.releaseStatus==2}}">{{item.deliveryType==2?'已完成':'已售完'}}</view>
+                <view class="flex1 textR red" wx:if="{{item.releaseStatus==3}}">已下架</view>
+                <view class="flex1 textR red" wx:if="{{item.releaseStatus==4}}">已删除</view>
+              </view>
+            </view>
+        </view>
+        </block>
+    </view>
+    </block>
+
+    <view class='textC emptyPage' wx:if="{{ currentTab == 0&&emptyPageselct}}">~暂无内容~</view>
+    <view class='textC emptyPage' wx:if="{{ currentTab == 1&&emptyPage}}">~暂无内容~</view>
+    <view class='textC emptyPage' wx:if="{{ currentTab == 2&&emptyPage}}">~暂无内容~</view>
+
+  </view>
+
+
+  <!-- 未登录  -->
+  <view class='notLogin' bindtap="goLogin" wx:if="{{loginStatus==false&&currentTab==0}}">
+    <text>此功能需要登录</text>
+    <view class='loginBtn'>登录</view>
+  </view>
+
+</view>
+</view>

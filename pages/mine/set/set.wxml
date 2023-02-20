@@ -1,0 +1,68 @@
+<view class='set'>
+  <!-- 选项 -->
+  <!-- <view class="section options-section">
+    <view class='item' data-url='../changePW/changePW' bindtap='goto'>
+      <view class='left'>
+        <text class='title'>修改密码</text>
+      </view>
+      <view class='right'>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view> -->
+  <!-- 1.8版本 -->
+  <!-- <view class="section options-section">
+    <view class='item'bindtap="changePhone">
+      <view class='left'>
+        <text class='title'>更换手机号码</text>
+      </view>
+      <view class='right'>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view> -->
+
+  <view class='section options-section'>
+
+    <view class='item' data-url='../aboutUs/aboutUs' bindtap='goto'>
+      <view class='left'>
+        <text class='title'>关于我们</text>
+      </view>
+      <view class='right'>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+    
+    <view class='item' data-url='../protocol/protocol' bindtap='goto'>
+      <view class='left'>
+        <text class='title'>用户协议</text>
+      </view>
+      <view class='right'>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+
+    <view class='item' data-url='../privacy/privacy' bindtap='goto'>
+      <view class='left'>
+        <text class='title'>隐私声明</text>
+      </view>
+      <view class='right'>
+        <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+
+   <view class='section options-section'>
+    <view class='item' >
+      <view class='left'>
+        <text class='title'>当前版本</text>
+      </view>
+      <view class='right'>
+         1.0.22
+      </view>
+    </view>
+   </view>
+
+
+  <button bindtap='loginOut' >退出登录</button>
+</view>

@@ -1,0 +1,223 @@
+/**app.wxss**/
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+page {
+  background: #f1f1f1;
+  font-size: 30rpx;
+  color: #333;
+}
+
+
+image.arrow {
+  width: 16rpx;
+  height: 13rpx;
+}
+
+.bold {
+  font-weight: 600;
+}
+.empatyPage{
+  margin: 30rpx;
+}
+/* flex布局 */
+.flex{
+  display: flex;
+}
+
+.flex1{
+  flex: 1;
+}
+
+.flex2{
+  flex: 2;
+}
+
+/* 字体居中 */
+.textC{
+  text-align: center;
+}
+.textR{
+  text-align: right;
+}
+.textL{
+  text-align: left !important;
+}
+
+/* 主题红色 */
+.red{
+  color: #ff3b30 !important;
+}
+/* 主题蓝色 */
+.blue{
+ color: #4d65fd !important;
+}
+.f1f1{
+  color: #ccc;
+}
+.bgblue{
+  background: #4d65fd ;
+  color: #fff;
+}
+.orange{
+  background: rgb(170, 136, 72)  !important;
+  color: #fff;
+}
+.bgC{
+ background: #ccc ;
+}
+.green{
+ color: green;
+}
+.bgRed{
+  background: #ff3b30 !important;
+}
+
+/* 主题蓝色 */
+.colorWhite{
+  color: #fff;
+}
+.bgWhite{
+ background: #fff
+}
+.pageBg{
+  background: #f1f1f1 !important;
+}
+/* 主题下划线 */
+.borderB{
+  border-bottom: 1px solid #f0f0f0;
+}
+.border{
+ border:1px solid #f0f0f0;
+}
+.borderR{
+ border-right:1px solid #f0f0f0;
+}
+.borderT{
+   border-top:1px solid #f0f0f0;
+}
+.color9{
+  color: #999 !important;
+}
+.borderL{
+ border-left:1px solid #f0f0f0;
+}
+.color2{
+  color: #222;
+}
+.baf6{
+  background:#f1f1f1;
+}
+.color6{
+  color: #666;
+}
+.color9{
+  color: #999;
+}
+.block{
+  display: block;
+}
+.none{
+  display: none;
+}
+/* 主题缝隙 */
+.rowGaps{
+  height: 20rpx;
+  background: #f1f1f1;
+  width: 100%;
+  display: flex;
+}
+.font28{
+  font-size: 28rpx !important;
+}
+.font30{
+  font-size: 30rpx;
+}
+.font36{
+  font-size: 36rpx !important;
+}
+.font46{
+  font-size: 46rpx;
+}
+.font24{
+  font-size: 24rpx !important;
+}
+.font25{
+  font-size: 25rpx !important;
+}
+.font32{
+  font-size: 32rpx;
+}
+
+/* 数量提示 */
+.numTips{
+  color:#fff;
+  text-align:center;
+  background:#ff3b30;
+  vertical-align:2rpx;
+  padding:2rpx 6rpx;
+  border-radius:6rpx;
+  border: 2rpx solid #fff;
+}
+
+/* 主按钮 */
+.mainBtn{
+  border: none;
+  font-size: 30rpx;
+  outline-style: none;
+  color: #fff;
+  position: fixed;
+  bottom: 30rpx;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%,0);
+  z-index: 1000;
+
+}
+
+/* 吸顶 */
+.typefixed{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index:1000000;
+}
+.blod{
+  font-weight: blod;
+}
+
+.right image{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+/* 单行溢出隐藏 */
+.textOverflow{
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.emptyPage{
+  margin: 30rpx;
+}
+.emptyImg{
+  height: 200rpx;
+  width: 300rpx;
+  margin:20rpx auto;
+}
+.emptyView{
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%)
+}

@@ -1,0 +1,14 @@
+<!--pages/mine/provinceCity/provinceCity.wxml-->
+<picker 
+mode="multiSelector" 
+bindchange="bindRegionChange"                                    bindcolumnchange="bindMultiPickerColumnChange" 
+value="{{region}}" 
+range="{{regionList}}"
+range-key="{{'shortName'}}">
+  <view class="picker">
+    <text wx:if="{{region.length==0}}">{{dataTit?dataTit:'(选填)'}}</text>
+    <view class="picker" wx:else>
+      {{regionList[0][region[0]].provinceName}}，{{regionList[1][region[1]].cityName}}
+    </view>
+  </view>
+</picker>

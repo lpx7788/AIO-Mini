@@ -1,0 +1,254 @@
+<!--components/filtrate/filtrate.wxml-->
+<wxs module="m1">
+  function fn(arr, arg) {
+    var result = {
+      indexOf: false,
+    }
+    result.indexOf = arr.indexOf(arg);
+    return result;
+  }
+  module.exports.fn = fn;
+</wxs>
+
+<view class='filtrate'>
+  <!-- 品种 -->
+  <view class='selection category'>
+    <view class='selection_left'>
+      <view>品种
+        <text class='single'>单选</text>
+      </view>
+      <view class='selection_left_content'>
+        <category id="category" bind:categoryValue="getCategoryCode"></category>
+      </view>
+    </view>
+    <view class='selection_right'>
+      <image src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png'></image>
+    </view>
+  </view>
+
+  <!-- 品牌 -->
+  <view class='selection'>
+    <view class='selection_left'>
+      <view>品牌
+        <text class='single'>多选</text>
+      </view>
+      <view class='selection_left_content'>
+
+      </view>
+    </view>
+    <view class='selection_right' wx:if="{{brandOptionList.length!=0&&brandBtnShow}}" data-name="brand" bindtap='showBtn'>
+      <view wx:if="{{brandShow}}">
+        <text>展开全部</text>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_down@2x.png'></image>
+      </view>
+      <view wx:else>
+        <text>收起</text>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_up@2x.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class="optionList listContent {{brandShow?'optionListHeight':''}}">
+    <text class="optionList_item {{checkBrandList.length==0?'checked':''}}" bindtap='allBrand'>不限</text>
+    <text wx:for="{{brandOptionList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class='optionList_item' class="optionList_item {{m1.fn(checkBrandList,index).indexOf!=-1?'checked':''}}" bindtap='checkBrand'>{{item}}</text>
+  </view>
+
+
+  <!-- 规格 -->
+  <view class='selection'>
+    <view class='selection_left'>
+      <view>规格
+        <text class='single'>多选</text>
+      </view>
+      <view class='selection_left_content'>
+
+      </view>
+    </view>
+    <view class='selection_right' wx:if="{{specOptionList.length!=0&&specBtnShow}}" data-name="spec" bindtap='showBtn'>
+      <view wx:if="{{specShow}}">
+        <text>展开全部</text>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_down@2x.png'></image>
+      </view>
+      <view wx:else>
+        <text>收起</text>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_up@2x.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class="optionList listContent {{specShow?'optionListHeight':''}}">
+    <text class="optionList_item {{checkSpecList.length==0?'checked':''}}" bindtap='allSpec'>不限</text>
+    <text wx:for="{{specOptionList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class='optionList_item' class="optionList_item {{m1.fn(checkSpecList,index).indexOf!=-1?'checked':''}}" bindtap='checkSpec'>{{item}}</text>
+  </view>
+
+
+  <!-- 材质 -->
+  <view class='selection'>
+    <view class='selection_left'>
+      <view>
+        <text class='single'>多选</text>
+      </view>
+      <view class='selection_left_content'>
+
+      </view>
+    </view>
+    <view class='selection_right' wx:if="{{materialOptionList.length!=0&&materialBtnShow}}" data-name="material" bindtap='showBtn'>
+      <view wx:if="{{materialShow}}">
+        <text>展开全部</text>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_down@2x.png'></image>
+      </view>
+      <view wx:else>
+        <text>收起</text>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_up@2x.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class="optionList listContent {{materialShow?'optionListHeight':''}}">
+    <text class="optionList_item {{checkMaterialList.length==0?'checked':''}}" bindtap='allMaterial'>不限</text>
+    <text wx:for="{{materialOptionList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class='optionList_item' class="optionList_item {{m1.fn(checkMaterialList,index).indexOf!=-1?'checked':''}}" bindtap='checkMaterial'>{{item}}</text>
+
+  </view>
+
+  <!-- 地区 -->
+  <view class='selection'>
+    <view class='selection_left'>
+      <view>地区
+        <text class='single'>单选</text>
+      </view>
+      <view class='selection_left_content'>
+
+      </view>
+    </view>
+    <view class='selection_right'>
+
+    </view>
+  </view>
+  <view class='optionList'>
+    <text class="optionList_item {{checkAreaList.length==0?'checked':''}}" bindtap='allArea'>不限</text>
+    <text wx:if="{{item.areaCode!=0}}" wx:for="{{areaList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class="optionList_item {{m1.fn(checkAreaList,index).indexOf!=-1?'checked':''}}" bindtap='checkArea'>{{item.areaName}}</text>
+  </view>
+
+  <!-- 仓库 -->
+  <view class='selection'>
+    <view class='selection_left'>
+      <view>仓库
+        <text class='single'>多选</text>
+      </view>
+      <view class='selection_left_content'>
+
+      </view>
+    </view>
+    <view class='selection_right' wx:if="{{warehouseList.length!=0&&warehouseBtnShow}}" data-name="wareHouse" bindtap='showBtn'>
+      <view wx:if="{{warehouseShow}}">
+        <text>展开全部</text>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_down@2x.png'></image>
+      </view>
+      <view wx:else>
+        <text>收起</text>
+        <image src='https://aio.manytrader.net/preViewUploadFile/images/icon_arrow_up@2x.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="optionList listContent {{warehouseShow?'optionListHeight':''}}">
+    <text class="optionList_item {{checkWarehouseList.length==0?'checked':''}}" bindtap='allWarehouse'>不限</text>
+    <text wx:for="{{warehouseList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class="optionList_item {{m1.fn(checkWarehouseList,index).indexOf!=-1?'checked':''}}" bindtap='checkWarehouse'>{{item.wareHouse}}</text>
+  </view>
+
+  <!-- 来源 -->
+  <view class='selection' wx:if="{{filtrateType==0}}">
+    <view class='selection_left'>
+      <view>来源
+        <text class='single'>单选</text>
+      </view>
+      <view class='selection_left_content'>
+
+      </view>
+    </view>
+    <view class='selection_right'>
+
+    </view>
+  </view>
+  <view class='optionList' wx:if="{{filtrateType==0}}">
+    <text wx:for="{{sourceList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class='optionList_item' class="optionList_item {{m1.fn(checkSourceList,index).indexOf!=-1?'checked':''}}" bindtap='checkSource'>{{item.name}}</text>
+  </view>
+  <!-- 状态 -->
+  <view class='selection' wx:if="{{filtrateType==0}}">
+    <view class='selection_left'>
+      <view>状态
+        <text class='single'>单选</text>
+      </view>
+      <view class='selection_left_content'>
+
+      </view>
+    </view>
+    <view class='selection_right'>
+
+    </view>
+  </view>
+  <view class='optionList' wx:if="{{filtrateType==0}}">
+    <text wx:for="{{statusList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class='optionList_item' class="optionList_item {{m1.fn(checkStatusList,index).indexOf!=-1?'checked':''}}" bindtap='checkStatus'>{{item.name}}</text>
+  </view>
+
+  <!-- 交易公司  -->
+  <view class='selection' wx:if="{{filtrateType==1}}">
+    <view class='selection_left'>
+      <view>交易公司
+        <text class='single'>单选</text>
+      </view>
+      <view class='selection_left_content'>
+        <picker bindchange="bindPickerSuppliersChange" value="{{indexSuppliers}}" range="{{suppliers}}" range-key="companyName">
+          <view class="picker">
+            {{suppliers[indexSuppliers].companyName}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='selection_right'>
+
+    </view>
+  </view>
+
+  <!-- 订单状态  -->
+  <view class='selection' wx:if="{{filtrateType==1}}">
+    <view class='selection_left'>
+      <view>订单状态
+        <text class='single'>单选</text>
+      </view>
+      <view class='selection_left_content'>
+
+      </view>
+    </view>
+    <view class='selection_right'>
+
+    </view>
+  </view>
+  <view class='optionList' wx:if="{{filtrateType==1}}">
+    <text wx:for="{{orderStatusList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class='optionList_item' class="optionList_item {{m1.fn(checkOrderStatusList,index).indexOf!=-1?'checked':''}}" bindtap='checkOrderStatus'>{{item.name}}</text>
+  </view>
+
+  <view class='optionList listContentHeight'>
+    <text class='optionList_item' class="optionList_item " style="color:#fff;border-color:#fff;">测试</text>
+  </view>
+
+  <!-- 成交状态 -->
+  <view class='selection' wx:if="{{filtrateType==1&&priceType!=2}}">
+    <view class='selection_left'>
+      <view>{{priceType==1?'成交状态':'点价状态'}}
+        <text class='single'>单选</text>
+      </view>
+      <view class='selection_left_content'>
+
+      </view>
+    </view>
+    <view class='selection_right'>
+
+    </view>
+  </view>
+  <view class='optionList' wx:if="{{filtrateType==1&&priceType!=2}}">
+    <text wx:for="{{dealStatusList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class='optionList_item' class="optionList_item {{m1.fn(checkDealStatusList,index).indexOf!=-1?'checked':''}}" bindtap='checkDealStatus'>{{item.name}}</text>
+  </view>
+
+  <view class='button_box'>
+    <button bindtap='reset'>重置</button>
+    <button bindtap='doFilter'>确定</button>
+  </view>
+</view>

@@ -1,0 +1,180 @@
+page {
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+
+.orderMainPage{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+
+}
+.orderMainPage .swiper-tab-swiper {
+  height: 100%;
+}
+
+
+
+/* 顶部tab */
+.orderItem .textOverflow {
+  width:100% !important;
+}
+
+.orderMainPage .swiper-tab {
+  display: flex;
+  height: 88rpx;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  z-index: 9;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.orderMainPage .swiper-tab-item {
+  font-size: 34rpx;
+  color: #222;
+  padding: 0 16rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  text-align:ceter;
+}
+
+.orderMainPage .swiper-tab-item.industry image {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  bottom: 0;
+  left: -30rpx;
+}
+
+
+
+.orderMainPage .swiper-tab-item.active {
+  color:  #4d65fd ;
+
+}
+
+/* tab内容 */
+.swiper-tab-swiper {
+  height: 100%;
+}
+
+.orderMainPage .swiper-tab-item.active:after {
+  content: '';
+  display: block;
+  width: 48rpx;
+  height: 6rpx;
+  background:  #4d65fd ;
+  position: absolute;
+  bottom: -16rpx;
+  left: 50%;
+  margin-left: -24rpx;
+}
+
+/* 搜索框 */
+
+.orderMainPage .search-section {
+  width: 100%;
+}
+
+.orderMainPage .filtrate{
+  height: 88rpx;
+  line-height: 88rpx;
+  align-items: center;
+  background: #fff;
+}
+.orderMainPage .filtrate view{
+  height: 100%;
+  width: 100%;
+}
+.orderMainPage .filtrate image{
+  width:30rpx;
+  height:30rpx;
+  vertical-align: middle;
+}
+
+
+.orderMain{
+  font-size: 30rpx;
+}
+.orderMain .orderItem{
+  padding:0 30rpx;
+}
+
+.orderMain .orderItem .await{
+  color: #ff3b30;
+}
+
+.orderMain .orderItem .await{
+  color: #ff3b30;
+}
+.orderMain .orderItem .already{
+  color: #30c675;
+}
+.orderMain .orderItem .hang{
+  color: #999;
+}
+
+
+.orderMain .purchase,.orderMain .accomplish{
+  background: rgb(123, 142, 228);
+  color: #fff;
+  padding: 0rpx 10rpx;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+}
+
+.orderMain .accomplish{
+  background: rgb(76, 180, 107);
+  margin-left: 20rpx;
+  border-radius: 8rpx;
+}
+.orderMain .some{
+  background: #fdd103 !important;
+  color: #fff;
+}
+.orderMain .unsettled{
+  background: #ff3b30 !important; 
+  color: #fff;
+}
+.orderMain .orderItemDetai{
+  padding: 10rpx;
+  mask-type: 10rpx;
+}
+.orderMain .orderItemDetail .detailItem {
+  height:40rpx;
+  align-items: center;
+  padding:5rpx 10rpx;
+  font-size: 28rpx;
+}
+.orderMain .orderItemDetail{
+  background: #fafafa;
+  padding:10rpx;
+}
+
+.orderMain .orderItemStatus {
+  height: 88rpx;
+  align-items: center;
+}
+.orderMain .buyer{
+  color: #666;
+  height: 88rpx;
+  align-items: center;
+  font-size: 24rpx;
+}
+.orderMain .text{
+  display: inline-block !important;
+}
+.orderMain .emptyPage{
+  padding: 30rpx;
+}
+
+

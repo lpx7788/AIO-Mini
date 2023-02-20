@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "prop": "/components/popUps/index"
+   
+  },
+    "navigationBarTitleText": "申请额度"
+}

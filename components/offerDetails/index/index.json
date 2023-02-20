@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+      "pageTit": "/components/pageTit/index",
+      "prop": "/components/popUps/index"
+  },
+
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "报价详情"
+}

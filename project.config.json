@@ -1,0 +1,256 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "autoAudits": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enhance": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.7.7",
+  "appid": "wxab0ac68bec146d4e",
+  "projectname": "mini-jd",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "工作台",
+          "pathName": "pages/workBench/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "编辑发布",
+          "pathName": "pages/workBench/buying/buying",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的求购",
+          "pathName": "pages/workBench/askToBuy/askToBuy",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "身份认证",
+          "pathName": "pages/mine/identity/identity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布",
+          "pathName": "pages/workBench/buying/buying",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "11",
+          "pathName": "pages/workBench/buying/buying",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/workBench/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/workBench/orderDetail/orderDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "延期点价",
+          "pathName": "components/offerDetails/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "搜索",
+          "pathName": "components/search/searchResult/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单",
+          "pathName": "pages/workBench/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的合同",
+          "pathName": "pages/workBench/contract/contract",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "合同详情",
+          "pathName": "pages/workBench/contractDetail/contractDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的求购",
+          "pathName": "pages/workBench/askToBuy/askToBuy",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "消息",
+          "pathName": "pages/workBench/orderMessage/orderMessage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/mine/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布求购",
+          "pathName": "pages/workBench/buying/buying",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布求购",
+          "pathName": "pages/workBench/buying/buying",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "合同列表",
+          "pathName": "pages/workBench/contract/contract",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "筛选",
+          "pathName": "components/filtrate/filtrate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "积分商城",
+          "pathName": "pages/mine/integral/integral",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "积分说明",
+          "pathName": "pages/mine/integralDescription/integralDescription",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "积分订单页面",
+          "pathName": "pages/mine/integralOrder/integralOrder",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "二维码",
+          "pathName": "pages/mine/qrcode/qrcode",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "积分兑换",
+          "pathName": "pages/mine/integralExchange/integralExchange",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "积分兑换",
+          "pathName": "pages/mine/integral/integral",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "积分详情",
+          "pathName": "pages/mine/integralDetails/integralDetails",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "员工管理",
+          "pathName": "pages/workBench/staffManagement/staffManagement",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "合同",
+          "pathName": "pages/workBench/contract/contract",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "合同详情",
+          "pathName": "pages/workBench/contractDetail/contractDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/home/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "更新测试",
+          "pathName": "pages/home/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "测试2",
+          "pathName": "pages/home/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "供应商",
+          "pathName": "pages/workBench/company/company",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "供应商",
+          "pathName": "pages/workBench/company/company",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的身份认证",
+          "pathName": "pages/mine/companyCertification/companyCertification",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

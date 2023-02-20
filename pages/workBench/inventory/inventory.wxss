@@ -1,0 +1,162 @@
+
+.inventory{
+  overflow: hidden;
+}
+.inventory .selection .selection_item{
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 30rpx;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 30rpx;
+}
+
+.inventory .selection .selection_item .left{
+  display: flex;
+  flex: 1;
+  align-items: center;
+} 
+
+.inventory .selection .selection_item .right{
+  margin-right: 30rpx;
+}
+
+.inventory .selection .selection_item .left text{
+  width: 200rpx;
+  color: #666;
+}
+
+.inventory .selection .selection_item .left .selection_item_content{
+  font-size: 30rpx;
+  flex: 1;
+}
+
+.inventory .selection .selection_item .right image{
+  width: 30rpx;
+  height: 30rpx;
+  /* margin-right: 30rpx; */
+}
+
+.inventory .selection .mb10{
+  margin-bottom: 10rpx;
+}
+
+.inventory .selection .mr30{
+  margin-right: 30rpx;
+}
+
+.inventory .selection .border_bot_none{
+  border-bottom: 0px;
+}
+
+.inventory .productList .swiper{
+  height:848rpx;
+  background-color: #fff;
+  width: 100%;
+}
+
+.inventory .productList .swiperHeight{
+  height:740rpx;
+  background-color: #fff;
+  width: 100%;
+}
+
+
+
+
+.inventory .productList .productTitle{
+  color: #4d65fd;
+  font-size: 30rpx;
+}
+
+.inventory .productList swiper swiper-item button{
+  margin: 30rpx 30rpx 0;
+  color: #fff;
+  background-color: #4d65fd;
+  height:82rpx;
+  line-height:82rpx;
+  font-size:30rpx;
+
+ }
+
+
+.inventory .goodsBtn{
+   justify-content: space-around;
+   padding:0 30rpx;
+}
+
+.inventory .goodsBtn button{
+  width: 100%;
+}
+
+
+.inventory .swiperTabItem {
+  font-size: 36rpx;
+  color: #222;
+ 
+  justify-content: center;
+  line-height: 1;
+  text-align: ceter;
+  width: 100%;
+
+  display: inline-block;
+}
+.inventory .swiperTabItem.industry image {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  bottom: 0;
+  left: -30rpx;
+}
+
+.inventory .swiperTabItem.active {
+  color: #4d65fd;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 6rpx solid #4d65fd;
+}
+
+.inventory .swiperTab {
+  height: 90rpx;
+  line-height: 90rpx;
+  align-items: center;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.inventory .swiperTabWrap{
+  width: 100%;
+  background: #fefefe;
+  padding: 0 30rpx;
+}
+.inventory .tab{
+  margin-right: 30rpx;
+  width: 100rpx;
+    height: 90rpx;
+  line-height: 90rpx;
+}
+.inventory .categoryName {
+  width: 200rpx;
+  color: #666;
+}
+.inventory .tab.active {
+  color: #4d65fd;
+  border-bottom: 6rpx solid #4d65fd;
+}
+.inventory .condition image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.inventory .condition  {
+  display: flex;
+  flex-direction: column;
+
+}
+.inventory .conditionItem {
+  height:50rpx;
+}
+.inventory .modifyLocal {
+ display: flex;
+
+}

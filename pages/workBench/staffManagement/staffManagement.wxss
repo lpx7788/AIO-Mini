@@ -1,0 +1,149 @@
+
+.managementPage .managementList {
+  margin-bottom: 100rpx;
+  background: #fff;
+}
+
+.managementPage .managementList .item{
+  padding:20rpx 30rpx;
+  display: flex;
+}
+
+/* .managementPage .head {
+  display: flex;
+  justify-content: space-between;
+  height: 88rpx;
+  border-top: 1px solid #f0f0f0;
+  align-items: flex-end;
+  padding-right: 30rpx;
+}
+
+.managementPage .head .more {
+  font-size: 30rpx;
+  color: #666;
+  height: 42rpx;
+  display: flex;
+  align-items: center;
+}
+
+.managementPage .head .more .arrow {
+  margin-left: 16rpx;
+} */
+
+/* .managementPage .item:last-child {
+  border-bottom: 0;
+} */
+
+.managementPage .item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.managementPage .cover {
+  display: flex;
+  align-items: center;
+}
+
+.managementPage .cover image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius:50%;
+}
+
+.managementPage .arrow{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.managementPage .title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #222;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.managementPage .desc {
+  color: #666;
+  margin-top: 16rpx;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+  align-items: center;
+  display: flex;
+  font-size: 30rpx;
+}
+
+.managementPage .desc image{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.managementPage .status{
+  margin:0 30rpx 30rpx 0 ;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.managementPage .agreed{
+  color: #999;
+}
+
+.managementPage .agreed image{
+  height: 40rpx;
+  width: 40rpx;
+  vertical-align: middle;
+}
+
+.managementPage .status button{ 
+  margin: 0;
+  margin-left: 20rpx;
+}
+
+.managementPage .status image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.managementPage .keywords {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 32rpx;
+}
+
+.managementPage .keywords text {
+  margin-right: 20rpx;
+}
+
+.managementPage .msg {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24rpx;
+  overflow: hidden;
+}
+
+.managementPage .time{
+  justify-content: space-between;
+  padding:20rpx 30rpx 0 30rpx ;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.managementPage .right{
+  align-self: flex-end;
+}
+
+.managementPage  button{
+  font-size: 30rpx;
+}
+
+.managementPage  button.agree{
+  font-size: 30rpx;
+  color: #fff;
+  margin-left: 20rpx;
+}

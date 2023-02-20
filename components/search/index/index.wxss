@@ -1,0 +1,30 @@
+/* 搜索框 */
+.wx-search-container {
+  background: #fff;
+  height:60rpx;
+  position: relative;
+}
+
+.wx-search-container .wx-search-icon {
+  width:26rpx;
+  height: 26rpx;
+  position: absolute;
+  left: 60rpx;
+}
+
+.wx-search-container .wx-search-input {
+  display: flex;
+  margin: 0 30rpx;
+  align-items: center;
+  height: 100%;
+}
+
+.wx-search-container .wx-search-input .input {
+  width: 100%;
+  height: 100%;
+  font-size: 26rpx;
+  padding-left: 64rpx;
+  background: #F6F6F6;
+  box-sizing: border-box;
+}
+

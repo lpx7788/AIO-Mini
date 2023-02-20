@@ -1,0 +1,164 @@
+<!--pages/workBench/contract/contract.wxml-->
+
+<wxs module="dateUtil" src="../../../wxs/formatTime.wxs"></wxs>
+
+<view class='contractPage'>
+  <view class='time_quantum' wx:if="{{showTimeQuantum}}" catchtouchmove="{{showTimeQuantum}}">
+    <view class="allTime" style='text-align: center;' bindtap='allDate'>不限日期</view>
+    <view class='startTime'>
+      <picker
+        mode="date"
+        value="{{date}}"
+        start="2000-01-01"
+        end="{{endTimeQuantum}}"
+        bindchange="bindStartDateChange"
+      >
+        <view class="picker">
+          开始日期：{{startDate}}
+        </view>
+      </picker>
+    </view>
+    <view class='endTime'>
+      <picker
+        mode="date"
+        value="{{date}}"
+        start="2000-01-01"
+        end="{{endTimeQuantum}}"
+        bindchange="bindEndDateChange">
+        <view class="picker">
+          结束日期：{{endDate}}
+        </view> 
+      </picker>
+    </view>
+    <view class='modal' bindtap='closeTimeQuantum'>
+    </view>
+  </view>
+
+  <view class='pageTopSelectWrap'>
+   <view class='pageTopSelect borderB'>
+      <block>
+      <view style='position: relative;'>
+        <text>商品种类</text>
+        <category bind:categoryValue="getCategoryCode" required="{{false}}"></category>
+        <image src="https://aio.manytrader.net/preViewUploadFile/images/title_down@2x.png"></image>
+      </view>
+      <view>
+        <picker 
+        class='inline' 
+        bindchange="bindSupplierChange" 
+        value="{{supplierIdx}}" 
+        range="{{supplierList}}"
+        range-key="{{'companyName'}}">
+          <view>
+            供应商
+          </view>
+        </picker>
+        <image src="https://aio.manytrader.net/preViewUploadFile/images/title_down@2x.png"></image>
+      </view>
+      <view>
+        <text bindtap='changeTimeQuantum'>日期</text>
+        <image src="https://aio.manytrader.net/preViewUploadFile/images/title_down@2x.png"></image>
+      </view>
+      <view>
+        <!-- <text>状态</text> -->
+        <picker class='inline' bindchange="bindStatusChange" value="{{contractIdx}}" range="{{contractStatus}}">
+          <view>
+            状态
+          </view>
+        </picker>
+        <image src="https://aio.manytrader.net/preViewUploadFile/images/title_down@2x.png"></image>
+      </view>
+    </block>
+   </view>
+  </view> 
+  <view class='contentTopview'></view>
+  <view class="rowGaps" />
+
+  <!-- 列表内容 -->
+  <view class='constractList'>
+    <block wx:for="{{contractList}}" wx:key wx:for-index="index" wx:for-item="Mitem">
+    <view wx:if="{{contractList.length!=0}}"  class=''>
+        <block wx:for="{{Mitem}}" wx:key> 
+
+
+      <view class='item' data-url="../contractDetail/contractDetail?purSalesContractId={{item.purSalesContractId}}" bindtap='goto'>
+        <view class="itemTop borderB ">
+          <view>
+            <block class="flex">
+              <text class='buyStatus'>采购</text>
+              <text class='orderCode'>{{item.systemCode}}</text>
+            </block>
+          </view>
+          <!-- 1:待签署,2:已签署,3:已取消 -->
+          <view class='red currentStatus' wx:if="{{item.status==1}}">待签署</view>
+          <view class='blue currentStatus' wx:if="{{item.status==2}}">已签署</view>
+          <view class='color6 currentStatus' wx:if="{{item.status==3}}">已取消</view>
+
+<!--       1.1版本
+          <view class='red currentStatus' wx:if="{{item.status==1}}">双方未签署</view>
+          <view class='red currentStatus' wx:if="{{item.status==1}}">买家未签署</view>
+          <view class='red currentStatus' wx:if="{{item.status==1}}">卖家未签署</view>
+          <view class='blue currentStatus' wx:if="{{item.status==2}}">已签署</view>
+          <view class='color6 currentStatus' wx:if="{{item.status==3}}">已取消</view> -->
+
+
+
+        </view>
+        <view class='itemcon'>
+          <view class='flex company'>
+            <block>
+              <text class='blue buy'>买</text>
+              <view class="blod">{{item.buyUserCompanyShortName}}</view>
+            </block>
+            <block>
+             <text class='line'>--</text>
+            </block>
+            <block>
+              <text class='blue sell'>卖</text>
+              <view class="blod">{{item.sellUserCompanyShortName}}</view>
+            </block>
+
+          </view>
+          <view class='flex goodStatus'>
+            <view class='flex1'>
+              <text>产品：</text>
+              <text>{{item.categoryName}}</text>
+            </view>
+            <view class='flex1'>
+              <text>总价：</text>
+              <text>{{item.price}}</text>
+            </view>
+          </view>
+          <view class='flex goodStatus num'>
+            <view class='flex1'>
+              <text>数量：</text>
+              <text>{{item.quantity}}{{item.unit}}</text>
+            </view>
+            <view class='flex1'>
+              <text>  日期：</text>
+              <text>{{dateUtil.dateFormat(item.createDate,'yyyy-MM-dd ')}} </text>
+            </view>
+          </view>
+        </view>
+
+      </view>
+      <view class="rowGaps" />
+        </block>
+      </view>
+    </block>
+
+
+    <!-- <view class='empatyPage textC' wx:if="{{empatyPage}}">~暂无数据~</view> -->
+  </view>
+
+</view>
+
+   <!-- 数据为空的时候 -->
+    <view class='textC emptyView' wx:if="{{emptyPage}}">
+      <image class='emptyImg' src='https://aio.manytrader.net/preViewUploadFile/images/empty.png'></image>
+      <view class='textC'> ~暂无合同~</view>
+    </view>
+
+    <!-- 没有更多数据的时候 -->
+  <view class='textC emptyPage' wx:if="{{catchBottom&&emptyPage==false}}"> ~没有更多合同了~</view>
+

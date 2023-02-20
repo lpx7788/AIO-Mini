@@ -1,0 +1,36 @@
+<!--pages/workBench/warehouse/warehouse.wxml-->
+
+<view class='warehousePage'>
+
+  <view class='workBenchList'>
+
+    <view class='listItem' wx:for="{{attributes}}" wx:key>
+      <view class='colum borderB'>
+        <text class='title'>仓库{{index+1}}</text>
+      </view>
+      <view class='colum borderB' >
+        <text class='tit'>仓库简称</text>
+       <text>{{item.wareHouse?item.wareHouse:""}}</text>
+      </view>
+      <view class='colum borderB'>
+        <text class='tit'>仓库全称</text>
+        <input bindinput='inputValue' data-name="name" data-listindex="{{index}}" placeholder='仓库全称'></input>
+      </view>
+      <view class='colum borderB city'>
+        <text class='tit'>所在省市</text>
+       <region class='regionComponents'  dataTit="{{dataTit}}" data-listindex='{{index}}' bind:regionValue="getRegionCode"></region>
+        <view class='right'>
+          <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+        </view>
+      </view>
+      <view class='colum borderB'>
+        <text class='tit'>具体地址</text>
+        <textarea rows="3"  bindinput='inputValue' data-name="address" data-listindex="{{index}}" cols="20" placeholder='请填写详情'>  </textarea>
+      </view>
+      <view class='rowGaps'></view>
+    </view>
+ 
+  </view>
+
+  <button class='bgblue mainBtn submitBtn' bindtap='submitBtn'>确认提交</button>
+</view>

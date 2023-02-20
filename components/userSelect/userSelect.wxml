@@ -1,0 +1,73 @@
+<!--components/userSelect/userSelect.wxml-->
+<wxs module="m1">
+  function fn(arr, arg) {
+    var result = {
+      indexOf: false,
+    }
+    result.indexOf = arr.indexOf(arg);
+    return result;
+  }
+  module.exports.fn = fn;
+</wxs>
+
+<view class='userSelect'>
+  <!-- 类型 -->
+  <view class='selection pageBg'>
+    <view class='selection_left'>
+      <view class="title">关注类型：</view> 
+      <view class='selection_left_content'>
+        
+      </view>
+    </view>
+    <view class='selection_right'>
+      
+    </view>
+  </view>
+  <view class='optionList'>
+    <text wx:for="{{selectTypeList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class='optionList_item' class="optionList_item {{m1.fn(checkSelectTypeList,index).indexOf!=-1?'checked':''}}" bindtap='checkSelectType'>{{item.name}}</text>
+  </view>
+
+  <!-- 关注地区 -->
+  <view class='selection pageBg'>
+    <view class='selection_left'>
+      <view class="title">关注地区：</view> 
+      <view class='selection_left_content'>
+        
+      </view>
+    </view>
+    <view class='selection_right'>
+      
+    </view>
+  </view>
+  <view class='optionList'>
+    <text wx:if="{{item.areaCode!=0}}" wx:for="{{areaList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' class="optionList_item {{m1.fn(checkAreaList,index).indexOf!=-1?'checked':''}}" bindtap='checkArea'>{{item.areaName}}</text>
+  </view>
+
+  <!-- 关注品种 -->
+  <view class='selection pageBg'>
+    <view class='selection_left'>
+      <view class="title">关注品种：</view> 
+      <view class='selection_left_content'>
+        
+      </view>
+    </view>
+    <view class='selection_right'>
+      
+    </view>
+  </view>
+  <view class='optionList'>
+    <view class='optionList_title'>有色</view>
+    <text wx:for="{{colouredList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' data-list="{{'checkColouredList'}}" data-checkList="{{'colouredList'}}" data-val="{{'checkColouredVal'}}" class="optionList_item {{m1.fn(checkColouredList,index).indexOf!=-1?'checked':''}}" bindtap='checkName'>{{item.categoryName}}</text>
+    <view class='optionList_title'>黑色</view>
+    <text wx:for="{{blackList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' data-list="{{'checkBlackList'}}" data-checkList="{{'blackList'}}" data-val="{{'checkBlackVal'}}"class="optionList_item {{m1.fn(checkBlackList,index).indexOf!=-1?'checked':''}}" bindtap='checkName'>{{item.categoryName}}</text>
+    <view class='optionList_title'>农产品</view>
+    <text wx:for="{{agricultureList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' data-list="{{'checkAgricultureList'}}" data-checkList="{{'agricultureList'}}" data-val="{{'checkAgricultureVal'}}"class="optionList_item {{m1.fn(checkAgricultureList,index).indexOf!=-1?'checked':''}}" bindtap='checkName'>{{item.categoryName}}</text>
+    <view class='optionList_title'>化工</view> 
+    <text wx:for="{{chemicalList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' data-list="{{'checkChemicalList'}}" data-checkList="{{'chemicalList'}}" data-val="{{'checkChemicalVal'}}"class="optionList_item {{m1.fn(checkChemicalList,index).indexOf!=-1?'checked':''}}" bindtap='checkName'>{{item.categoryName}}</text>
+    <view class='optionList_title'>能源</view>
+    <text wx:for="{{energyList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' data-list="{{'checkEnergyList'}}" data-checkList="{{'energyList'}}" data-val="{{'checkEnergyVal'}}"class="optionList_item {{m1.fn(checkEnergyList,index).indexOf!=-1?'checked':''}}" bindtap='checkName'>{{item.categoryName}}</text>
+    <view class='optionList_title'>其它</view>
+    <text wx:for="{{otherList}}" wx:key="{{item}}" data-item='{{item}}' data-idx='{{index}}' data-list="{{'checkOtherList'}}" data-checkList="{{'otherList'}}" data-val="{{'checkOtherVal'}}"class="optionList_item {{m1.fn(checkOtherList,index).indexOf!=-1?'checked':''}}" bindtap='checkName'>{{item.categoryName}}</text>
+  </view>
+  <button bindtap='setUserSelection' wx:if="{{showBtn}}">确定</button>
+</view>

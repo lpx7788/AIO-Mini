@@ -1,0 +1,92 @@
+<view class='userPage'>
+
+  <!-- 头部 -->
+
+  <view class='section head-section' bindtap='loginBtn'>
+    <view class="head-section-content">
+      <view class="head-section-content-top">
+        <view class="userName" wx:if="{{userList.length==0}}">
+          <view> 未登录</view>
+          <view class="tologin">
+            立即登录，进行交易！
+          </view>
+        </view>
+        <view class="userName" wx:else>
+          <view class="userName-top" wx:if="{{userList.length!=0}}">
+            <span class="userName-top-name">{{userList.userName?userList.userName:'未认证'}}</span>
+            <i class="approve" wx:if="{{status==0}}" data-url="../identity/identity" catchtap="goto">去认证</i>
+            <i class="approve" wx:if="{{status==1}}">审核中</i>
+            <i class="approve" wx:if="{{status==2}}">证</i>
+            <span class="userName-top-identity">{{userList.auths.roleCodeExp}}</span>
+          </view>
+          <view class="userName-bot" wx:if="{{userList.auths.companyName&&status!=0}}" catchtap='changeCompany'>
+            <span class="userName-top-company">{{userList.auths.companyName}}</span>
+            <image mode="widthFix" wx:if="userList.auths.companyName&&status!=0" class='left' src="https://aio.manytrader.net/preViewUploadFile/images/btn_switchcompany.png"></image>
+          </view>
+        </view>
+        <view class='avatar'>
+          <image wx:if="{{userList.length==0}}" src='https://aio.manytrader.net/preViewUploadFile/images/icon_default_headportrait@2x.png'></image>
+          <image wx:else src="{{avatarUrl}}"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class='buyer'>
+      <image wx:if="{{userList.length!=0&&userList.isBuyer==1}}" src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_buyer@2x.png'></image>
+    </view>
+    <view class="head-section-content-down" wx:if="{{userList.userPhone}}">
+      <image class='left' src="https://aio.manytrader.net/preViewUploadFile/images/list_icon_phone@2x.png" mode='widthFix'></image>
+      <text>{{userList.userPhone}}</text>
+    </view>
+  </view>
+
+  <!-- 选项 -->
+<view class='section options-section'>
+
+  <view class='item ' bindtap="goto"  data-url='../integral/integral'  data-web="xszy" wx:if="{{userList.length!=0&&userList.isBuyer==1}}">
+    <view class='left'>
+      <image class='icon' src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_integralmall@2x.png' mode='widthFix'></image>
+      <text class='title'>积分商城</text>
+    </view>
+    <view class='right'>
+      <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+    </view>
+  </view>
+
+
+  <view class='item'   bindtap="gotoNew"  data-url='../webView/webView' > 
+    <view class='left'>
+      <image class='icon' src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_guide@2x.png' mode='widthFix'></image>
+      <text class='title'>新手指引</text>
+    </view>
+    <view class='right'>
+      <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+    </view>
+  </view>
+
+  <view class='item' bindtap="goto"  data-url='../set/set'  >
+    <view class='left'>
+      <image class='icon' src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_setting@2x.png' mode='widthFix'></image>
+      <text class='title'>设置</text>
+    </view>
+    <view class='right'>
+      <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+    </view>
+  </view>
+
+  <view class='item' bindtap="toQrcode"  data-url='../qrcode/qrcode' >
+    <view class='left'>
+      <image class='icon' src='https://aio.manytrader.net/preViewUploadFile/images/list_icon_public@2x.png' mode='widthFix'></image>
+      <text class='title'>关注公众号</text>
+    </view>
+    <view class='right'>
+      <image class='arrow' src='https://aio.manytrader.net/preViewUploadFile/images/icon-arrow-right.png' mode='widthFix'></image>
+    </view>
+  </view>
+
+
+    <!-- 关联的公众号 -->
+  </view>
+  <view class="openAPP font28" bindtap="openAPP">打开APP</view>
+
+</view>
