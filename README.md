@@ -19,7 +19,7 @@
 
 ### 相关技术：
 
-   	小程序原生组件  
+   	小程序原生组件；wx.getStorageSync('')存储登录信息； wx.connectSocket（{}）通信获取行情信息；
 
     flex 布局  
 
