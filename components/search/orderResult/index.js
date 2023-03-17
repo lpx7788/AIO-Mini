@@ -20,15 +20,7 @@ Page({
   
   },
 
-  //下拉刷新
-  onPullDownRefresh() {
-    this.setData({
-      curpage: 1,
-      dataList: []
-    })
-
-    this.getDateList();
-  },
+  
 
 
   //下拉刷新
