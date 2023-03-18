@@ -7,7 +7,7 @@
   聚点商城小程序1.
   
   设计图稿：
-  ![image](https://github.com/lpx7788/AIO-Mini/blob/master/images/pagePic.png)
+  ![image](https://github.com/lpx7788/AIO-Mini/blob/master/images/page1.png)(https://github.com/lpx7788/AIO-Mini/blob/master/images/page2.png)(https://github.com/lpx7788/AIO-Mini/blob/master/images/page3.png)
 
 ### 说明
 
