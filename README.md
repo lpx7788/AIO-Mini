@@ -7,7 +7,7 @@
   聚点商城小程序1.
   
   设计图稿：
-  [image](pagePic.png)
+  ![image](pagePic.png)
 
 ### 说明
 
